@@ -1,0 +1,82 @@
+{
+  "app": {
+    "title": "Kelime Alıştırması",
+    "subtitle": "Konu 2: İnsan vücudu",
+    "welcomeTitle": "Kelime Alıştırmasına Hoş Geldin!",
+    "welcomeText": "Alıştırmaya başlamak için <strong>BAŞLAT</strong>'a tıkla.",
+    "startButton": "BAŞLAT",
+    "restartButton": "YENİDEN"
+  },
+  "stats": {
+    "correct": "Doğru",
+    "incorrect": "Yanlış",
+    "total": "Toplam",
+    "pending": "Kalan"
+  },
+  "themes": {
+    "allWeeks": "Tüm haftalar"
+  },
+  "exerciseTypes": {
+    "multipleChoice": "Çoktan Seçmeli",
+    "fillIn": "Boşluk Doldurma",
+    "matching": "Eşleştirme",
+    "trueFalse": "Doğru/Yanlış"
+  },
+  "goals": {
+    "title": "Hedefini seç",
+    "time": "Süre",
+    "timeDesc": "Belirli bir süre çalış",
+    "exercises": "Alıştırma",
+    "exercisesDesc": "Belirli sayıda alıştırma yap",
+    "howManyMinutes": "Kaç dakika?",
+    "howManyExercises": "Kaç alıştırma?",
+    "enterValue": "{{type}} gir",
+    "cancel": "İptal",
+    "start": "Başla!",
+    "validationError": "{{min}} ile {{max}} arasında bir sayı gir"
+  },
+  "questions": {
+    "whatMeans": "Ne anlama gelir:",
+    "whichWord": "Hangi kelime şu anlama gelir:",
+    "trueFalseQuestion": "Doğru mu yanlış mı?",
+    "matchWords": "Kelimeleri doğru tanımlarla eşleştir",
+    "matchInstructions": "Bir kelimeye sonra da eşleşen tanıma tıkla",
+    "typePlaceholder": "Cevabını buraya yaz..."
+  },
+  "feedback": {
+    "correct": "Aferin!",
+    "incorrect": "Yanlış, tekrar dene!",
+    "almostCorrect": "Neredeyse doğru! ({{percent}}% doğru)",
+    "yourAnswer": "Cevabın",
+    "correctAnswer": "Doğru cevap",
+    "theCorrectAnswerIs": "Doğru cevap:",
+    "allMatched": "Tüm eşleştirmeler doğru!"
+  },
+  "buttons": {
+    "check": "Kontrol",
+    "next": "Sonraki soru",
+    "nextExercise": "Sonraki alıştırma",
+    "true": "DOĞRU",
+    "false": "YANLIŞ",
+    "newSession": "Yeni oturum"
+  },
+  "results": {
+    "finished": "BİTTİ!",
+    "time": "Süre",
+    "totalQuestions": "Toplam soru",
+    "score": "Puan",
+    "byExerciseType": "Alıştırma türüne göre",
+    "avgTimePerQuestion": "soru",
+    "noQuestionsOfType": "Bu türde soru yok",
+    "level10": "Mükemmel! Yıldızsın!",
+    "level9": "Harika iş!",
+    "level8": "Çok iyi!",
+    "level7": "Aferin!",
+    "level6": "Fena değil!",
+    "level5": "Daha iyisi olabilir!",
+    "level4": "Daha çok pratik gerekli!",
+    "level3": "Pratiğe devam!",
+    "level2": "Pes etme!",
+    "level1": "Denemeye devam et, başaracaksın!"
+  }
+}

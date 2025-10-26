@@ -1,0 +1,82 @@
+{
+  "app": {
+    "title": "Vocabulary Exercise",
+    "subtitle": "Theme 2: The human body",
+    "welcomeTitle": "Welcome to Vocabulary Exercise!",
+    "welcomeText": "Click <strong>START</strong> to begin practicing.",
+    "startButton": "START",
+    "restartButton": "RESTART"
+  },
+  "stats": {
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "total": "Total",
+    "pending": "Remaining"
+  },
+  "themes": {
+    "allWeeks": "All weeks"
+  },
+  "exerciseTypes": {
+    "multipleChoice": "Multiple Choice",
+    "fillIn": "Fill In",
+    "matching": "Matching",
+    "trueFalse": "True/False"
+  },
+  "goals": {
+    "title": "Choose your goal",
+    "time": "Time",
+    "timeDesc": "Practice for a set amount of time",
+    "exercises": "Exercises",
+    "exercisesDesc": "Complete a number of exercises",
+    "howManyMinutes": "How many minutes?",
+    "howManyExercises": "How many exercises?",
+    "enterValue": "Enter {{type}}",
+    "cancel": "Cancel",
+    "start": "Start!",
+    "validationError": "Enter a number between {{min}} and {{max}}"
+  },
+  "questions": {
+    "whatMeans": "What does this mean:",
+    "whichWord": "Which word means:",
+    "trueFalseQuestion": "True or false?",
+    "matchWords": "Match the words to the correct definitions",
+    "matchInstructions": "Click on a word and then on the matching definition",
+    "typePlaceholder": "Type your answer here..."
+  },
+  "feedback": {
+    "correct": "Well done!",
+    "incorrect": "Incorrect, try again!",
+    "almostCorrect": "Almost correct! ({{percent}}% correct)",
+    "yourAnswer": "Your answer",
+    "correctAnswer": "Correct answer",
+    "theCorrectAnswerIs": "The correct answer is:",
+    "allMatched": "All pairs are correct!"
+  },
+  "buttons": {
+    "check": "Check",
+    "next": "Next question",
+    "nextExercise": "Next exercise",
+    "true": "TRUE",
+    "false": "FALSE",
+    "newSession": "New session"
+  },
+  "results": {
+    "finished": "FINISHED!",
+    "time": "Time",
+    "totalQuestions": "Total questions",
+    "score": "Score",
+    "byExerciseType": "By exercise type",
+    "avgTimePerQuestion": "question",
+    "noQuestionsOfType": "No questions of this type",
+    "level10": "Perfect! You're a star!",
+    "level9": "Excellent work!",
+    "level8": "Very good work!",
+    "level7": "Well done!",
+    "level6": "Pretty good!",
+    "level5": "You can do better!",
+    "level4": "Need more practice!",
+    "level3": "Keep practicing!",
+    "level2": "Don't give up!",
+    "level1": "Keep trying, you can do it!"
+  }
+}

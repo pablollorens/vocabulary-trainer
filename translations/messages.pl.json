@@ -1,0 +1,82 @@
+{
+  "app": {
+    "title": "Ćwiczenia Słownictwa",
+    "subtitle": "Temat 2: Ciało człowieka",
+    "welcomeTitle": "Witamy w Ćwiczeniach Słownictwa!",
+    "welcomeText": "Kliknij <strong>START</strong>, aby rozpocząć ćwiczenia.",
+    "startButton": "START",
+    "restartButton": "OD NOWA"
+  },
+  "stats": {
+    "correct": "Dobrze",
+    "incorrect": "Źle",
+    "total": "Razem",
+    "pending": "Pozostało"
+  },
+  "themes": {
+    "allWeeks": "Wszystkie tygodnie"
+  },
+  "exerciseTypes": {
+    "multipleChoice": "Wielokrotny wybór",
+    "fillIn": "Uzupełnij",
+    "matching": "Dopasuj",
+    "trueFalse": "Prawda/Fałsz"
+  },
+  "goals": {
+    "title": "Wybierz cel",
+    "time": "Czas",
+    "timeDesc": "Ćwicz przez określony czas",
+    "exercises": "Ćwiczenia",
+    "exercisesDesc": "Wykonaj określoną liczbę ćwiczeń",
+    "howManyMinutes": "Ile minut?",
+    "howManyExercises": "Ile ćwiczeń?",
+    "enterValue": "Wpisz {{type}}",
+    "cancel": "Anuluj",
+    "start": "Start!",
+    "validationError": "Wpisz liczbę między {{min}} a {{max}}"
+  },
+  "questions": {
+    "whatMeans": "Co oznacza:",
+    "whichWord": "Które słowo oznacza:",
+    "trueFalseQuestion": "Prawda czy fałsz?",
+    "matchWords": "Dopasuj słowa do odpowiednich definicji",
+    "matchInstructions": "Kliknij słowo, a potem pasującą definicję",
+    "typePlaceholder": "Wpisz swoją odpowiedź..."
+  },
+  "feedback": {
+    "correct": "Świetnie!",
+    "incorrect": "Niestety, spróbuj ponownie!",
+    "almostCorrect": "Prawie dobrze! ({{percent}}% poprawnie)",
+    "yourAnswer": "Twoja odpowiedź",
+    "correctAnswer": "Prawidłowa odpowiedź",
+    "theCorrectAnswerIs": "Prawidłowa odpowiedź to:",
+    "allMatched": "Wszystkie pary są poprawne!"
+  },
+  "buttons": {
+    "check": "Sprawdź",
+    "next": "Następne pytanie",
+    "nextExercise": "Następne ćwiczenie",
+    "true": "PRAWDA",
+    "false": "FAŁSZ",
+    "newSession": "Nowa sesja"
+  },
+  "results": {
+    "finished": "KONIEC!",
+    "time": "Czas",
+    "totalQuestions": "Liczba pytań",
+    "score": "Wynik",
+    "byExerciseType": "Według typu ćwiczenia",
+    "avgTimePerQuestion": "pytanie",
+    "noQuestionsOfType": "Brak pytań tego typu",
+    "level10": "Idealnie! Jesteś gwiazdą!",
+    "level9": "Znakomita robota!",
+    "level8": "Bardzo dobrze!",
+    "level7": "Dobra robota!",
+    "level6": "Całkiem nieźle!",
+    "level5": "Może być lepiej!",
+    "level4": "Potrzebujesz więcej ćwiczeń!",
+    "level3": "Ćwicz dalej!",
+    "level2": "Nie poddawaj się!",
+    "level1": "Próbuj dalej, dasz radę!"
+  }
+}

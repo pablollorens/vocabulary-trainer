@@ -1,0 +1,82 @@
+{
+  "app": {
+    "title": "Woordenschat Oefening",
+    "subtitle": "Thema 2: Het menselijk lichaam",
+    "welcomeTitle": "Welkom bij Woordenschat Oefening!",
+    "welcomeText": "Klik op <strong>START</strong> om te beginnen met oefenen.",
+    "startButton": "START",
+    "restartButton": "OPNIEUW"
+  },
+  "stats": {
+    "correct": "Goed",
+    "incorrect": "Fout",
+    "total": "Totaal",
+    "pending": "Nog te doen"
+  },
+  "themes": {
+    "allWeeks": "Alle weken"
+  },
+  "exerciseTypes": {
+    "multipleChoice": "Meerkeuze",
+    "fillIn": "Invullen",
+    "matching": "Koppelen",
+    "trueFalse": "Waar/Niet waar"
+  },
+  "goals": {
+    "title": "Kies je doel",
+    "time": "Tijd",
+    "timeDesc": "Oefen voor een bepaalde tijd",
+    "exercises": "Oefeningen",
+    "exercisesDesc": "Maak een aantal oefeningen",
+    "howManyMinutes": "Hoeveel minuten?",
+    "howManyExercises": "Hoeveel oefeningen?",
+    "enterValue": "Voer {{type}} in",
+    "cancel": "Annuleren",
+    "start": "Start!",
+    "validationError": "Voer een getal in tussen {{min}} en {{max}}"
+  },
+  "questions": {
+    "whatMeans": "Wat betekent:",
+    "whichWord": "Welk woord betekent:",
+    "trueFalseQuestion": "Waar of niet waar?",
+    "matchWords": "Koppel de woorden aan de juiste definities",
+    "matchInstructions": "Klik op een woord en dan op de bijpassende definitie",
+    "typePlaceholder": "Type je antwoord hier..."
+  },
+  "feedback": {
+    "correct": "Goed gedaan!",
+    "incorrect": "Helaas, probeer het nog eens!",
+    "almostCorrect": "Bijna goed! ({{percent}}% correct)",
+    "yourAnswer": "Je antwoord",
+    "correctAnswer": "Juiste antwoord",
+    "theCorrectAnswerIs": "Het juiste antwoord is:",
+    "allMatched": "Alle koppels zijn correct!"
+  },
+  "buttons": {
+    "check": "Controleer",
+    "next": "Volgende vraag",
+    "nextExercise": "Volgende oefening",
+    "true": "WAAR",
+    "false": "NIET WAAR",
+    "newSession": "Nieuwe sessie"
+  },
+  "results": {
+    "finished": "Klaar!",
+    "time": "Tijd",
+    "totalQuestions": "Totaal vragen",
+    "score": "Score",
+    "byExerciseType": "Per oefentype",
+    "avgTimePerQuestion": "vraag",
+    "noQuestionsOfType": "Geen vragen van dit type",
+    "level10": "Perfect! Je bent een ster!",
+    "level9": "Uitstekend gedaan!",
+    "level8": "Heel goed werk!",
+    "level7": "Goed gedaan!",
+    "level6": "Redelijk goed!",
+    "level5": "Je kunt het beter!",
+    "level4": "Meer oefenen nodig!",
+    "level3": "Blijf oefenen!",
+    "level2": "Niet opgeven!",
+    "level1": "Blijf proberen, je kunt het!"
+  }
+}

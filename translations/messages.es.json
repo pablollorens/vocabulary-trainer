@@ -1,0 +1,82 @@
+{
+  "app": {
+    "title": "Ejercicio de Vocabulario",
+    "subtitle": "Tema 2: El cuerpo humano",
+    "welcomeTitle": "¡Bienvenido al Ejercicio de Vocabulario!",
+    "welcomeText": "Haz clic en <strong>INICIO</strong> para comenzar a practicar.",
+    "startButton": "INICIO",
+    "restartButton": "REINICIAR"
+  },
+  "stats": {
+    "correct": "Correcto",
+    "incorrect": "Incorrecto",
+    "total": "Total",
+    "pending": "Pendientes"
+  },
+  "themes": {
+    "allWeeks": "Todas las semanas"
+  },
+  "exerciseTypes": {
+    "multipleChoice": "Opción múltiple",
+    "fillIn": "Completar",
+    "matching": "Emparejar",
+    "trueFalse": "Verdadero/Falso"
+  },
+  "goals": {
+    "title": "Elige tu objetivo",
+    "time": "Tiempo",
+    "timeDesc": "Practica durante un tiempo determinado",
+    "exercises": "Ejercicios",
+    "exercisesDesc": "Completa un número de ejercicios",
+    "howManyMinutes": "¿Cuántos minutos?",
+    "howManyExercises": "¿Cuántos ejercicios?",
+    "enterValue": "Ingresa {{type}}",
+    "cancel": "Cancelar",
+    "start": "¡Comenzar!",
+    "validationError": "Ingresa un número entre {{min}} y {{max}}"
+  },
+  "questions": {
+    "whatMeans": "¿Qué significa:",
+    "whichWord": "¿Qué palabra significa:",
+    "trueFalseQuestion": "¿Verdadero o falso?",
+    "matchWords": "Empareja las palabras con las definiciones correctas",
+    "matchInstructions": "Haz clic en una palabra y luego en la definición correspondiente",
+    "typePlaceholder": "Escribe tu respuesta aquí..."
+  },
+  "feedback": {
+    "correct": "¡Bien hecho!",
+    "incorrect": "Incorrecto, ¡inténtalo de nuevo!",
+    "almostCorrect": "¡Casi correcto! ({{percent}}% correcto)",
+    "yourAnswer": "Tu respuesta",
+    "correctAnswer": "Respuesta correcta",
+    "theCorrectAnswerIs": "La respuesta correcta es:",
+    "allMatched": "¡Todas las parejas son correctas!"
+  },
+  "buttons": {
+    "check": "Comprobar",
+    "next": "Siguiente pregunta",
+    "nextExercise": "Siguiente ejercicio",
+    "true": "VERDADERO",
+    "false": "FALSO",
+    "newSession": "Nueva sesión"
+  },
+  "results": {
+    "finished": "¡TERMINADO!",
+    "time": "Tiempo",
+    "totalQuestions": "Preguntas totales",
+    "score": "Puntuación",
+    "byExerciseType": "Por tipo de ejercicio",
+    "avgTimePerQuestion": "pregunta",
+    "noQuestionsOfType": "Sin preguntas de este tipo",
+    "level10": "¡Perfecto! ¡Eres una estrella!",
+    "level9": "¡Excelente trabajo!",
+    "level8": "¡Muy buen trabajo!",
+    "level7": "¡Bien hecho!",
+    "level6": "¡Bastante bien!",
+    "level5": "¡Puedes hacerlo mejor!",
+    "level4": "¡Necesitas más práctica!",
+    "level3": "¡Sigue practicando!",
+    "level2": "¡No te rindas!",
+    "level1": "¡Sigue intentándolo, puedes hacerlo!"
+  }
+}
