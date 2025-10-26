@@ -1572,13 +1572,16 @@
             sessionActive = false;
             resultsShown = true;
 
-            // Clear exercise card content before showing results
-            const exerciseCard = document.getElementById('exercise-card');
-            if (exerciseCard) {
-                exerciseCard.innerHTML = '';
-            }
+            // Use setTimeout to ensure all feedback rendering is complete before clearing
+            setTimeout(() => {
+                // Clear exercise card content before showing results
+                const exerciseCard = document.getElementById('exercise-card');
+                if (exerciseCard) {
+                    exerciseCard.innerHTML = '';
+                }
 
-            showResultsScreen();
+                showResultsScreen();
+            }, 100);
         }
 
         function getEmojiForScore(percentage) {
