@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2">
+  <rect width="3" height="2" fill="#E30A17"/>
+  <!-- official crescent proportions -->
+  <circle cx="1" cy="1" r="0.6" fill="#fff"/>
+  <circle cx="1.2" cy="1" r="0.48" fill="#E30A17"/>
+  <!-- five-pointed star -->
+  <polygon fill="#fff" points="1.6000,0.7000 1.6674,0.9073 1.8853,0.9073 1.7090,1.0354 1.7763,1.2427 1.6000,1.1146 1.4237,1.2427 1.4910,1.0354 1.3147,0.9073 1.5326,0.9073"/>
+</svg>

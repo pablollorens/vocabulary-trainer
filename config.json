@@ -1,6 +1,5 @@
 {
   "defaultLanguage": "nl",
-  "availableLanguages": ["nl", "es", "en"],
   "goals": {
     "time": {
       "min": 1,
@@ -9,9 +8,9 @@
       "unit": "minutes"
     },
     "exercises": {
-      "min": 10,
+      "min": 1,
       "max": 100,
-      "default": 20,
+      "default": 10,
       "unit": "exercises"
     }
   },
