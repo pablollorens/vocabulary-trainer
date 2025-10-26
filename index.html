@@ -34,6 +34,82 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             margin-bottom: 30px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: padding 0.25s ease, box-shadow 0.25s ease, border-radius 0.25s ease;
+        }
+
+        header.compact {
+            padding: 12px 16px;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        header.compact .header-top h1 {
+            font-size: 1.1em;
+            color: #547aa5;
+        }
+
+        .header-body {
+            transition: opacity 0.2s ease, max-height 0.2s ease;
+        }
+
+        header.compact .header-body {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .compact-row {
+            display: none;
+            align-items: center;
+            gap: 12px;
+        }
+
+        header.compact .compact-row {
+            display: flex;
+        }
+
+        .compact-stats {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            color: #2c3e50;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .compact-stats .stat-pending {
+            color: #7ba3d4;
+        }
+
+        /* Shrink Start button in compact */
+        header.compact .start-btn {
+            padding: 10px 16px;
+            font-size: 0.9em;
+        }
+
+        /* Make timer more prominent in compact */
+        header.compact #timer-display {
+            font-size: 1.6em !important;
+            margin: 0 !important;
+        }
+
+        /* Mobile: prioritize pending; hide correct/incorrect in very narrow widths */
+        @media (max-width: 420px) {
+            .compact-stats .stat-correct,
+            .compact-stats .stat-incorrect {
+                display: none;
+            }
         }
 
         h1 {
@@ -63,16 +139,40 @@
         .incorrect { color: #f44336; }
 
         .theme-selector {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
             margin-bottom: 20px;
-            flex-wrap: wrap;
+        }
+
+        .theme-select-wrapper {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .theme-select {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 2px solid #cfe0ee;
+            font-size: 1em;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #2c3e50;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .theme-select:focus {
+            outline: none;
+            border-color: #7ba3d4;
+            box-shadow: 0 0 0 3px rgba(123, 163, 212, 0.2);
         }
 
         .theme-btn {
-            padding: 15px 30px;
-            font-size: 1em;
+            padding: 12px 8px;
+            font-size: 0.9em;
             border: none;
             border-radius: 15px;
             cursor: pointer;
@@ -96,13 +196,13 @@
 
         .exercise-type-selector {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
             margin-bottom: 30px;
         }
 
         .exercise-type-btn {
-            padding: 20px;
+            padding: 14px 10px;
             border: none;
             border-radius: 15px;
             cursor: pointer;
@@ -123,6 +223,26 @@
         .exercise-type-btn.active {
             background: #c9a5d4;
             color: white;
+        }
+
+        @media (max-width: 900px) {
+            .theme-btn,
+            .exercise-type-btn {
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .theme-selector,
+            .exercise-type-selector {
+                grid-template-columns: repeat(4, minmax(60px, 1fr));
+            }
+
+            .theme-btn,
+            .exercise-type-btn {
+                padding: 10px 6px;
+                font-size: 0.75em;
+            }
         }
 
         .card {
@@ -230,12 +350,17 @@
             background: #6a92c3;
         }
 
+        .next-btn-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
         .next-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             margin-top: 16px;
-            margin-left: auto;
             padding: 12px 24px;
             font-size: 0.95em;
             border: none;
@@ -273,16 +398,69 @@
             color: #c62828;
         }
 
+        /* Language switcher (floating) */
+        .lang-switcher {
+            position: fixed;
+            right: 12px;
+            bottom: 12px;
+            display: flex;
+            gap: 8px;
+            background: #ffffff;
+            padding: 6px 8px;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 2px solid #e8f4f8;
+            z-index: 12000;
+        }
+
+        .lang-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #cfe0ee;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+        }
+
+        .lang-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .lang-btn:hover { transform: translateY(-2px); }
+
+        .lang-btn.active {
+            border-color: #7ba3d4;
+            box-shadow: 0 0 0 3px rgba(123, 163, 212, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .lang-switcher { right: 8px; bottom: 8px; padding: 4px; gap: 6px; }
+            .lang-btn { width: 32px; height: 32px; }
+        }
+
         .matching-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 10px;
         }
 
         .matching-column {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            min-width: clamp(220px, 45vw, 360px);
         }
 
         .matching-item {
@@ -291,12 +469,16 @@
             border: 3px solid #e0e0e0;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            line-height: 1.35;
+            word-break: break-word;
+            min-height: 52px;
+            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
 
         .matching-item:hover {
             border-color: #7ba3d4;
-            transform: scale(1.02);
             background: #f8fbfd;
         }
 
@@ -313,21 +495,28 @@
             cursor: default;
         }
 
+        .matching-item.incorrect {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+
         .true-false-btns {
             display: flex;
-            gap: 20px;
-            justify-content: center;
+            gap: 12px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
         }
 
         .tf-btn {
-            padding: 30px 60px;
-            font-size: 1.2em;
+            padding: 12px 24px;
+            font-size: 0.95em;
             border: none;
-            border-radius: 20px;
+            border-radius: 999px;
             cursor: pointer;
-            font-weight: 500;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s;
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
@@ -350,34 +539,32 @@
                 font-size: 1.5em;
             }
 
-            .matching-container {
-                grid-template-columns: 1fr;
+            .matching-column {
+                min-width: clamp(200px, 60vw, 320px);
             }
 
             .tf-btn {
-                padding: 20px 40px;
-                font-size: 1em;
+                padding: 10px 18px;
+                font-size: 0.9em;
             }
         }
 
         .progress-bar {
             width: 100%;
-            height: 30px;
-            background: #e0e0e0;
-            border-radius: 15px;
+            height: 8px;
+            background: #e8f4f8;
+            border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-top: 15px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .progress-fill {
             height: 100%;
-            background: #4CAF50;
-            transition: width 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 500;
+            background: linear-gradient(90deg, #7ba3d4 0%, #5a8bc4 100%);
+            transition: width 0.5s ease;
+            box-shadow: 0 1px 2px rgba(123, 163, 212, 0.5);
+            border-radius: 10px;
         }
 
         .start-btn {
@@ -581,6 +768,117 @@
             font-size: 1em;
         }
 
+        /* Results by exercise type section */
+        .results-by-type-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e8f4f8;
+        }
+
+        .results-by-type-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .results-type-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .results-type-card {
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 2px solid #e8f4f8;
+            text-align: center;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .results-type-card:hover {
+            border-color: #7ba3d4;
+            box-shadow: 0 2px 8px rgba(123, 163, 212, 0.15);
+        }
+
+        .results-type-emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .results-type-name {
+            font-size: 1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .results-type-total {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #7ba3d4;
+            margin: 10px 0;
+        }
+
+        .results-type-breakdown {
+            margin: 10px 0;
+            font-size: 0.95em;
+        }
+
+        .type-correct {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .type-separator {
+            color: #ccc;
+            margin: 0 8px;
+        }
+
+        .type-incorrect {
+            color: #f44336;
+            font-weight: 600;
+        }
+
+        .results-type-percentage {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #7ba3d4;
+            margin: 12px 0;
+        }
+
+        .results-type-time {
+            font-size: 0.85em;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+
+        .results-type-empty {
+            font-size: 0.9em;
+            color: #9ca3af;
+            font-style: italic;
+            padding: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .results-type-cards {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .results-type-card {
+                padding: 15px;
+            }
+
+            .results-type-emoji {
+                font-size: 2em;
+            }
+        }
+
         .overlay-blocker {
             position: fixed;
             top: 0;
@@ -649,25 +947,39 @@
             </div>
         </div>
 
-        <header>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative; z-index: 1000;">
+        <header id="app-header">
+            <div class="header-top">
                 <h1 style="margin: 0;" id="app-title"></h1>
                 <button id="start-btn" class="start-btn">▶️ START</button>
             </div>
-            <div id="timer-display" style="font-size: 1.8em; color: #7ba3d4; font-weight: 600; margin: 15px 0; display: none;">
-                ⏱️ <span id="timer-text">00:00</span>
+
+            <!-- Compact header row (visible only when scrolled) -->
+            <div class="compact-row">
+                <div class="compact-stats" id="compact-stats" aria-live="polite"></div>
             </div>
-            <p style="font-size: 1em; color: #6b7280; margin-top: 10px;" id="app-subtitle"></p>
-            <div class="score-board">
-                <div class="score-item">
-                    <span class="correct">✓ <span id="correct-label">Goed</span>: <span id="correct-count">0</span></span>
+
+            <!-- Full header body (hidden in compact) -->
+            <div class="header-body">
+                <div id="timer-display" style="font-size: 1.8em; color: #7ba3d4; font-weight: 600; margin: 15px 0; display: none; text-align: center;">
+                    ⏱️ <span id="timer-text">00:00</span>
                 </div>
-                <div class="score-item">
-                    <span class="incorrect">✗ <span id="incorrect-label">Fout</span>: <span id="incorrect-count">0</span></span>
+                <p style="font-size: 1em; color: #6b7280; margin-top: 10px;" id="app-subtitle"></p>
+                <div class="score-board">
+                    <div class="score-item">
+                        <span class="correct">✓ <span id="correct-label">Goed</span>: <span id="correct-count">0</span></span>
+                    </div>
+                    <div class="score-item">
+                        <span class="incorrect">✗ <span id="incorrect-label">Fout</span>: <span id="incorrect-count">0</span></span>
+                    </div>
+                    <div class="score-item">
+                        <span id="total-label">Totaal</span>: <span id="total-count">0</span>
+                    </div>
                 </div>
-                <div class="score-item">
-                    <span id="total-label">Totaal</span>: <span id="total-count">0</span>
-                </div>
+            </div>
+
+            <!-- Progress bar (shows goal progress) -->
+            <div class="progress-bar" id="header-progress-bar" style="display: none;">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
             </div>
         </header>
 
@@ -682,13 +994,12 @@
             <button class="exercise-type-btn" data-type="true-false" id="exercise-type-truefalse">✓/✗ Waar/Niet waar</button>
         </div>
 
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress-fill" style="width: 0%">0%</div>
-        </div>
-
         <div class="card" id="exercise-card">
             <!-- Exercises will appear here after START -->
         </div>
+        
+        <!-- Floating language switcher -->
+        <div id="lang-switcher" class="lang-switcher" aria-label="Language switcher"></div>
     </div>
 
     <script>
@@ -696,18 +1007,46 @@
         // DATA LOADING (STATIC JSON FILES)
         // ============================================
 
+        /**
+         * VOCABULARY DATA STRUCTURE
+         *
+         * Expected format for vocabulary items:
+         * {
+         *   "word": "string",                    // Required: The word or phrase to learn
+         *   "definition": "string",              // Required: The primary definition
+         *   "alternativeDefinitions": ["string"] // Optional: Array of alternative definitions that mean the same
+         * }
+         *
+         * The "alternativeDefinitions" field is optional and currently not used in exercises.
+         * If present, it should be an array of strings representing alternative ways to express
+         * the same definition. Words without this field will continue to work normally.
+         *
+         * Example:
+         * {
+         *   "word": "ontwaken",
+         *   "definition": "wakker worden",
+         *   "alternativeDefinitions": ["wakker worden uit de slaap", "je ogen openen"]
+         * }
+         */
+
         const DATA_SOURCES = {
             vocabulary: 'vocabulary.json',
-            translations: 'translations.json'
+            config: 'config.json'
         };
+        const TRANSLATIONS_DIR = 'translations';
 
         const DEFAULT_LANGUAGE = 'nl';
 
         let vocabularyData = null;
         let translationsData = null;
         let translation = null;
+        let currentLanguage = DEFAULT_LANGUAGE;
         let themeOptions = {};
+        let appMetadata = {};
+        let appConfig = {};
         let dataReady = false;
+        let useThemeDropdown = false;
+        let themeSelectElement = null;
 
         function t(path, replacements = {}) {
             if (!translation) return path;
@@ -768,19 +1107,63 @@
             }
         }
 
+        async function listTranslationCodesFromServer() {
+            try {
+                const res = await fetch(`${TRANSLATIONS_DIR}/`, { cache: 'no-store' });
+                if (!res.ok) return [];
+                const html = await res.text();
+                const re = /messages\.([a-zA-Z-]+)\.json/g;
+                const found = new Set();
+                let m;
+                while ((m = re.exec(html))) {
+                    found.add(m[1].toLowerCase());
+                }
+                return Array.from(found);
+            } catch (err) {
+                console.warn('Could not list translations directory; falling back to defaults.', err);
+                return [];
+            }
+        }
+
+        async function loadTranslationsFromFolder() {
+            // Try to discover languages by listing the directory (works on most static servers)
+            let codes = await listTranslationCodesFromServer();
+            // Fallback to a sensible default set if listing is unavailable
+            if (!codes.length) codes = ['nl', 'es', 'en', 'pl', 'tr'];
+
+            const result = {};
+            await Promise.all(codes.map(async (code) => {
+                try {
+                    const data = await loadJSONResource(`${TRANSLATIONS_DIR}/messages.${code}.json`);
+                    if (data) result[code] = data;
+                } catch (e) {
+                    console.warn(`Failed to load ${code} messages`, e);
+                }
+            }));
+            return result;
+        }
+
         async function loadData() {
             try {
-                const [vocabJson, translationsJson] = await Promise.all([
+                const [vocabJson, cfgJson] = await Promise.all([
                     loadJSONResource(DATA_SOURCES.vocabulary),
-                    loadJSONResource(DATA_SOURCES.translations)
+                    loadJSONResource(DATA_SOURCES.config)
                 ]);
+                const allTranslations = await loadTranslationsFromFolder();
 
                 vocabularyData = vocabJson;
-                translationsData = translationsJson;
-                translation = translationsData[DEFAULT_LANGUAGE] || Object.values(translationsData)[0];
+                translationsData = allTranslations;
+                appMetadata = vocabularyData?.metadata || {};
+                appConfig = cfgJson || {};
+                const savedLang = localStorage.getItem('vt_lang');
+                const preferredLang = savedLang || appConfig?.defaultLanguage || DEFAULT_LANGUAGE;
+                currentLanguage = translationsData[preferredLang] ? preferredLang : DEFAULT_LANGUAGE;
+                translation = translationsData[currentLanguage] || Object.values(translationsData)[0];
                 themeOptions = buildThemeOptions(vocabularyData);
+                useThemeDropdown = Object.keys(vocabularyData?.themes || {}).length > 4;
                 applyTranslations();
                 initializeApp();
+                initLanguageSwitcher();
                 dataReady = true;
             } catch (error) {
                 console.error('Fout bij het laden van data:', error);
@@ -805,7 +1188,9 @@
         function applyTranslations() {
             if (!translation) return;
 
-            document.title = `${translation.app.title} - ${translation.app.subtitle}`;
+            const subtitleText = appMetadata?.title || translation.app.subtitle;
+
+            document.title = `${translation.app.title} - ${subtitleText}`;
 
             const appTitle = document.getElementById('app-title');
             if (appTitle) {
@@ -814,7 +1199,7 @@
 
             const appSubtitle = document.getElementById('app-subtitle');
             if (appSubtitle) {
-                appSubtitle.textContent = translation.app.subtitle;
+                appSubtitle.textContent = subtitleText;
             }
 
             const welcomeTitle = document.getElementById('welcome-title');
@@ -873,6 +1258,91 @@
             }
 
             updatePendingCounter();
+            // Ensure compact stats initialize with correct label
+            updateScore();
+        }
+
+        function computeFlagEmoji(country) {
+            if (!country || country.length < 2) return '';
+            const cc = country.slice(-2).toUpperCase();
+            const A = 0x1F1E6; // Regional Indicator Symbol Letter A
+            const base = 'A'.charCodeAt(0);
+            const chars = Array.from(cc).map(c => String.fromCodePoint(A + (c.charCodeAt(0) - base)));
+            return chars.join('');
+        }
+
+        function codeToCountry(code) {
+            const c = (code || '').toLowerCase();
+            const map = {
+                'nl': 'nl', 'es': 'es', 'en': 'gb', 'en-gb': 'gb', 'en-us': 'us',
+                'fr': 'fr', 'de': 'de', 'it': 'it', 'pt': 'pt', 'pt-br': 'br',
+                'pl': 'pl', 'tr': 'tr', 'ru': 'ru', 'uk': 'ua', 'ja': 'jp',
+                'zh': 'cn', 'zh-cn': 'cn', 'zh-tw': 'tw', 'ar': 'sa'
+            };
+            return map[c] || (c.includes('-') ? c.split('-').pop() : c);
+        }
+
+        function flagFor(code) {
+            const country = codeToCountry(code);
+            const emoji = computeFlagEmoji(country);
+            return emoji || country.toUpperCase();
+        }
+
+        function flagAssetPath(code) {
+            const country = codeToCountry(code);
+            return `flags/${country}.svg`;
+        }
+
+        function setLanguage(lang) {
+            if (!translationsData || !translationsData[lang]) return;
+            currentLanguage = lang;
+            localStorage.setItem('vt_lang', currentLanguage);
+            translation = translationsData[currentLanguage];
+            applyTranslations();
+            updatePendingCounter();
+            updateScore();
+            if (typeof generateExercise === 'function' && dataReady) {
+                // Re-render current exercise UI with new copy
+                generateExercise();
+            }
+
+            // Update active styling
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === currentLanguage);
+            });
+        }
+
+        function initLanguageSwitcher() {
+            let container = document.getElementById('lang-switcher');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'lang-switcher';
+                container.className = 'lang-switcher';
+                document.body.appendChild(container);
+            }
+            if (!container || !translationsData) return;
+            container.innerHTML = '';
+            const codes = Object.keys(translationsData);
+            codes.forEach(code => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'lang-btn' + (code === currentLanguage ? ' active' : '');
+                btn.dataset.lang = code;
+                const title = code.toUpperCase();
+                btn.title = title;
+                btn.setAttribute('aria-label', `Change language to ${title}`);
+                // Prefer SVG asset; fallback to emoji; final fallback code
+                const img = new Image();
+                img.alt = title;
+                img.src = flagAssetPath(code);
+                img.addEventListener('error', () => {
+                    // fallback to emoji/text when asset not found
+                    btn.textContent = flagFor(code);
+                });
+                btn.appendChild(img);
+                btn.addEventListener('click', () => setLanguage(code));
+                container.appendChild(btn);
+            });
         }
 
         function showDataError(error) {
@@ -902,16 +1372,35 @@
         let totalCount = 0;
         let currentQuestion = null;
         let matchingSelections = [];
-        let matchingPairs = [];
+        let matchingPool = [];
+        let activeMatches = [];
+        let matchingLocked = false;
+        const MATCHING_ACTIVE_SIZE = 5;
+
+        function clearMatchingState() {
+            matchingPool = [];
+            activeMatches = [];
+            matchingSelections = [];
+            matchingLocked = false;
+        }
 
         // Session state
         let sessionActive = false;
+        let resultsShown = false;
         let sessionGoalType = null; // 'time' or 'exercises'
         let sessionGoalValue = 0;
         let sessionStartTime = null;
         let timerInterval = null;
         let sessionTimeElapsed = 0; // in seconds
         let sessionTimeRemaining = 0; // in seconds (for countdown)
+
+        // Exercise statistics by type (for results screen)
+        let exerciseStats = {
+            'multiple-choice': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null },
+            'fill-in': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null },
+            'matching': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null },
+            'true-false': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null }
+        };
 
         // Get vocabulary based on current theme
         function getCurrentVocabulary() {
@@ -934,9 +1423,55 @@
             return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         }
 
+        function updateProgressBar() {
+            const progressBar = document.getElementById('header-progress-bar');
+            const progressFill = document.getElementById('progress-fill');
+
+            if (!sessionActive || !progressBar || !progressFill) return;
+
+            if (sessionGoalType === 'exercises') {
+                // Show exercises progress (visual only, no text)
+                const progress = Math.min(totalCount, sessionGoalValue);
+                const percentage = (progress / sessionGoalValue) * 100;
+                progressFill.style.width = percentage + '%';
+            } else if (sessionGoalType === 'time') {
+                // Show time progress (visual only, no text)
+                const totalSeconds = sessionGoalValue * 60;
+                const percentage = Math.min((sessionTimeElapsed / totalSeconds) * 100, 100);
+                progressFill.style.width = percentage + '%';
+            }
+        }
+
+        function updateCompactTimer() {
+            // Update compact stats line with current timer
+            const compact = document.getElementById('compact-stats');
+            if (compact && sessionActive) {
+                const pendingLabel = getStatLabel('pending', 'Nog te doen');
+                const totalLabel = getStatLabel('total', 'Totaal');
+                const remaining = (sessionActive && sessionGoalType === 'exercises')
+                    ? Math.max(sessionGoalValue - totalCount, 0)
+                    : totalCount;
+                const labelToUse = (sessionActive && sessionGoalType === 'exercises') ? pendingLabel : totalLabel;
+
+                // Get timer text
+                const timerText = document.getElementById('timer-text');
+                const timerDisplay = timerText ? timerText.textContent : '00:00';
+
+                compact.innerHTML = `
+                    <span style="font-size: 1.3em; color: #7ba3d4; font-weight: 600;">⏱️ ${timerDisplay}</span>
+                    |
+                    <span class="stat-correct">✓ ${correctCount}</span>
+                    |
+                    <span class="stat-incorrect">✗ ${incorrectCount}</span>
+                    |
+                    <span class="stat-pending">${labelToUse}: ${remaining}</span>
+                `;
+            }
+        }
+
         function startTimer() {
             if (timerInterval) clearInterval(timerInterval);
-            
+
             if (sessionGoalType === 'time') {
                 // Countdown mode
                 sessionTimeRemaining = sessionGoalValue * 60;
@@ -944,7 +1479,13 @@
                     sessionTimeRemaining--;
                     sessionTimeElapsed++;
                     document.getElementById('timer-text').textContent = formatTime(sessionTimeRemaining);
-                    
+
+                    // Update progress bar every second
+                    updateProgressBar();
+
+                    // Update compact timer
+                    updateCompactTimer();
+
                     if (sessionTimeRemaining <= 0) {
                         endSession();
                     }
@@ -955,6 +1496,9 @@
                 timerInterval = setInterval(() => {
                     sessionTimeElapsed++;
                     document.getElementById('timer-text').textContent = formatTime(sessionTimeElapsed);
+
+                    // Update compact timer
+                    updateCompactTimer();
                 }, 1000);
             }
         }
@@ -979,6 +1523,7 @@
 
         function resetSession() {
             sessionActive = false;
+            resultsShown = false;
             sessionGoalType = null;
             sessionGoalValue = 0;
             sessionStartTime = null;
@@ -987,12 +1532,26 @@
             correctCount = 0;
             incorrectCount = 0;
             totalCount = 0;
-            matchingPairs = [];
+            clearMatchingState();
             stopTimer();
             updateScore();
             updateStartButton();
             document.getElementById('timer-display').style.display = 'none';
             document.getElementById('timer-text').textContent = '00:00';
+
+            // Reset exercise statistics
+            exerciseStats = {
+                'multiple-choice': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null },
+                'fill-in': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null },
+                'matching': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null },
+                'true-false': { total: 0, correct: 0, incorrect: 0, totalTimeMs: 0, questionStartTime: null }
+            };
+
+            // Hide progress bar
+            const progressBar = document.getElementById('header-progress-bar');
+            if (progressBar) {
+                progressBar.style.display = 'none';
+            }
         }
 
         function checkSessionGoal() {
@@ -1006,6 +1565,7 @@
         function endSession() {
             stopTimer();
             sessionActive = false;
+            resultsShown = true;
             showResultsScreen();
         }
 
@@ -1054,12 +1614,46 @@
             const message = getMessageForScore(percentage);
             const timeDisplay = formatTime(sessionTimeElapsed);
 
+            // Generate exercise type statistics
+            const exerciseTypes = [
+                { key: 'multiple-choice', emoji: '🎯', name: t('exerciseTypes.multipleChoice') },
+                { key: 'fill-in', emoji: '✏️', name: t('exerciseTypes.fillIn') },
+                { key: 'matching', emoji: '🔗', name: t('exerciseTypes.matching') },
+                { key: 'true-false', emoji: '✓/✗', name: t('exerciseTypes.trueFalse') }
+            ];
+
+            let typeStatsHTML = '';
+            exerciseTypes.forEach(type => {
+                const stats = exerciseStats[type.key];
+                const typePercentage = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
+                const avgTimeSeconds = stats.total > 0 ? Math.round(stats.totalTimeMs / stats.total / 1000) : 0;
+
+                typeStatsHTML += `
+                    <div class="results-type-card">
+                        <div class="results-type-emoji">${type.emoji}</div>
+                        <div class="results-type-name">${type.name}</div>
+                        <div class="results-type-total">${stats.total} ${stats.total === 1 ? 'vraag' : 'vragen'}</div>
+                        ${stats.total > 0 ? `
+                            <div class="results-type-breakdown">
+                                <span class="type-correct">✓ ${stats.correct}</span>
+                                <span class="type-separator">|</span>
+                                <span class="type-incorrect">✗ ${stats.incorrect}</span>
+                            </div>
+                            <div class="results-type-percentage">${typePercentage}%</div>
+                            <div class="results-type-time">⏱️ ${avgTimeSeconds}s / ${t('results.avgTimePerQuestion')}</div>
+                        ` : `
+                            <div class="results-type-empty">${t('results.noQuestionsOfType')}</div>
+                        `}
+                    </div>
+                `;
+            });
+
             const html = `
                 <div class="results-screen">
                     <div class="results-emoji">${emoji}</div>
                     <div class="results-title">${t('results.finished')}</div>
                     <p style="font-size: 1.2em; color: #2c3e50; margin-bottom: 20px;">${message}</p>
-                    
+
                     <div class="results-stats">
                         <div class="results-stat">
                             <div class="results-stat-value">${timeDisplay}</div>
@@ -1083,18 +1677,33 @@
                         </div>
                     </div>
 
-                    <button class="next-btn" onclick="location.reload()" style="margin-top: 30px;">
-                        🔄 ${t('buttons.newSession')}
-                    </button>
+                    <div class="results-by-type-section">
+                        <h3 class="results-by-type-title">${t('results.byExerciseType')}</h3>
+                        <div class="results-type-cards">
+                            ${typeStatsHTML}
+                        </div>
+                    </div>
+
+                    <!-- Restart handled via header START/RESTART button -->
                 </div>
             `;
 
-            document.getElementById('exercise-card').innerHTML = html;
-            
+            // Clear any existing content first
+            const exerciseCard = document.getElementById('exercise-card');
+            exerciseCard.innerHTML = '';
+
+            // Then set the new results HTML
+            exerciseCard.innerHTML = html;
+
             // Hide theme and exercise selectors
             document.querySelector('.theme-selector').style.display = 'none';
             document.querySelector('.exercise-type-selector').style.display = 'none';
-            document.querySelector('.progress-bar').style.display = 'none';
+
+            // Hide progress bar
+            const progressBar = document.getElementById('header-progress-bar');
+            if (progressBar) {
+                progressBar.style.display = 'none';
+            }
         }
 
         function showGoalModal() {
@@ -1138,8 +1747,11 @@
             const modal = document.getElementById('goal-modal');
             const modalContent = modal.querySelector('.modal-content');
             
-            const minValue = type === 'time' ? 1 : 10;
-            const maxValue = type === 'time' ? 60 : 100;
+            const goalsCfg = appConfig?.goals || {};
+            const goalCfg = type === 'time' ? (goalsCfg.time || {}) : (goalsCfg.exercises || {});
+            const minValue = Number.isFinite(goalCfg.min) ? goalCfg.min : (type === 'time' ? 1 : 10);
+            const maxValue = Number.isFinite(goalCfg.max) ? goalCfg.max : (type === 'time' ? 60 : 100);
+            const defValue = Number.isFinite(goalCfg.default) ? goalCfg.default : (type === 'time' ? 5 : 20);
             const label = type === 'time' ? t('goals.time').toLowerCase() : t('goals.exercises').toLowerCase();
             const emoji = type === 'time' ? '⏱️' : '🎯';
             const question = type === 'time' ? t('goals.howManyMinutes') : t('goals.howManyExercises');
@@ -1155,7 +1767,7 @@
                         id="goal-value-input"
                         min="${minValue}" 
                         max="${maxValue}" 
-                        value="${type === 'time' ? 5 : 20}"
+                        value="${defValue}"
                         placeholder="${placeholder}"
                     >
                 </div>
@@ -1196,8 +1808,10 @@
             const input = document.getElementById('goal-value-input');
             const value = parseInt(input.value);
             
-            const minValue = type === 'time' ? 1 : 10;
-            const maxValue = type === 'time' ? 60 : 100;
+            const goalsCfg = appConfig?.goals || {};
+            const goalCfg = type === 'time' ? (goalsCfg.time || {}) : (goalsCfg.exercises || {});
+            const minValue = Number.isFinite(goalCfg.min) ? goalCfg.min : (type === 'time' ? 1 : 10);
+            const maxValue = Number.isFinite(goalCfg.max) ? goalCfg.max : (type === 'time' ? 60 : 100);
             
             if (!value || value < minValue || value > maxValue) {
                 alert(t('goals.validationError', { min: minValue, max: maxValue }));
@@ -1219,10 +1833,11 @@
             sessionGoalValue = value;
             sessionStartTime = Date.now();
             
-            // Update START button text
+            // Update START button text and sync counters (incl. compact line)
             updateStartButton();
             updatePendingCounter();
-            
+            updateScore();
+
             // Show and start timer
             document.getElementById('timer-display').style.display = 'block';
             if (type === 'time') {
@@ -1231,7 +1846,16 @@
                 document.getElementById('timer-text').textContent = '00:00';
             }
             startTimer();
-            
+
+            // Show progress bar
+            const progressBar = document.getElementById('header-progress-bar');
+            if (progressBar) {
+                progressBar.style.display = 'block';
+            }
+
+            // Initialize progress bar
+            updateProgressBar();
+
             // Generate first exercise
             generateExercise();
         }
@@ -1276,27 +1900,56 @@
             const nonAllTheme = Object.keys(themeOptions).find(key => key !== 'all');
             currentTheme = nonAllTheme ? parseInt(nonAllTheme, 10) : 'all';
 
-            Object.entries(themeOptions).forEach(([themeId, themeName]) => {
-                const isActive = themeId === 'all'
-                    ? currentTheme === 'all'
-                    : currentTheme === parseInt(themeId, 10);
+            if (useThemeDropdown) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'theme-select-wrapper';
+                const select = document.createElement('select');
+                select.className = 'theme-select';
 
-                const button = document.createElement('button');
-                button.className = 'theme-btn' + (isActive ? ' active' : '');
-                button.dataset.theme = themeId;
-                button.textContent = themeName;
-                themeSelector.appendChild(button);
-            });
-
-            document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (!dataReady) return;
-                    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentTheme = btn.dataset.theme === 'all' ? 'all' : parseInt(btn.dataset.theme, 10);
-                    generateExercise();
+                Object.entries(themeOptions).forEach(([themeId, themeName]) => {
+                    const option = document.createElement('option');
+                    option.value = themeId;
+                    option.textContent = themeName;
+                    select.appendChild(option);
                 });
-            });
+
+                select.value = currentTheme === 'all' ? 'all' : String(currentTheme);
+                select.addEventListener('change', (event) => {
+                    if (!dataReady) return;
+                    const value = event.target.value;
+                    currentTheme = value === 'all' ? 'all' : parseInt(value, 10);
+                    clearMatchingState();
+                    if (sessionActive) generateExercise();
+                });
+
+                wrapper.appendChild(select);
+                themeSelector.appendChild(wrapper);
+                themeSelectElement = select;
+            } else {
+                Object.entries(themeOptions).forEach(([themeId, themeName]) => {
+                    const isActive = themeId === 'all'
+                        ? currentTheme === 'all'
+                        : currentTheme === parseInt(themeId, 10);
+
+                    const button = document.createElement('button');
+                    button.className = 'theme-btn' + (isActive ? ' active' : '');
+                    button.dataset.theme = themeId;
+                    button.textContent = themeName;
+                    themeSelector.appendChild(button);
+                });
+
+                document.querySelectorAll('.theme-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        if (!dataReady) return;
+                        document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        currentTheme = btn.dataset.theme === 'all' ? 'all' : parseInt(btn.dataset.theme, 10);
+                        clearMatchingState();
+                        if (sessionActive) generateExercise();
+                    });
+                });
+                themeSelectElement = null;
+            }
         }
 
         // Exercise type selector
@@ -1305,7 +1958,10 @@
                 document.querySelectorAll('.exercise-type-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentExerciseType = btn.dataset.type;
-                if (dataReady) {
+                if (currentExerciseType === 'matching') {
+                    clearMatchingState();
+                }
+                if (dataReady && sessionActive) {
                     generateExercise();
                 }
             });
@@ -1394,28 +2050,44 @@
             document.getElementById('correct-count').textContent = correctCount;
             document.getElementById('incorrect-count').textContent = incorrectCount;
             updatePendingCounter();
-            
-            const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
-            document.getElementById('progress-fill').style.width = percentage + '%';
-            document.getElementById('progress-fill').textContent = percentage + '%';
-            
+
+            // Update progress bar using dedicated function
+            updateProgressBar();
+
             // Check if goal reached
             checkSessionGoal();
+
+            // Update compact stats line
+            updateCompactTimer();
+        }
+
+        function createNextButton(text = `➡️ ${t('buttons.next')}`, handler = generateExercise) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'next-btn-wrapper';
+            const button = document.createElement('button');
+            button.className = 'next-btn';
+            button.textContent = text;
+            button.addEventListener('click', handler);
+            wrapper.appendChild(button);
+            return wrapper;
         }
 
         function generateMultipleChoice() {
             const vocabList = getCurrentVocabulary();
             const isWordToDefinition = Math.random() > 0.5;
-            
+
             currentQuestion = getRandomItem(vocabList);
-            
+
             const wrongAnswers = shuffle(vocabList.filter(v => v !== currentQuestion)).slice(0, 3);
             const allOptions = shuffle([currentQuestion, ...wrongAnswers]);
-            
+
             const questionText = isWordToDefinition ? currentQuestion.word : currentQuestion.definition;
             const correctAnswer = isWordToDefinition ? currentQuestion.definition : currentQuestion.word;
             const questionLabel = isWordToDefinition ? t('questions.whatMeans') : t('questions.whichWord');
-            
+
+            // Start tracking time for this question
+            exerciseStats['multiple-choice'].questionStartTime = Date.now();
+
             let html = `
                 <div class="question">
                     <strong>${isWordToDefinition ? '📖' : '🔍'} ${questionLabel}</strong><br><br>
@@ -1423,36 +2095,43 @@
                 </div>
                 <div class="options">
             `;
-            
+
             allOptions.forEach(option => {
                 const optionText = isWordToDefinition ? option.definition : option.word;
                 html += `<button class="option-btn" data-answer="${optionText}">${optionText}</button>`;
             });
-            
+
             html += '</div>';
-            
+
             document.getElementById('exercise-card').innerHTML = html;
             
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     if (this.classList.contains('disabled')) return;
-                    
+
                     document.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
-                    
+
                     const isCorrect = this.dataset.answer === correctAnswer;
                     this.classList.add(isCorrect ? 'correct' : 'incorrect');
-                    
+
+                    // Track time spent on this question
+                    const timeSpent = Date.now() - exerciseStats['multiple-choice'].questionStartTime;
+                    exerciseStats['multiple-choice'].totalTimeMs += timeSpent;
+                    exerciseStats['multiple-choice'].total++;
+
                     if (isCorrect) {
                         correctCount++;
+                        exerciseStats['multiple-choice'].correct++;
                     } else {
                         incorrectCount++;
+                        exerciseStats['multiple-choice'].incorrect++;
                         document.querySelectorAll('.option-btn').forEach(b => {
                             if (b.dataset.answer === correctAnswer) {
                                 b.classList.add('correct');
                             }
                         });
                     }
-                    
+
                     totalCount++;
                     updateScore();
                     
@@ -1461,11 +2140,9 @@
                     feedback.textContent = isCorrect ? `🎉 ${t('feedback.correct')}` : `❌ ${t('feedback.incorrect')}`;
                     document.getElementById('exercise-card').appendChild(feedback);
                     
-                    const nextBtn = document.createElement('button');
-                    nextBtn.className = 'next-btn';
-                    nextBtn.textContent = `➡️ ${t('buttons.next')}`;
-                    nextBtn.addEventListener('click', generateExercise);
-                    document.getElementById('exercise-card').appendChild(nextBtn);
+                    if (sessionActive) {
+                        document.getElementById('exercise-card').appendChild(createNextButton());
+                    }
                 });
             });
         }
@@ -1479,7 +2156,10 @@
             const questionText = isWordToDefinition ? currentQuestion.word : currentQuestion.definition;
             const correctAnswer = isWordToDefinition ? currentQuestion.definition : currentQuestion.word;
             const questionLabel = isWordToDefinition ? t('questions.whatMeans') : t('questions.whichWord');
-            
+
+            // Start tracking time for this question
+            exerciseStats['fill-in'].questionStartTime = Date.now();
+
             let html = `
                 <div class="question">
                     <strong>${isWordToDefinition ? '📖' : '🔍'} ${questionLabel}</strong><br><br>
@@ -1490,49 +2170,86 @@
             `;
 
             document.getElementById('exercise-card').innerHTML = html;
-            
+
             document.getElementById('answer-input').focus();
             
             const submitAnswer = () => {
                 const userAnswer = document.getElementById('answer-input').value.trim().toLowerCase();
                 const correct = correctAnswer.toLowerCase();
-                
-                const isExactMatch = userAnswer === correct;
-                const similarity = calculateSimilarity(userAnswer, correctAnswer);
-                const isAlmostCorrect = similarity >= 80 && !isExactMatch;
+
+                // Build list of all possible correct answers (main + alternatives)
+                const allPossibleAnswers = [correctAnswer];
+
+                // Only check alternatives when answering definition (word to definition mode)
+                if (isWordToDefinition && currentQuestion.alternativeDefinitions && Array.isArray(currentQuestion.alternativeDefinitions)) {
+                    allPossibleAnswers.push(...currentQuestion.alternativeDefinitions);
+                }
+
+                // Check exact match with any of the possible answers
+                let isExactMatch = false;
+                let bestMatchAnswer = correctAnswer;
+                let bestSimilarity = 0;
+
+                for (const possibleAnswer of allPossibleAnswers) {
+                    const normalizedAnswer = possibleAnswer.toLowerCase().trim();
+
+                    // Check for exact match
+                    if (userAnswer === normalizedAnswer) {
+                        isExactMatch = true;
+                        bestMatchAnswer = possibleAnswer;
+                        bestSimilarity = 100;
+                        break;
+                    }
+
+                    // Calculate similarity
+                    const similarity = calculateSimilarity(userAnswer, possibleAnswer);
+
+                    // Keep track of best match
+                    if (similarity > bestSimilarity) {
+                        bestSimilarity = similarity;
+                        bestMatchAnswer = possibleAnswer;
+                    }
+                }
+
+                const isAlmostCorrect = bestSimilarity >= 80 && !isExactMatch;
                 const isCorrect = isExactMatch || isAlmostCorrect;
-                
+
+                // Track time spent on this question
+                const timeSpent = Date.now() - exerciseStats['fill-in'].questionStartTime;
+                exerciseStats['fill-in'].totalTimeMs += timeSpent;
+                exerciseStats['fill-in'].total++;
+
                 if (isCorrect) {
                     correctCount++;
+                    exerciseStats['fill-in'].correct++;
                 } else {
                     incorrectCount++;
+                    exerciseStats['fill-in'].incorrect++;
                 }
-                
+
                 totalCount++;
                 updateScore();
-                
+
                 const feedback = document.createElement('div');
                 feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
                 const submittedAnswer = document.getElementById('answer-input').value.trim();
-                
+
                 if (isExactMatch) {
                     feedback.innerHTML = `🎉 ${t('feedback.correct')}`;
                 } else if (isAlmostCorrect) {
-                    feedback.innerHTML = `✨ ${t('feedback.almostCorrect', { percent: Math.round(similarity) })}<br><br>${t('feedback.yourAnswer')}: "${submittedAnswer}"<br>${t('feedback.correctAnswer')}: "${correctAnswer}"`;
+                    feedback.innerHTML = `✨ ${t('feedback.almostCorrect', { percent: Math.round(bestSimilarity) })}<br><br>${t('feedback.yourAnswer')}: "${submittedAnswer}"<br>${t('feedback.correctAnswer')}: "${bestMatchAnswer}"`;
                 } else {
                     feedback.innerHTML = `❌ ${t('feedback.theCorrectAnswerIs')}<br><br>"${correctAnswer}"`;
                 }
-                
+
                 document.getElementById('exercise-card').appendChild(feedback);
-                
+
                 document.getElementById('submit-answer').remove();
                 document.getElementById('answer-input').disabled = true;
-                
-                const nextBtn = document.createElement('button');
-                nextBtn.className = 'next-btn';
-                nextBtn.textContent = `➡️ ${t('buttons.next')}`;
-                nextBtn.addEventListener('click', generateExercise);
-                document.getElementById('exercise-card').appendChild(nextBtn);
+
+                if (sessionActive) {
+                    document.getElementById('exercise-card').appendChild(createNextButton());
+                }
             };
             
             document.getElementById('submit-answer').addEventListener('click', submitAnswer);
@@ -1541,44 +2258,36 @@
             });
         }
 
-        function generateMatching() {
+        function initializeMatchingPool() {
             const vocabList = getCurrentVocabulary();
-            const itemsToMatch = shuffle(vocabList).slice(0, 5);
-            
-            matchingSelections = [];
-            // Don't reset matchingPairs - preserve them
-            
-            // Get IDs of already matched pairs
-            const matchedIds = matchingPairs.map(pair => pair.first.id);
-            
-            // Filter out already matched items
-            const remainingItems = itemsToMatch.filter(item => !matchedIds.includes(item.word));
-            
-            // If all items are matched, show completion
-            if (remainingItems.length === 0 && matchingPairs.length > 0) {
+            const shuffled = shuffle(vocabList);
+            const activeSize = Math.min(MATCHING_ACTIVE_SIZE, shuffled.length);
+            activeMatches = shuffled.slice(0, activeSize);
+            matchingPool = shuffled.slice(activeSize);
+        }
+
+        function renderMatchingBoard() {
+            const card = document.getElementById('exercise-card');
+            if (!card || !sessionActive) return;
+
+            if (!activeMatches.length) {
+                card.innerHTML = '';
                 const feedback = document.createElement('div');
                 feedback.className = 'feedback correct';
                 feedback.textContent = `🎉 ${t('feedback.allMatched')}`;
-                document.getElementById('exercise-card').innerHTML = '';
-                document.getElementById('exercise-card').appendChild(feedback);
+                card.appendChild(feedback);
 
-                const nextBtn = document.createElement('button');
-                nextBtn.className = 'next-btn';
-                nextBtn.textContent = `➡️ ${t('buttons.nextExercise')}`;
-                nextBtn.addEventListener('click', () => {
-                    matchingPairs = []; // Reset for new exercise
+                const nextWrapper = createNextButton(`➡️ ${t('buttons.nextExercise')}`, () => {
+                    clearMatchingState();
                     generateExercise();
                 });
-                document.getElementById('exercise-card').appendChild(nextBtn);
+                card.appendChild(nextWrapper);
                 return;
             }
-            
-            // Use remaining items or all items if starting fresh
-            const currentItems = remainingItems.length > 0 ? remainingItems : itemsToMatch;
-            
-            const words = shuffle(currentItems.map(item => ({ text: item.word, id: item.word })));
-            const definitions = shuffle(currentItems.map(item => ({ text: item.definition, id: item.word })));
-            
+
+            const words = shuffle(activeMatches.map(item => ({ text: item.word, id: item.word })));
+            const definitions = shuffle(activeMatches.map(item => ({ text: item.definition, id: item.word })));
+
             let html = `
                 <div class="question">
                     <strong>🔗 ${t('questions.matchWords')}</strong><br>
@@ -1587,144 +2296,196 @@
                 <div class="matching-container">
                     <div class="matching-column" id="words-column">
             `;
-            
-            // Add matched items first (in green)
-            matchingPairs.forEach(pair => {
-                if (pair.first.side === 'word') {
-                    html += `<div class="matching-item matched">${pair.first.element.textContent}</div>`;
-                }
-            });
-            
-            // Add remaining words
-            words.forEach((item, index) => {
+
+            words.forEach(item => {
                 html += `<div class="matching-item" data-id="${item.id}" data-side="word">${item.text}</div>`;
             });
-            
+
             html += `
                     </div>
                     <div class="matching-column" id="definitions-column">
             `;
-            
-            // Add matched items first (in green)
-            matchingPairs.forEach(pair => {
-                if (pair.first.side === 'definition') {
-                    html += `<div class="matching-item matched">${pair.first.element.textContent}</div>`;
-                } else {
-                    html += `<div class="matching-item matched">${pair.second.element.textContent}</div>`;
-                }
-            });
-            
-            // Add remaining definitions
-            definitions.forEach((item, index) => {
+
+            definitions.forEach(item => {
                 html += `<div class="matching-item" data-id="${item.id}" data-side="definition">${item.text}</div>`;
             });
-            
+
             html += `
                     </div>
                 </div>
                 <div id="matching-feedback"></div>
             `;
-            
-            document.getElementById('exercise-card').innerHTML = html;
-            
+
+            card.innerHTML = html;
+            matchingSelections = [];
+            matchingLocked = false;
+
             document.querySelectorAll('.matching-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    if (this.classList.contains('matched')) return;
-                    
-                    if (this.classList.contains('selected')) {
-                        this.classList.remove('selected');
-                        matchingSelections = matchingSelections.filter(s => s.element !== this);
-                    } else {
-                        this.classList.add('selected');
-                        matchingSelections.push({
-                            element: this,
-                            id: this.dataset.id,
-                            side: this.dataset.side
-                        });
-                    }
-                    
-                    if (matchingSelections.length === 2) {
-                        const [first, second] = matchingSelections;
-                        
-                        if (first.side !== second.side && first.id === second.id) {
-                            // Correct match
-                            first.element.classList.remove('selected');
-                            second.element.classList.remove('selected');
-                            first.element.classList.add('matched');
-                            second.element.classList.add('matched');
-                            matchingPairs.push({ first, second });
-                            correctCount++;
-                            totalCount++;
-                            matchingSelections = [];
-                            updateScore();
-                        } else {
-                            // Wrong match - show red for 1 second
-                            first.element.classList.remove('selected');
-                            second.element.classList.remove('selected');
-                            first.element.style.background = '#f44336';
-                            first.element.style.color = 'white';
-                            first.element.style.borderColor = '#f44336';
-                            second.element.style.background = '#f44336';
-                            second.element.style.color = 'white';
-                            second.element.style.borderColor = '#f44336';
-                            
-                            incorrectCount++;
-                            totalCount++;
-                            matchingSelections = [];
-                            updateScore();
-                            
-                            // Disable clicks during feedback
-                            document.querySelectorAll('.matching-item').forEach(item => {
-                                item.style.pointerEvents = 'none';
-                            });
-                            
-                            setTimeout(() => {
-                                // Reshuffle and regenerate
-                                generateMatching();
-                            }, 1000);
-                            return;
-                        }
-                        
-                        if (matchingPairs.length === 5) {
-                            setTimeout(() => {
-                                const feedback = document.createElement('div');
-                                feedback.className = 'feedback correct';
-                                feedback.textContent = `🎉 ${t('feedback.allMatched')}`;
-                                document.getElementById('matching-feedback').appendChild(feedback);
-                                
-                                const nextBtn = document.createElement('button');
-                                nextBtn.className = 'next-btn';
-                                nextBtn.textContent = `➡️ ${t('buttons.nextExercise')}`;
-                                nextBtn.addEventListener('click', () => {
-                                    matchingPairs = []; // Reset for new exercise
-                                    generateExercise();
-                                });
-                                document.getElementById('matching-feedback').appendChild(nextBtn);
-                            }, 500);
-                        }
-                    }
-                });
+                item.addEventListener('click', () => handleMatchingSelection(item));
             });
+
+            // Normalize item heights to the tallest to avoid layout shift on hover
+            scheduleNormalizeMatchingHeights();
+        }
+
+        function normalizeMatchingHeights() {
+            const container = document.querySelector('.matching-container');
+            if (!container) return;
+            const items = Array.from(container.querySelectorAll('.matching-item'));
+            if (!items.length) return;
+            // reset
+            items.forEach(el => { el.style.height = 'auto'; });
+            let max = 0;
+            items.forEach(el => { max = Math.max(max, el.getBoundingClientRect().height); });
+            const h = Math.ceil(max);
+            items.forEach(el => { el.style.height = h + 'px'; });
+        }
+
+        let normalizeMatchingHeightsRAF = 0;
+        function scheduleNormalizeMatchingHeights() {
+            if (normalizeMatchingHeightsRAF) cancelAnimationFrame(normalizeMatchingHeightsRAF);
+            normalizeMatchingHeightsRAF = requestAnimationFrame(() => {
+                normalizeMatchingHeightsRAF = 0;
+                normalizeMatchingHeights();
+            });
+        }
+
+        function handleMatchingSelection(element) {
+            if (matchingLocked) return;
+
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                matchingSelections = matchingSelections.filter(sel => sel.element !== element);
+                return;
+            }
+
+            if (matchingSelections.length === 1 && matchingSelections[0].side === element.dataset.side) {
+                matchingSelections[0].element.classList.remove('selected');
+                matchingSelections = [];
+            }
+
+            element.classList.add('selected');
+            matchingSelections.push({
+                element,
+                id: element.dataset.id,
+                side: element.dataset.side
+            });
+
+            // Start tracking time when first selection is made
+            if (matchingSelections.length === 1) {
+                exerciseStats['matching'].questionStartTime = Date.now();
+            }
+
+            if (matchingSelections.length === 2) {
+                const [first, second] = matchingSelections;
+                if (first.side === second.side) {
+                    first.element.classList.remove('selected');
+                    matchingSelections = [second];
+                    // Restart timer since we're starting over
+                    exerciseStats['matching'].questionStartTime = Date.now();
+                    return;
+                }
+
+                matchingLocked = true;
+                processMatchingAttempt(first, second);
+            }
+        }
+
+        function processMatchingAttempt(first, second) {
+            const wordSelection = first.side === 'word' ? first : second;
+            const definitionSelection = first.side === 'definition' ? first : second;
+            const isCorrect = wordSelection.id === definitionSelection.id;
+            const matchedEntry = activeMatches.find(item => item.word === wordSelection.id);
+
+            // Track time spent on this matching attempt
+            const timeSpent = Date.now() - exerciseStats['matching'].questionStartTime;
+            exerciseStats['matching'].totalTimeMs += timeSpent;
+            exerciseStats['matching'].total++;
+
+            if (isCorrect) {
+                correctCount++;
+                exerciseStats['matching'].correct++;
+            } else {
+                incorrectCount++;
+                exerciseStats['matching'].incorrect++;
+            }
+
+            totalCount++;
+            updateScore();
+
+            const feedbackContainer = document.getElementById('matching-feedback');
+            if (feedbackContainer) {
+                feedbackContainer.innerHTML = '';
+                const feedback = document.createElement('div');
+                feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                if (isCorrect) {
+                    feedback.textContent = `🎉 ${t('feedback.correct')}`;
+                } else {
+                    feedback.innerHTML = `❌ ${t('feedback.theCorrectAnswerIs')}<br>"${matchedEntry?.definition || ''}"`;
+                }
+                feedbackContainer.appendChild(feedback);
+            }
+
+            first.element.classList.add(isCorrect ? 'matched' : 'incorrect');
+            second.element.classList.add(isCorrect ? 'matched' : 'incorrect');
+
+            matchingSelections = [];
+
+            setTimeout(() => {
+                if (feedbackContainer) {
+                    feedbackContainer.innerHTML = '';
+                }
+
+                if (isCorrect) {
+                    activeMatches = activeMatches.filter(item => item.word !== wordSelection.id);
+                    if (matchingPool.length) {
+                        activeMatches.push(matchingPool.shift());
+                    }
+                }
+
+                matchingLocked = false;
+                if (sessionActive) {
+                    renderMatchingBoard();
+                }
+            }, isCorrect ? 900 : 800);
+        }
+
+        function generateMatching(resetPool = false) {
+            if (!sessionActive) return;
+            const vocabList = getCurrentVocabulary();
+            if (!vocabList.length) {
+                document.getElementById('exercise-card').innerHTML = '<p style="text-align:center;">Geen woorden beschikbaar voor deze selectie.</p>';
+                return;
+            }
+
+            if (resetPool || activeMatches.length === 0) {
+                initializeMatchingPool();
+            }
+
+            renderMatchingBoard();
         }
 
         function generateTrueFalse() {
             const vocabList = getCurrentVocabulary();
             currentQuestion = getRandomItem(vocabList);
-            
+
             const isCorrectStatement = Math.random() > 0.5;
             let displayDefinition;
-            
+
             if (isCorrectStatement) {
                 displayDefinition = currentQuestion.definition;
             } else {
                 const wrongItem = getRandomItem(vocabList.filter(v => v !== currentQuestion));
                 displayDefinition = wrongItem.definition;
             }
-            
+
             const questionTitle = t('questions.trueFalseQuestion');
             const trueLabel = t('buttons.true');
             const falseLabel = t('buttons.false');
-            
+
+            // Start tracking time for this question
+            exerciseStats['true-false'].questionStartTime = Date.now();
+
             let html = `
                 <div class="question">
                     <strong>✓ / ✗ ${questionTitle}</strong><br><br>
@@ -1736,20 +2497,27 @@
                     <button class="tf-btn false" data-answer="false">✗ ${falseLabel}</button>
                 </div>
             `;
-            
+
             document.getElementById('exercise-card').innerHTML = html;
             
             document.querySelectorAll('.tf-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const userAnswerTrue = this.dataset.answer === 'true';
                     const isCorrect = userAnswerTrue === isCorrectStatement;
-                    
+
+                    // Track time spent on this question
+                    const timeSpent = Date.now() - exerciseStats['true-false'].questionStartTime;
+                    exerciseStats['true-false'].totalTimeMs += timeSpent;
+                    exerciseStats['true-false'].total++;
+
                     if (isCorrect) {
                         correctCount++;
+                        exerciseStats['true-false'].correct++;
                     } else {
                         incorrectCount++;
+                        exerciseStats['true-false'].incorrect++;
                     }
-                    
+
                     totalCount++;
                     updateScore();
                     
@@ -1767,16 +2535,15 @@
                     
                     document.querySelectorAll('.tf-btn').forEach(b => b.style.display = 'none');
                     
-                    const nextBtn = document.createElement('button');
-                    nextBtn.className = 'next-btn';
-                    nextBtn.textContent = `➡️ ${t('buttons.next')}`;
-                    nextBtn.addEventListener('click', generateExercise);
-                    document.getElementById('exercise-card').appendChild(nextBtn);
+                    if (sessionActive) {
+                        document.getElementById('exercise-card').appendChild(createNextButton());
+                    }
                 });
             });
         }
 
         function generateExercise() {
+            if (!sessionActive) return; // Do not generate when session ended; keep results visible
             switch(currentExerciseType) {
                 case 'multiple-choice':
                     generateMultipleChoice();
@@ -1798,6 +2565,24 @@
 
         // Fetch vocabulary and translations once the page loads
         loadData();
+
+        // Sticky header: compact on scroll
+        function updateHeaderCompactState() {
+            const header = document.getElementById('app-header');
+            if (!header) return;
+            const scrolled = window.scrollY > 40;
+            if (scrolled) {
+                header.classList.add('compact');
+            } else {
+                header.classList.remove('compact');
+            }
+        }
+
+        window.addEventListener('scroll', updateHeaderCompactState, { passive: true });
+        document.addEventListener('DOMContentLoaded', updateHeaderCompactState);
+        window.addEventListener('resize', () => {
+            scheduleNormalizeMatchingHeights();
+        }, { passive: true });
     </script>
 </body>
 </html>
