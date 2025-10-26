@@ -2149,14 +2149,19 @@
 
                     totalCount++;
                     updateScore();
-                    
+
                     const feedback = document.createElement('div');
                     feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
                     feedback.textContent = isCorrect ? `🎉 ${t('feedback.correct')}` : `❌ ${t('feedback.incorrect')}`;
                     document.getElementById('exercise-card').appendChild(feedback);
-                    
+
+                    // Auto-advance to next question after 2 seconds
                     if (sessionActive) {
-                        document.getElementById('exercise-card').appendChild(createNextButton());
+                        setTimeout(() => {
+                            if (sessionActive) {
+                                generateExercise();
+                            }
+                        }, 2000);
                     }
                 });
             });
