@@ -1,0 +1,239 @@
+{
+  "nl": {
+    "app": {
+      "title": "Woordenschat Oefening",
+      "subtitle": "Thema 2: Het menselijk lichaam",
+      "welcomeTitle": "Welkom bij Woordenschat Oefening!",
+      "welcomeText": "Klik op <strong>START</strong> om te beginnen met oefenen.",
+      "startButton": "START",
+      "restartButton": "OPNIEUW"
+    },
+    "stats": {
+      "correct": "Goed",
+      "incorrect": "Fout",
+      "total": "Totaal",
+      "pending": "Nog te doen"
+    },
+    "themes": {
+      "allWeeks": "Alle weken"
+    },
+    "exerciseTypes": {
+      "multipleChoice": "Meerkeuze",
+      "fillIn": "Invullen",
+      "matching": "Koppelen",
+      "trueFalse": "Waar/Niet waar"
+    },
+    "goals": {
+      "title": "Kies je doel",
+      "time": "Tijd",
+      "timeDesc": "Oefen voor een bepaalde tijd",
+      "exercises": "Oefeningen",
+      "exercisesDesc": "Maak een aantal oefeningen",
+      "howManyMinutes": "Hoeveel minuten?",
+      "howManyExercises": "Hoeveel oefeningen?",
+      "enterValue": "Voer {{type}} in",
+      "cancel": "Annuleren",
+      "start": "Start!",
+      "validationError": "Voer een getal in tussen {{min}} en {{max}}"
+    },
+    "questions": {
+      "whatMeans": "Wat betekent:",
+      "whichWord": "Welk woord betekent:",
+      "trueFalseQuestion": "Waar of niet waar?",
+      "matchWords": "Koppel de woorden aan de juiste definities",
+      "matchInstructions": "Klik op een woord en dan op de bijpassende definitie",
+      "typePlaceholder": "Type je antwoord hier..."
+    },
+    "feedback": {
+      "correct": "Goed gedaan!",
+      "incorrect": "Helaas, probeer het nog eens!",
+      "almostCorrect": "Bijna goed! ({{percent}}% correct)",
+      "yourAnswer": "Je antwoord",
+      "correctAnswer": "Juiste antwoord",
+      "theCorrectAnswerIs": "Het juiste antwoord is:",
+      "allMatched": "Alle koppels zijn correct!"
+    },
+    "buttons": {
+      "check": "Controleer",
+      "next": "Volgende vraag",
+      "nextExercise": "Volgende oefening",
+      "true": "WAAR",
+      "false": "NIET WAAR",
+      "newSession": "Nieuwe sessie"
+    },
+    "results": {
+      "finished": "TERMINADO!",
+      "time": "Tijd",
+      "totalQuestions": "Totaal vragen",
+      "score": "Score",
+      "level10": "Perfect! Je bent een ster!",
+      "level9": "Uitstekend gedaan!",
+      "level8": "Heel goed werk!",
+      "level7": "Goed gedaan!",
+      "level6": "Redelijk goed!",
+      "level5": "Je kunt het beter!",
+      "level4": "Meer oefenen nodig!",
+      "level3": "Blijf oefenen!",
+      "level2": "Niet opgeven!",
+      "level1": "Blijf proberen, je kunt het!"
+    }
+  },
+  "es": {
+    "app": {
+      "title": "Ejercicio de Vocabulario",
+      "subtitle": "Tema 2: El cuerpo humano",
+      "welcomeTitle": "¡Bienvenido al Ejercicio de Vocabulario!",
+      "welcomeText": "Haz clic en <strong>INICIO</strong> para comenzar a practicar.",
+      "startButton": "INICIO",
+      "restartButton": "REINICIAR"
+    },
+    "stats": {
+      "correct": "Correcto",
+      "incorrect": "Incorrecto",
+      "total": "Total",
+      "pending": "Pendientes"
+    },
+    "themes": {
+      "allWeeks": "Todas las semanas"
+    },
+    "exerciseTypes": {
+      "multipleChoice": "Opción múltiple",
+      "fillIn": "Completar",
+      "matching": "Emparejar",
+      "trueFalse": "Verdadero/Falso"
+    },
+    "goals": {
+      "title": "Elige tu objetivo",
+      "time": "Tiempo",
+      "timeDesc": "Practica durante un tiempo determinado",
+      "exercises": "Ejercicios",
+      "exercisesDesc": "Completa un número de ejercicios",
+      "howManyMinutes": "¿Cuántos minutos?",
+      "howManyExercises": "¿Cuántos ejercicios?",
+      "enterValue": "Ingresa {{type}}",
+      "cancel": "Cancelar",
+      "start": "¡Comenzar!",
+      "validationError": "Ingresa un número entre {{min}} y {{max}}"
+    },
+    "questions": {
+      "whatMeans": "¿Qué significa:",
+      "whichWord": "¿Qué palabra significa:",
+      "trueFalseQuestion": "¿Verdadero o falso?",
+      "matchWords": "Empareja las palabras con las definiciones correctas",
+      "matchInstructions": "Haz clic en una palabra y luego en la definición correspondiente",
+      "typePlaceholder": "Escribe tu respuesta aquí..."
+    },
+    "feedback": {
+      "correct": "¡Bien hecho!",
+      "incorrect": "Incorrecto, ¡inténtalo de nuevo!",
+      "almostCorrect": "¡Casi correcto! ({{percent}}% correcto)",
+      "yourAnswer": "Tu respuesta",
+      "correctAnswer": "Respuesta correcta",
+      "theCorrectAnswerIs": "La respuesta correcta es:",
+      "allMatched": "¡Todas las parejas son correctas!"
+    },
+    "buttons": {
+      "check": "Comprobar",
+      "next": "Siguiente pregunta",
+      "nextExercise": "Siguiente ejercicio",
+      "true": "VERDADERO",
+      "false": "FALSO",
+      "newSession": "Nueva sesión"
+    },
+    "results": {
+      "finished": "¡TERMINADO!",
+      "time": "Tiempo",
+      "totalQuestions": "Preguntas totales",
+      "score": "Puntuación",
+      "level10": "¡Perfecto! ¡Eres una estrella!",
+      "level9": "¡Excelente trabajo!",
+      "level8": "¡Muy buen trabajo!",
+      "level7": "¡Bien hecho!",
+      "level6": "¡Bastante bien!",
+      "level5": "¡Puedes hacerlo mejor!",
+      "level4": "¡Necesitas más práctica!",
+      "level3": "¡Sigue practicando!",
+      "level2": "¡No te rindas!",
+      "level1": "¡Sigue intentándolo, puedes hacerlo!"
+    }
+  },
+  "en": {
+    "app": {
+      "title": "Vocabulary Exercise",
+      "subtitle": "Theme 2: The human body",
+      "welcomeTitle": "Welcome to Vocabulary Exercise!",
+      "welcomeText": "Click <strong>START</strong> to begin practicing.",
+      "startButton": "START",
+      "restartButton": "RESTART"
+    },
+    "stats": {
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "total": "Total",
+      "pending": "Remaining"
+    },
+    "themes": {
+      "allWeeks": "All weeks"
+    },
+    "exerciseTypes": {
+      "multipleChoice": "Multiple Choice",
+      "fillIn": "Fill In",
+      "matching": "Matching",
+      "trueFalse": "True/False"
+    },
+    "goals": {
+      "title": "Choose your goal",
+      "time": "Time",
+      "timeDesc": "Practice for a set amount of time",
+      "exercises": "Exercises",
+      "exercisesDesc": "Complete a number of exercises",
+      "howManyMinutes": "How many minutes?",
+      "howManyExercises": "How many exercises?",
+      "enterValue": "Enter {{type}}",
+      "cancel": "Cancel",
+      "start": "Start!",
+      "validationError": "Enter a number between {{min}} and {{max}}"
+    },
+    "questions": {
+      "whatMeans": "What does this mean:",
+      "whichWord": "Which word means:",
+      "trueFalseQuestion": "True or false?",
+      "matchWords": "Match the words to the correct definitions",
+      "matchInstructions": "Click on a word and then on the matching definition",
+      "typePlaceholder": "Type your answer here..."
+    },
+    "feedback": {
+      "correct": "Well done!",
+      "incorrect": "Incorrect, try again!",
+      "almostCorrect": "Almost correct! ({{percent}}% correct)",
+      "yourAnswer": "Your answer",
+      "correctAnswer": "Correct answer",
+      "theCorrectAnswerIs": "The correct answer is:",
+      "allMatched": "All pairs are correct!"
+    },
+    "buttons": {
+      "check": "Check",
+      "next": "Next question",
+      "nextExercise": "Next exercise",
+      "true": "TRUE",
+      "false": "FALSE",
+      "newSession": "New session"
+    },
+    "results": {
+      "finished": "FINISHED!",
+      "time": "Time",
+      "totalQuestions": "Total questions",
+      "score": "Score",
+      "level10": "Perfect! You're a star!",
+      "level9": "Excellent work!",
+      "level8": "Very good work!",
+      "level7": "Well done!",
+      "level6": "Pretty good!",
+      "level5": "You can do better!",
+      "level4": "Need more practice!",
+      "level3": "Keep practicing!",
+      "level2": "Don't give up!",
+      "level1": "Keep trying, you can do it!"
+    }
+  }
+}

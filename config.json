@@ -1,0 +1,43 @@
+{
+  "defaultLanguage": "nl",
+  "availableLanguages": ["nl", "es", "en"],
+  "goals": {
+    "time": {
+      "min": 1,
+      "max": 60,
+      "default": 5,
+      "unit": "minutes"
+    },
+    "exercises": {
+      "min": 10,
+      "max": 100,
+      "default": 20,
+      "unit": "exercises"
+    }
+  },
+  "similarity": {
+    "threshold": 80,
+    "enabled": true
+  },
+  "colors": {
+    "primary": "#7ba3d4",
+    "secondary": "#c9a5d4",
+    "background": "#e8f4f8",
+    "correct": "#4CAF50",
+    "incorrect": "#f44336"
+  },
+  "scoring": {
+    "levels": [
+      { "min": 95, "emoji": "🌟" },
+      { "min": 85, "emoji": "🎉" },
+      { "min": 75, "emoji": "😊" },
+      { "min": 65, "emoji": "👍" },
+      { "min": 55, "emoji": "🙂" },
+      { "min": 45, "emoji": "😐" },
+      { "min": 35, "emoji": "😕" },
+      { "min": 25, "emoji": "😞" },
+      { "min": 15, "emoji": "😢" },
+      { "min": 0, "emoji": "💪" }
+    ]
+  }
+}

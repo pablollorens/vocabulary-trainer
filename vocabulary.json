@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "title": "Thema 2: Het menselijk lichaam",
+    "description": "Dutch vocabulary exercises for Theme 2",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "1": {
+      "name": "Week 1: Lichaam",
+      "emoji": "🫀",
+      "vocabulary": [
+        {
+          "word": "het benauwd hebben",
+          "definition": "weinig adem hebben"
+        },
+        {
+          "word": "het bezoekuur",
+          "definition": "de tijd waarop je iemand die in het ziekenhuis mag komen opzoeken"
+        },
+        {
+          "word": "de keel schrapen",
+          "definition": "kuchen voor je gaat praten"
+        },
+        {
+          "word": "de ingreep",
+          "definition": "een behandeling om iets weer goed te maken, bijvoorbeeld een operatie"
+        },
+        {
+          "word": "de lichaamshouding",
+          "definition": "hoe je je armen, rug en hoofd houdt als je staat, zit of beweegt"
+        },
+        {
+          "word": "het middel",
+          "definition": "iets om je beter te maken, een medicijn"
+        },
+        {
+          "word": "de mondhoek",
+          "definition": "de zijkant van je mond"
+        },
+        {
+          "word": "ontwaken",
+          "definition": "wakker worden"
+        },
+        {
+          "word": "uitdrogen",
+          "definition": "te weinig vocht in je lichaam krijgen"
+        },
+        {
+          "word": "de verlichting",
+          "definition": "het wegnemen van de pijn"
+        },
+        {
+          "word": "de ziekenhuisopname",
+          "definition": "als je een tijdje in het ziekenhuis moet blijven"
+        },
+        {
+          "word": "zwellen",
+          "definition": "groter en dikker worden van een plek op je lichaam"
+        }
+      ]
+    },
+    "2": {
+      "name": "Week 2: Familie",
+      "emoji": "👨‍👩‍👧‍👦",
+      "vocabulary": [
+        {
+          "word": "de aanstaande",
+          "definition": "de toekomstige man of vrouw"
+        },
+        {
+          "word": "de bruid",
+          "definition": "een vrouw die gaat trouwen"
+        },
+        {
+          "word": "de bruidegom",
+          "definition": "een man die gaat trouwen"
+        },
+        {
+          "word": "het bruidspaar",
+          "definition": "twee mensen die gaan trouwen"
+        },
+        {
+          "word": "de bruiloft",
+          "definition": "het trouwfeest"
+        },
+        {
+          "word": "de gast",
+          "definition": "iemand die op bezoek komt"
+        },
+        {
+          "word": "het geschenk",
+          "definition": "het cadeau"
+        },
+        {
+          "word": "in het huwelijk treden",
+          "definition": "trouwen"
+        },
+        {
+          "word": "de traditie",
+          "definition": "iets wat al lang op dezelfde manier wordt gedaan"
+        },
+        {
+          "word": "traditioneel",
+          "definition": "iets op een bepaalde manier doen, zoals het al lang wordt gedaan"
+        },
+        {
+          "word": "de trouwdag",
+          "definition": "de dag waarop twee mensen gaan trouwen"
+        },
+        {
+          "word": "verloven",
+          "definition": "beloven dat je met elkaar gaat trouwen"
+        }
+      ]
+    },
+    "3": {
+      "name": "Week 3: Uitdrukkingen",
+      "emoji": "💬",
+      "vocabulary": [
+        {
+          "word": "het hoog in je bol hebben",
+          "definition": "jezelf geweldig vinden"
+        },
+        {
+          "word": "je buik ervan vol hebben",
+          "definition": "ergens helemaal geen zin meer in hebben"
+        },
+        {
+          "word": "je hoofd er niet bij hebben",
+          "definition": "je aandacht verliezen"
+        },
+        {
+          "word": "je oren spitsen",
+          "definition": "heel goed naar iets luisteren"
+        },
+        {
+          "word": "je wenkbrauwen optrekken",
+          "definition": "verbaasd zijn"
+        },
+        {
+          "word": "lange tenen hebben",
+          "definition": "snel beledigd zijn"
+        },
+        {
+          "word": "met het verkeerde been uit bed stappen",
+          "definition": "een slecht humeur hebben"
+        },
+        {
+          "word": "niet op je mondje gevallen zijn",
+          "definition": "niet bang zijn om te zeggen wat je van iets vindt"
+        }
+      ]
+    }
+  }
+}

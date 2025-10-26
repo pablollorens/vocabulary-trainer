@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woordenschat Oefening - Thema 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e8f4f8;
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #7ba3d4;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 1em;
+        }
+
+        .score-item {
+            padding: 10px 20px;
+            background: #f8fbfd;
+            border-radius: 10px;
+            font-weight: 600;
+            border: 2px solid #e8f4f8;
+        }
+
+        .correct { color: #4CAF50; }
+        .incorrect { color: #f44336; }
+
+        .theme-selector {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .theme-btn {
+            padding: 15px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            background: white;
+            color: #7ba3d4;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .theme-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(123, 163, 212, 0.3);
+        }
+
+        .theme-btn.active {
+            background: #7ba3d4;
+            color: white;
+        }
+
+        .exercise-type-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .exercise-type-btn {
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            background: white;
+            color: #c9a5d4;
+            font-weight: 600;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .exercise-type-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(201, 165, 212, 0.3);
+        }
+
+        .exercise-type-btn.active {
+            background: #c9a5d4;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option-btn {
+            padding: 20px;
+            font-size: 1em;
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            font-weight: 500;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .option-btn:hover {
+            border-color: #7ba3d4;
+            transform: translateX(10px);
+            background: #f8fbfd;
+        }
+
+        .option-btn.correct {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        .option-btn.incorrect {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+
+        .option-btn.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .input-answer {
+            width: 100%;
+            padding: 20px;
+            font-size: 1em;
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .input-answer:focus {
+            outline: none;
+            border-color: #7ba3d4;
+            box-shadow: 0 0 0 3px rgba(123, 163, 212, 0.1);
+        }
+
+        .submit-btn {
+            padding: 15px 40px;
+            font-size: 1em;
+            border: none;
+            border-radius: 15px;
+            background: #7ba3d4;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(123, 163, 212, 0.3);
+            transition: all 0.3s;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(123, 163, 212, 0.4);
+            background: #6a92c3;
+        }
+
+        .next-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 16px;
+            margin-left: auto;
+            padding: 12px 24px;
+            font-size: 0.95em;
+            border: none;
+            border-radius: 999px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.25);
+            transition: background 0.2s ease, transform 0.2s ease;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .next-btn:hover {
+            background: #3d9b41;
+            transform: translateX(3px);
+        }
+
+        .feedback {
+            margin-top: 16px;
+            font-size: 1em;
+            font-weight: 600;
+            text-align: left;
+            color: #2c3e50;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .feedback.correct {
+            color: #2e7d32;
+        }
+
+        .feedback.incorrect {
+            color: #c62828;
+        }
+
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .matching-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .matching-item {
+            padding: 15px;
+            background: #f5f5f5;
+            border: 3px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .matching-item:hover {
+            border-color: #7ba3d4;
+            transform: scale(1.02);
+            background: #f8fbfd;
+        }
+
+        .matching-item.selected {
+            background: #7ba3d4;
+            color: white;
+            border-color: #7ba3d4;
+        }
+
+        .matching-item.matched {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+            cursor: default;
+        }
+
+        .true-false-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .tf-btn {
+            padding: 30px 60px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .tf-btn.true {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .tf-btn.false {
+            background: #f44336;
+            color: white;
+        }
+
+        .tf-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .matching-container {
+                grid-template-columns: 1fr;
+            }
+
+            .tf-btn {
+                padding: 20px 40px;
+                font-size: 1em;
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+        }
+
+        .start-btn {
+            padding: 12px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 12px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .start-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 90%;
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-title {
+            font-size: 1.8em;
+            color: #7ba3d4;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .goal-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .goal-option {
+            padding: 25px;
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .goal-option:hover {
+            border-color: #7ba3d4;
+            background: #f8fbfd;
+            transform: scale(1.02);
+        }
+
+        .goal-option-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .goal-option-desc {
+            color: #6b7280;
+            font-size: 1em;
+        }
+
+        .goal-input-container {
+            margin-top: 20px;
+        }
+
+        .goal-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+            border: 3px solid #7ba3d4;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 600;
+        }
+
+        .goal-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(123, 163, 212, 0.1);
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 15px;
+            font-size: 1em;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .modal-btn-primary {
+            background: #7ba3d4;
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            background: #6a92c3;
+            transform: translateY(-2px);
+        }
+
+        .modal-btn-secondary {
+            background: #e0e0e0;
+            color: #2c3e50;
+        }
+
+        .modal-btn-secondary:hover {
+            background: #d0d0d0;
+        }
+
+        .results-screen {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .results-emoji {
+            font-size: 6em;
+            margin: 20px 0;
+        }
+
+        .results-title {
+            font-size: 1.8em;
+            color: #7ba3d4;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .results-stat {
+            padding: 20px;
+            background: #f8fbfd;
+            border-radius: 15px;
+            border: 2px solid #e8f4f8;
+        }
+
+        .results-stat-value {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #7ba3d4;
+            margin-bottom: 5px;
+        }
+
+        .results-stat-label {
+            color: #6b7280;
+            font-size: 1em;
+        }
+
+        .overlay-blocker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #e8f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .welcome-message {
+            text-align: center;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 600px;
+        }
+
+        .welcome-message h2 {
+            font-size: 1.8em;
+            color: #7ba3d4;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .welcome-message p {
+            font-size: 1.2em;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .welcome-start-btn {
+            padding: 20px 50px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 15px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .welcome-start-btn:hover {
+            background: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome blocker -->
+        <div class="overlay-blocker" id="welcome-blocker">
+            <div class="welcome-message">
+                <h2 id="welcome-title"></h2>
+                <p id="welcome-text">Klik op <strong>START</strong> om te beginnen met oefenen.</p>
+                <button class="welcome-start-btn" id="welcome-start-btn">▶️ START</button>
+            </div>
+        </div>
+
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: relative; z-index: 1000;">
+                <h1 style="margin: 0;" id="app-title"></h1>
+                <button id="start-btn" class="start-btn">▶️ START</button>
+            </div>
+            <div id="timer-display" style="font-size: 1.8em; color: #7ba3d4; font-weight: 600; margin: 15px 0; display: none;">
+                ⏱️ <span id="timer-text">00:00</span>
+            </div>
+            <p style="font-size: 1em; color: #6b7280; margin-top: 10px;" id="app-subtitle"></p>
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="correct">✓ <span id="correct-label">Goed</span>: <span id="correct-count">0</span></span>
+                </div>
+                <div class="score-item">
+                    <span class="incorrect">✗ <span id="incorrect-label">Fout</span>: <span id="incorrect-count">0</span></span>
+                </div>
+                <div class="score-item">
+                    <span id="total-label">Totaal</span>: <span id="total-count">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="theme-selector" id="theme-selector">
+            <!-- Theme buttons will be generated dynamically from vocabulary.json -->
+        </div>
+
+        <div class="exercise-type-selector">
+            <button class="exercise-type-btn active" data-type="multiple-choice" id="exercise-type-multiple">🎯 Meerkeuze</button>
+            <button class="exercise-type-btn" data-type="fill-in" id="exercise-type-fill">✏️ Invullen</button>
+            <button class="exercise-type-btn" data-type="matching" id="exercise-type-matching">🔗 Koppelen</button>
+            <button class="exercise-type-btn" data-type="true-false" id="exercise-type-truefalse">✓/✗ Waar/Niet waar</button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%">0%</div>
+        </div>
+
+        <div class="card" id="exercise-card">
+            <!-- Exercises will appear here after START -->
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // DATA LOADING (STATIC JSON FILES)
+        // ============================================
+
+        const DATA_SOURCES = {
+            vocabulary: 'vocabulary.json',
+            translations: 'translations.json'
+        };
+
+        const DEFAULT_LANGUAGE = 'nl';
+
+        let vocabularyData = null;
+        let translationsData = null;
+        let translation = null;
+        let themeOptions = {};
+        let dataReady = false;
+
+        function t(path, replacements = {}) {
+            if (!translation) return path;
+            const value = path.split('.').reduce((acc, key) => acc && acc[key], translation);
+            if (!value) return path;
+            return Object.entries(replacements).reduce((acc, [key, val]) => {
+                const pattern = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+                return acc.replace(pattern, val);
+            }, value);
+        }
+
+        function loadJSONViaFrame(path) {
+            return new Promise((resolve, reject) => {
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = path;
+
+                const cleanup = () => {
+                    if (iframe.parentNode) {
+                        iframe.parentNode.removeChild(iframe);
+                    }
+                };
+
+                iframe.onload = () => {
+                    try {
+                        const doc = iframe.contentDocument || iframe.contentWindow.document;
+                        const text = doc.body ? doc.body.innerText : doc.documentElement.textContent;
+                        resolve(JSON.parse(text));
+                    } catch (error) {
+                        reject(error);
+                    } finally {
+                        cleanup();
+                    }
+                };
+
+                iframe.onerror = () => {
+                    cleanup();
+                    reject(new Error(`Kon ${path} niet laden via fallback`));
+                };
+
+                document.body.appendChild(iframe);
+            });
+        }
+
+        async function loadJSONResource(path) {
+            try {
+                const response = await fetch(path, { cache: 'no-store' });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.warn(`Fetch voor ${path} is mislukt, probeer fallback...`, error);
+                if (window.location.protocol === 'file:') {
+                    return await loadJSONViaFrame(path);
+                }
+                throw error;
+            }
+        }
+
+        async function loadData() {
+            try {
+                const [vocabJson, translationsJson] = await Promise.all([
+                    loadJSONResource(DATA_SOURCES.vocabulary),
+                    loadJSONResource(DATA_SOURCES.translations)
+                ]);
+
+                vocabularyData = vocabJson;
+                translationsData = translationsJson;
+                translation = translationsData[DEFAULT_LANGUAGE] || Object.values(translationsData)[0];
+                themeOptions = buildThemeOptions(vocabularyData);
+                applyTranslations();
+                initializeApp();
+                dataReady = true;
+            } catch (error) {
+                console.error('Fout bij het laden van data:', error);
+                showDataError(error);
+            }
+        }
+
+        function buildThemeOptions(data) {
+            const themes = data?.themes || {};
+            const options = {
+                all: `🌟 ${t('themes.allWeeks') || 'Alle weken'}`
+            };
+
+            Object.entries(themes).forEach(([themeId, themeData]) => {
+                const emoji = themeData.emoji ? `${themeData.emoji} ` : '';
+                options[themeId] = `${emoji}${themeData.name}`;
+            });
+
+            return options;
+        }
+
+        function applyTranslations() {
+            if (!translation) return;
+
+            document.title = `${translation.app.title} - ${translation.app.subtitle}`;
+
+            const appTitle = document.getElementById('app-title');
+            if (appTitle) {
+                appTitle.textContent = translation.app.title;
+            }
+
+            const appSubtitle = document.getElementById('app-subtitle');
+            if (appSubtitle) {
+                appSubtitle.textContent = translation.app.subtitle;
+            }
+
+            const welcomeTitle = document.getElementById('welcome-title');
+            if (welcomeTitle) {
+                welcomeTitle.textContent = translation.app.welcomeTitle;
+            }
+
+            const welcomeText = document.getElementById('welcome-text');
+            if (welcomeText) {
+                welcomeText.innerHTML = translation.app.welcomeText;
+            }
+
+            const startBtn = document.getElementById('start-btn');
+            if (startBtn) {
+                startBtn.innerHTML = `▶️ ${translation.app.startButton}`;
+            }
+
+            const welcomeStartBtn = document.getElementById('welcome-start-btn');
+            if (welcomeStartBtn) {
+                welcomeStartBtn.innerHTML = `▶️ ${translation.app.startButton}`;
+            }
+
+            const correctLabel = document.getElementById('correct-label');
+            if (correctLabel) {
+                correctLabel.textContent = translation.stats.correct;
+            }
+
+            const incorrectLabel = document.getElementById('incorrect-label');
+            if (incorrectLabel) {
+                incorrectLabel.textContent = translation.stats.incorrect;
+            }
+
+            const totalLabel = document.getElementById('total-label');
+            if (totalLabel) {
+                totalLabel.textContent = translation.stats.total;
+            }
+
+            const exerciseTypeMultiple = document.getElementById('exercise-type-multiple');
+            if (exerciseTypeMultiple) {
+                exerciseTypeMultiple.textContent = `🎯 ${translation.exerciseTypes.multipleChoice}`;
+            }
+
+            const exerciseTypeFill = document.getElementById('exercise-type-fill');
+            if (exerciseTypeFill) {
+                exerciseTypeFill.textContent = `✏️ ${translation.exerciseTypes.fillIn}`;
+            }
+
+            const exerciseTypeMatching = document.getElementById('exercise-type-matching');
+            if (exerciseTypeMatching) {
+                exerciseTypeMatching.textContent = `🔗 ${translation.exerciseTypes.matching}`;
+            }
+
+            const exerciseTypeTrueFalse = document.getElementById('exercise-type-truefalse');
+            if (exerciseTypeTrueFalse) {
+                exerciseTypeTrueFalse.textContent = `✓/✗ ${translation.exerciseTypes.trueFalse}`;
+            }
+
+            updatePendingCounter();
+        }
+
+        function showDataError(error) {
+            const blocker = document.getElementById('welcome-blocker');
+            if (blocker) blocker.style.display = 'none';
+
+            const card = document.getElementById('exercise-card');
+            if (card) {
+                card.innerHTML = `
+                    <div class="results-screen" style="color: #f44336;">
+                        <div class="results-emoji">⚠️</div>
+                        <p>Er ging iets mis bij het laden van de data. Zorg dat je deze pagina opent via een lokaal webserver (bijv. <code>npx serve</code>) of probeer het opnieuw.</p>
+                        <pre style="margin-top: 10px; color: #d32f2f;">${error.message}</pre>
+                    </div>
+                `;
+            }
+        }
+
+        // ============================================
+        // END OF CONFIGURATION
+        // ============================================
+
+        let currentTheme = 1;
+        let currentExerciseType = 'multiple-choice';
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let totalCount = 0;
+        let currentQuestion = null;
+        let matchingSelections = [];
+        let matchingPairs = [];
+
+        // Session state
+        let sessionActive = false;
+        let sessionGoalType = null; // 'time' or 'exercises'
+        let sessionGoalValue = 0;
+        let sessionStartTime = null;
+        let timerInterval = null;
+        let sessionTimeElapsed = 0; // in seconds
+        let sessionTimeRemaining = 0; // in seconds (for countdown)
+
+        // Get vocabulary based on current theme
+        function getCurrentVocabulary() {
+            if (!vocabularyData?.themes) {
+                return [];
+            }
+
+            if (currentTheme === 'all') {
+                return Object.values(vocabularyData.themes).flatMap(theme => theme.vocabulary);
+            }
+
+            const theme = vocabularyData.themes[currentTheme];
+            return theme ? theme.vocabulary : [];
+        }
+
+        // Timer functions
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            if (sessionGoalType === 'time') {
+                // Countdown mode
+                sessionTimeRemaining = sessionGoalValue * 60;
+                timerInterval = setInterval(() => {
+                    sessionTimeRemaining--;
+                    sessionTimeElapsed++;
+                    document.getElementById('timer-text').textContent = formatTime(sessionTimeRemaining);
+                    
+                    if (sessionTimeRemaining <= 0) {
+                        endSession();
+                    }
+                }, 1000);
+            } else {
+                // Count up mode
+                sessionTimeElapsed = 0;
+                timerInterval = setInterval(() => {
+                    sessionTimeElapsed++;
+                    document.getElementById('timer-text').textContent = formatTime(sessionTimeElapsed);
+                }, 1000);
+            }
+        }
+
+        function stopTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+        }
+
+        function updateStartButton() {
+            const startBtn = document.getElementById('start-btn');
+            if (startBtn) {
+                if (sessionActive) {
+                    startBtn.innerHTML = `🔄 ${t('app.restartButton')}`;
+                } else {
+                    startBtn.innerHTML = `▶️ ${t('app.startButton')}`;
+                }
+            }
+        }
+
+        function resetSession() {
+            sessionActive = false;
+            sessionGoalType = null;
+            sessionGoalValue = 0;
+            sessionStartTime = null;
+            sessionTimeElapsed = 0;
+            sessionTimeRemaining = 0;
+            correctCount = 0;
+            incorrectCount = 0;
+            totalCount = 0;
+            matchingPairs = [];
+            stopTimer();
+            updateScore();
+            updateStartButton();
+            document.getElementById('timer-display').style.display = 'none';
+            document.getElementById('timer-text').textContent = '00:00';
+        }
+
+        function checkSessionGoal() {
+            if (!sessionActive) return;
+            
+            if (sessionGoalType === 'exercises' && totalCount >= sessionGoalValue) {
+                endSession();
+            }
+        }
+
+        function endSession() {
+            stopTimer();
+            sessionActive = false;
+            showResultsScreen();
+        }
+
+        function getEmojiForScore(percentage) {
+            if (percentage >= 95) return '🌟'; // Level 10
+            if (percentage >= 85) return '🎉'; // Level 9
+            if (percentage >= 75) return '😊'; // Level 8
+            if (percentage >= 65) return '👍'; // Level 7
+            if (percentage >= 55) return '🙂'; // Level 6
+            if (percentage >= 45) return '😐'; // Level 5
+            if (percentage >= 35) return '😕'; // Level 4
+            if (percentage >= 25) return '😞'; // Level 3
+            if (percentage >= 15) return '😢'; // Level 2
+            return '💪'; // Level 1
+        }
+
+        function getMessageForScore(percentage) {
+            if (!translation?.results) {
+                if (percentage >= 95) return 'Perfect! Je bent een ster!';
+                if (percentage >= 85) return 'Uitstekend gedaan!';
+                if (percentage >= 75) return 'Heel goed werk!';
+                if (percentage >= 65) return 'Goed gedaan!';
+                if (percentage >= 55) return 'Redelijk goed!';
+                if (percentage >= 45) return 'Je kunt het beter!';
+                if (percentage >= 35) return 'Meer oefenen nodig!';
+                if (percentage >= 25) return 'Blijf oefenen!';
+                if (percentage >= 15) return 'Niet opgeven!';
+                return 'Blijf proberen, je kunt het!';
+            }
+
+            if (percentage >= 95) return translation.results.level10;
+            if (percentage >= 85) return translation.results.level9;
+            if (percentage >= 75) return translation.results.level8;
+            if (percentage >= 65) return translation.results.level7;
+            if (percentage >= 55) return translation.results.level6;
+            if (percentage >= 45) return translation.results.level5;
+            if (percentage >= 35) return translation.results.level4;
+            if (percentage >= 25) return translation.results.level3;
+            if (percentage >= 15) return translation.results.level2;
+            return translation.results.level1;
+        }
+
+        function showResultsScreen() {
+            const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
+            const emoji = getEmojiForScore(percentage);
+            const message = getMessageForScore(percentage);
+            const timeDisplay = formatTime(sessionTimeElapsed);
+
+            const html = `
+                <div class="results-screen">
+                    <div class="results-emoji">${emoji}</div>
+                    <div class="results-title">${t('results.finished')}</div>
+                    <p style="font-size: 1.2em; color: #2c3e50; margin-bottom: 20px;">${message}</p>
+                    
+                    <div class="results-stats">
+                        <div class="results-stat">
+                            <div class="results-stat-value">${timeDisplay}</div>
+                            <div class="results-stat-label">${t('results.time')}</div>
+                        </div>
+                        <div class="results-stat">
+                            <div class="results-stat-value">${totalCount}</div>
+                            <div class="results-stat-label">${t('results.totalQuestions')}</div>
+                        </div>
+                        <div class="results-stat">
+                            <div class="results-stat-value" style="color: #4CAF50;">${correctCount}</div>
+                            <div class="results-stat-label">${t('stats.correct')}</div>
+                        </div>
+                        <div class="results-stat">
+                            <div class="results-stat-value" style="color: #f44336;">${incorrectCount}</div>
+                            <div class="results-stat-label">${t('stats.incorrect')}</div>
+                        </div>
+                        <div class="results-stat">
+                            <div class="results-stat-value">${percentage}%</div>
+                            <div class="results-stat-label">${t('results.score')}</div>
+                        </div>
+                    </div>
+
+                    <button class="next-btn" onclick="location.reload()" style="margin-top: 30px;">
+                        🔄 ${t('buttons.newSession')}
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('exercise-card').innerHTML = html;
+            
+            // Hide theme and exercise selectors
+            document.querySelector('.theme-selector').style.display = 'none';
+            document.querySelector('.exercise-type-selector').style.display = 'none';
+            document.querySelector('.progress-bar').style.display = 'none';
+        }
+
+        function showGoalModal() {
+            if (!dataReady) return;
+            console.log('showGoalModal called');
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.id = 'goal-modal';
+            
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-title">🎯 ${t('goals.title')}</div>
+                    
+                    <div class="goal-options">
+                        <div class="goal-option" data-goal-type="time">
+                            <div class="goal-option-title">⏱️ ${t('goals.time')}</div>
+                            <div class="goal-option-desc">${t('goals.timeDesc')}</div>
+                        </div>
+                        
+                        <div class="goal-option" data-goal-type="exercises">
+                            <div class="goal-option-title">🎯 ${t('goals.exercises')}</div>
+                            <div class="goal-option-desc">${t('goals.exercisesDesc')}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            console.log('Modal appended to body');
+            
+            // Add click listeners to goal options
+            document.querySelectorAll('.goal-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    console.log('Goal option clicked:', this.dataset.goalType);
+                    selectGoalType(this.dataset.goalType);
+                });
+            });
+        }
+
+        function selectGoalType(type) {
+            const modal = document.getElementById('goal-modal');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            const minValue = type === 'time' ? 1 : 10;
+            const maxValue = type === 'time' ? 60 : 100;
+            const label = type === 'time' ? t('goals.time').toLowerCase() : t('goals.exercises').toLowerCase();
+            const emoji = type === 'time' ? '⏱️' : '🎯';
+            const question = type === 'time' ? t('goals.howManyMinutes') : t('goals.howManyExercises');
+            const placeholder = t('goals.enterValue', { type: label });
+            
+            modalContent.innerHTML = `
+                <div class="modal-title">${emoji} ${question}</div>
+                
+                <div class="goal-input-container">
+                    <input 
+                        type="number" 
+                        class="goal-input" 
+                        id="goal-value-input"
+                        min="${minValue}" 
+                        max="${maxValue}" 
+                        value="${type === 'time' ? 5 : 20}"
+                        placeholder="${placeholder}"
+                    >
+                </div>
+                
+                <div class="modal-buttons">
+                    <button class="modal-btn modal-btn-secondary" id="cancel-goal-btn">
+                        ${t('goals.cancel')}
+                    </button>
+                    <button class="modal-btn modal-btn-primary" id="start-goal-btn">
+                        ${t('goals.start')}
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('goal-value-input').focus();
+            
+            // Add event listeners
+            document.getElementById('cancel-goal-btn').addEventListener('click', closeGoalModal);
+            document.getElementById('start-goal-btn').addEventListener('click', () => startSession(type));
+            document.getElementById('goal-value-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    startSession(type);
+                }
+            });
+        }
+
+        function closeGoalModal() {
+            const modal = document.getElementById('goal-modal');
+            if (modal) modal.remove();
+            
+            // Resume timer if session was active before opening modal
+            if (sessionActive && timerInterval === null) {
+                startTimer();
+            }
+        }
+
+        function startSession(type) {
+            const input = document.getElementById('goal-value-input');
+            const value = parseInt(input.value);
+            
+            const minValue = type === 'time' ? 1 : 10;
+            const maxValue = type === 'time' ? 60 : 100;
+            
+            if (!value || value < minValue || value > maxValue) {
+                alert(t('goals.validationError', { min: minValue, max: maxValue }));
+                return;
+            }
+            
+            closeGoalModal();
+            
+            // Remove welcome blocker
+            const blocker = document.getElementById('welcome-blocker');
+            if (blocker) blocker.remove();
+            
+            // Reset everything (this will stop any existing timer)
+            resetSession();
+            
+            // Set session parameters
+            sessionActive = true;
+            sessionGoalType = type;
+            sessionGoalValue = value;
+            sessionStartTime = Date.now();
+            
+            // Update START button text
+            updateStartButton();
+            updatePendingCounter();
+            
+            // Show and start timer
+            document.getElementById('timer-display').style.display = 'block';
+            if (type === 'time') {
+                document.getElementById('timer-text').textContent = formatTime(value * 60);
+            } else {
+                document.getElementById('timer-text').textContent = '00:00';
+            }
+            startTimer();
+            
+            // Generate first exercise
+            generateExercise();
+        }
+
+        // START button handler
+        const startBtn = document.getElementById('start-btn');
+        if (startBtn) {
+            startBtn.addEventListener('click', () => {
+                console.log('Header START button clicked');
+                if (sessionActive) {
+                    // Pause timer while showing modal
+                    stopTimer();
+                    showGoalModal();
+                } else {
+                    showGoalModal();
+                }
+            });
+        }
+
+        // Welcome START button handler
+        const welcomeStartBtn = document.getElementById('welcome-start-btn');
+        if (welcomeStartBtn) {
+            welcomeStartBtn.addEventListener('click', () => {
+                console.log('Welcome START button clicked');
+                showGoalModal();
+            });
+        } else {
+            console.error('Welcome START button not found!');
+        }
+
+        // Initialize app once JSON data is present
+        function initializeApp() {
+            if (!translation || !themeOptions || Object.keys(themeOptions).length === 0) {
+                return;
+            }
+
+            const themeSelector = document.getElementById('theme-selector');
+            if (!themeSelector) return;
+
+            themeSelector.innerHTML = '';
+
+            const nonAllTheme = Object.keys(themeOptions).find(key => key !== 'all');
+            currentTheme = nonAllTheme ? parseInt(nonAllTheme, 10) : 'all';
+
+            Object.entries(themeOptions).forEach(([themeId, themeName]) => {
+                const isActive = themeId === 'all'
+                    ? currentTheme === 'all'
+                    : currentTheme === parseInt(themeId, 10);
+
+                const button = document.createElement('button');
+                button.className = 'theme-btn' + (isActive ? ' active' : '');
+                button.dataset.theme = themeId;
+                button.textContent = themeName;
+                themeSelector.appendChild(button);
+            });
+
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (!dataReady) return;
+                    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentTheme = btn.dataset.theme === 'all' ? 'all' : parseInt(btn.dataset.theme, 10);
+                    generateExercise();
+                });
+            });
+        }
+
+        // Exercise type selector
+        document.querySelectorAll('.exercise-type-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.exercise-type-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentExerciseType = btn.dataset.type;
+                if (dataReady) {
+                    generateExercise();
+                }
+            });
+        });
+
+        function shuffle(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        // Calculate similarity between two strings (Levenshtein distance based)
+        function calculateSimilarity(str1, str2) {
+            const s1 = str1.toLowerCase().trim();
+            const s2 = str2.toLowerCase().trim();
+            
+            if (s1 === s2) return 100;
+            
+            const longer = s1.length > s2.length ? s1 : s2;
+            const shorter = s1.length > s2.length ? s2 : s1;
+            
+            if (longer.length === 0) return 100;
+            
+            const editDistance = levenshteinDistance(s1, s2);
+            const similarity = ((longer.length - editDistance) / longer.length) * 100;
+            
+            return similarity;
+        }
+        
+        // Levenshtein distance algorithm
+        function levenshteinDistance(str1, str2) {
+            const matrix = [];
+            
+            for (let i = 0; i <= str2.length; i++) {
+                matrix[i] = [i];
+            }
+            
+            for (let j = 0; j <= str1.length; j++) {
+                matrix[0][j] = j;
+            }
+            
+            for (let i = 1; i <= str2.length; i++) {
+                for (let j = 1; j <= str1.length; j++) {
+                    if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1,
+                            matrix[i][j - 1] + 1,
+                            matrix[i - 1][j] + 1
+                        );
+                    }
+                }
+            }
+            
+            return matrix[str2.length][str1.length];
+        }
+
+        function getStatLabel(key, fallback) {
+            return translation?.stats?.[key] || fallback;
+        }
+
+        function updatePendingCounter() {
+            const totalLabel = document.getElementById('total-label');
+            const totalCountEl = document.getElementById('total-count');
+            if (!totalLabel || !totalCountEl) return;
+
+            if (sessionActive && sessionGoalType === 'exercises') {
+                const remaining = Math.max(sessionGoalValue - totalCount, 0);
+                totalLabel.textContent = getStatLabel('pending', 'Nog te doen');
+                totalCountEl.textContent = remaining;
+            } else {
+                totalLabel.textContent = getStatLabel('total', 'Totaal');
+                totalCountEl.textContent = totalCount;
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('correct-count').textContent = correctCount;
+            document.getElementById('incorrect-count').textContent = incorrectCount;
+            updatePendingCounter();
+            
+            const percentage = totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
+            document.getElementById('progress-fill').style.width = percentage + '%';
+            document.getElementById('progress-fill').textContent = percentage + '%';
+            
+            // Check if goal reached
+            checkSessionGoal();
+        }
+
+        function generateMultipleChoice() {
+            const vocabList = getCurrentVocabulary();
+            const isWordToDefinition = Math.random() > 0.5;
+            
+            currentQuestion = getRandomItem(vocabList);
+            
+            const wrongAnswers = shuffle(vocabList.filter(v => v !== currentQuestion)).slice(0, 3);
+            const allOptions = shuffle([currentQuestion, ...wrongAnswers]);
+            
+            const questionText = isWordToDefinition ? currentQuestion.word : currentQuestion.definition;
+            const correctAnswer = isWordToDefinition ? currentQuestion.definition : currentQuestion.word;
+            const questionLabel = isWordToDefinition ? t('questions.whatMeans') : t('questions.whichWord');
+            
+            let html = `
+                <div class="question">
+                    <strong>${isWordToDefinition ? '📖' : '🔍'} ${questionLabel}</strong><br><br>
+                    "${questionText}"
+                </div>
+                <div class="options">
+            `;
+            
+            allOptions.forEach(option => {
+                const optionText = isWordToDefinition ? option.definition : option.word;
+                html += `<button class="option-btn" data-answer="${optionText}">${optionText}</button>`;
+            });
+            
+            html += '</div>';
+            
+            document.getElementById('exercise-card').innerHTML = html;
+            
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (this.classList.contains('disabled')) return;
+                    
+                    document.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
+                    
+                    const isCorrect = this.dataset.answer === correctAnswer;
+                    this.classList.add(isCorrect ? 'correct' : 'incorrect');
+                    
+                    if (isCorrect) {
+                        correctCount++;
+                    } else {
+                        incorrectCount++;
+                        document.querySelectorAll('.option-btn').forEach(b => {
+                            if (b.dataset.answer === correctAnswer) {
+                                b.classList.add('correct');
+                            }
+                        });
+                    }
+                    
+                    totalCount++;
+                    updateScore();
+                    
+                    const feedback = document.createElement('div');
+                    feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                    feedback.textContent = isCorrect ? `🎉 ${t('feedback.correct')}` : `❌ ${t('feedback.incorrect')}`;
+                    document.getElementById('exercise-card').appendChild(feedback);
+                    
+                    const nextBtn = document.createElement('button');
+                    nextBtn.className = 'next-btn';
+                    nextBtn.textContent = `➡️ ${t('buttons.next')}`;
+                    nextBtn.addEventListener('click', generateExercise);
+                    document.getElementById('exercise-card').appendChild(nextBtn);
+                });
+            });
+        }
+
+        function generateFillIn() {
+            const vocabList = getCurrentVocabulary();
+            const isWordToDefinition = Math.random() > 0.5;
+
+            currentQuestion = getRandomItem(vocabList);
+
+            const questionText = isWordToDefinition ? currentQuestion.word : currentQuestion.definition;
+            const correctAnswer = isWordToDefinition ? currentQuestion.definition : currentQuestion.word;
+            const questionLabel = isWordToDefinition ? t('questions.whatMeans') : t('questions.whichWord');
+            
+            let html = `
+                <div class="question">
+                    <strong>${isWordToDefinition ? '📖' : '🔍'} ${questionLabel}</strong><br><br>
+                    "${questionText}"
+                </div>
+                <input type="text" class="input-answer" id="answer-input" placeholder="${t('questions.typePlaceholder')}">
+                <button class="submit-btn" id="submit-answer">${t('buttons.check')}</button>
+            `;
+
+            document.getElementById('exercise-card').innerHTML = html;
+            
+            document.getElementById('answer-input').focus();
+            
+            const submitAnswer = () => {
+                const userAnswer = document.getElementById('answer-input').value.trim().toLowerCase();
+                const correct = correctAnswer.toLowerCase();
+                
+                const isExactMatch = userAnswer === correct;
+                const similarity = calculateSimilarity(userAnswer, correctAnswer);
+                const isAlmostCorrect = similarity >= 80 && !isExactMatch;
+                const isCorrect = isExactMatch || isAlmostCorrect;
+                
+                if (isCorrect) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+                
+                totalCount++;
+                updateScore();
+                
+                const feedback = document.createElement('div');
+                feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                const submittedAnswer = document.getElementById('answer-input').value.trim();
+                
+                if (isExactMatch) {
+                    feedback.innerHTML = `🎉 ${t('feedback.correct')}`;
+                } else if (isAlmostCorrect) {
+                    feedback.innerHTML = `✨ ${t('feedback.almostCorrect', { percent: Math.round(similarity) })}<br><br>${t('feedback.yourAnswer')}: "${submittedAnswer}"<br>${t('feedback.correctAnswer')}: "${correctAnswer}"`;
+                } else {
+                    feedback.innerHTML = `❌ ${t('feedback.theCorrectAnswerIs')}<br><br>"${correctAnswer}"`;
+                }
+                
+                document.getElementById('exercise-card').appendChild(feedback);
+                
+                document.getElementById('submit-answer').remove();
+                document.getElementById('answer-input').disabled = true;
+                
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'next-btn';
+                nextBtn.textContent = `➡️ ${t('buttons.next')}`;
+                nextBtn.addEventListener('click', generateExercise);
+                document.getElementById('exercise-card').appendChild(nextBtn);
+            };
+            
+            document.getElementById('submit-answer').addEventListener('click', submitAnswer);
+            document.getElementById('answer-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') submitAnswer();
+            });
+        }
+
+        function generateMatching() {
+            const vocabList = getCurrentVocabulary();
+            const itemsToMatch = shuffle(vocabList).slice(0, 5);
+            
+            matchingSelections = [];
+            // Don't reset matchingPairs - preserve them
+            
+            // Get IDs of already matched pairs
+            const matchedIds = matchingPairs.map(pair => pair.first.id);
+            
+            // Filter out already matched items
+            const remainingItems = itemsToMatch.filter(item => !matchedIds.includes(item.word));
+            
+            // If all items are matched, show completion
+            if (remainingItems.length === 0 && matchingPairs.length > 0) {
+                const feedback = document.createElement('div');
+                feedback.className = 'feedback correct';
+                feedback.textContent = `🎉 ${t('feedback.allMatched')}`;
+                document.getElementById('exercise-card').innerHTML = '';
+                document.getElementById('exercise-card').appendChild(feedback);
+
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'next-btn';
+                nextBtn.textContent = `➡️ ${t('buttons.nextExercise')}`;
+                nextBtn.addEventListener('click', () => {
+                    matchingPairs = []; // Reset for new exercise
+                    generateExercise();
+                });
+                document.getElementById('exercise-card').appendChild(nextBtn);
+                return;
+            }
+            
+            // Use remaining items or all items if starting fresh
+            const currentItems = remainingItems.length > 0 ? remainingItems : itemsToMatch;
+            
+            const words = shuffle(currentItems.map(item => ({ text: item.word, id: item.word })));
+            const definitions = shuffle(currentItems.map(item => ({ text: item.definition, id: item.word })));
+            
+            let html = `
+                <div class="question">
+                    <strong>🔗 ${t('questions.matchWords')}</strong><br>
+                    <small>${t('questions.matchInstructions')}</small>
+                </div>
+                <div class="matching-container">
+                    <div class="matching-column" id="words-column">
+            `;
+            
+            // Add matched items first (in green)
+            matchingPairs.forEach(pair => {
+                if (pair.first.side === 'word') {
+                    html += `<div class="matching-item matched">${pair.first.element.textContent}</div>`;
+                }
+            });
+            
+            // Add remaining words
+            words.forEach((item, index) => {
+                html += `<div class="matching-item" data-id="${item.id}" data-side="word">${item.text}</div>`;
+            });
+            
+            html += `
+                    </div>
+                    <div class="matching-column" id="definitions-column">
+            `;
+            
+            // Add matched items first (in green)
+            matchingPairs.forEach(pair => {
+                if (pair.first.side === 'definition') {
+                    html += `<div class="matching-item matched">${pair.first.element.textContent}</div>`;
+                } else {
+                    html += `<div class="matching-item matched">${pair.second.element.textContent}</div>`;
+                }
+            });
+            
+            // Add remaining definitions
+            definitions.forEach((item, index) => {
+                html += `<div class="matching-item" data-id="${item.id}" data-side="definition">${item.text}</div>`;
+            });
+            
+            html += `
+                    </div>
+                </div>
+                <div id="matching-feedback"></div>
+            `;
+            
+            document.getElementById('exercise-card').innerHTML = html;
+            
+            document.querySelectorAll('.matching-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    if (this.classList.contains('matched')) return;
+                    
+                    if (this.classList.contains('selected')) {
+                        this.classList.remove('selected');
+                        matchingSelections = matchingSelections.filter(s => s.element !== this);
+                    } else {
+                        this.classList.add('selected');
+                        matchingSelections.push({
+                            element: this,
+                            id: this.dataset.id,
+                            side: this.dataset.side
+                        });
+                    }
+                    
+                    if (matchingSelections.length === 2) {
+                        const [first, second] = matchingSelections;
+                        
+                        if (first.side !== second.side && first.id === second.id) {
+                            // Correct match
+                            first.element.classList.remove('selected');
+                            second.element.classList.remove('selected');
+                            first.element.classList.add('matched');
+                            second.element.classList.add('matched');
+                            matchingPairs.push({ first, second });
+                            correctCount++;
+                            totalCount++;
+                            matchingSelections = [];
+                            updateScore();
+                        } else {
+                            // Wrong match - show red for 1 second
+                            first.element.classList.remove('selected');
+                            second.element.classList.remove('selected');
+                            first.element.style.background = '#f44336';
+                            first.element.style.color = 'white';
+                            first.element.style.borderColor = '#f44336';
+                            second.element.style.background = '#f44336';
+                            second.element.style.color = 'white';
+                            second.element.style.borderColor = '#f44336';
+                            
+                            incorrectCount++;
+                            totalCount++;
+                            matchingSelections = [];
+                            updateScore();
+                            
+                            // Disable clicks during feedback
+                            document.querySelectorAll('.matching-item').forEach(item => {
+                                item.style.pointerEvents = 'none';
+                            });
+                            
+                            setTimeout(() => {
+                                // Reshuffle and regenerate
+                                generateMatching();
+                            }, 1000);
+                            return;
+                        }
+                        
+                        if (matchingPairs.length === 5) {
+                            setTimeout(() => {
+                                const feedback = document.createElement('div');
+                                feedback.className = 'feedback correct';
+                                feedback.textContent = `🎉 ${t('feedback.allMatched')}`;
+                                document.getElementById('matching-feedback').appendChild(feedback);
+                                
+                                const nextBtn = document.createElement('button');
+                                nextBtn.className = 'next-btn';
+                                nextBtn.textContent = `➡️ ${t('buttons.nextExercise')}`;
+                                nextBtn.addEventListener('click', () => {
+                                    matchingPairs = []; // Reset for new exercise
+                                    generateExercise();
+                                });
+                                document.getElementById('matching-feedback').appendChild(nextBtn);
+                            }, 500);
+                        }
+                    }
+                });
+            });
+        }
+
+        function generateTrueFalse() {
+            const vocabList = getCurrentVocabulary();
+            currentQuestion = getRandomItem(vocabList);
+            
+            const isCorrectStatement = Math.random() > 0.5;
+            let displayDefinition;
+            
+            if (isCorrectStatement) {
+                displayDefinition = currentQuestion.definition;
+            } else {
+                const wrongItem = getRandomItem(vocabList.filter(v => v !== currentQuestion));
+                displayDefinition = wrongItem.definition;
+            }
+            
+            const questionTitle = t('questions.trueFalseQuestion');
+            const trueLabel = t('buttons.true');
+            const falseLabel = t('buttons.false');
+            
+            let html = `
+                <div class="question">
+                    <strong>✓ / ✗ ${questionTitle}</strong><br><br>
+                    <strong>"${currentQuestion.word}"</strong> ${t('questions.whatMeans')}<br><br>
+                    "${displayDefinition}"
+                </div>
+                <div class="true-false-btns">
+                    <button class="tf-btn true" data-answer="true">✓ ${trueLabel}</button>
+                    <button class="tf-btn false" data-answer="false">✗ ${falseLabel}</button>
+                </div>
+            `;
+            
+            document.getElementById('exercise-card').innerHTML = html;
+            
+            document.querySelectorAll('.tf-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const userAnswerTrue = this.dataset.answer === 'true';
+                    const isCorrect = userAnswerTrue === isCorrectStatement;
+                    
+                    if (isCorrect) {
+                        correctCount++;
+                    } else {
+                        incorrectCount++;
+                    }
+                    
+                    totalCount++;
+                    updateScore();
+                    
+                    const feedback = document.createElement('div');
+                    feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                    
+                    if (isCorrect) {
+                        feedback.textContent = `🎉 ${t('feedback.correct')}`;
+                    } else {
+                        const correctAnswerText = isCorrectStatement ? trueLabel : falseLabel;
+                        feedback.innerHTML = `❌ ${t('feedback.theCorrectAnswerIs')} ${correctAnswerText}<br><br>${t('feedback.correctAnswer')}:<br>"${currentQuestion.definition}"`;
+                    }
+                    
+                    document.getElementById('exercise-card').appendChild(feedback);
+                    
+                    document.querySelectorAll('.tf-btn').forEach(b => b.style.display = 'none');
+                    
+                    const nextBtn = document.createElement('button');
+                    nextBtn.className = 'next-btn';
+                    nextBtn.textContent = `➡️ ${t('buttons.next')}`;
+                    nextBtn.addEventListener('click', generateExercise);
+                    document.getElementById('exercise-card').appendChild(nextBtn);
+                });
+            });
+        }
+
+        function generateExercise() {
+            switch(currentExerciseType) {
+                case 'multiple-choice':
+                    generateMultipleChoice();
+                    break;
+                case 'fill-in':
+                    generateFillIn();
+                    break;
+                case 'matching':
+                    generateMatching();
+                    break;
+                case 'true-false':
+                    generateTrueFalse();
+                    break;
+            }
+        }
+
+        // Don't initialize exercise at page load - wait for START button
+        // generateExercise();
+
+        // Fetch vocabulary and translations once the page loads
+        loadData();
+    </script>
+</body>
+</html>
