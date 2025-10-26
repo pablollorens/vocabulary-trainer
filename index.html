@@ -1300,7 +1300,11 @@
             applyTranslations();
             updatePendingCounter();
             updateScore();
-            if (typeof generateExercise === 'function' && dataReady) {
+
+            // Re-render results screen if currently showing
+            if (resultsShown) {
+                showResultsScreen();
+            } else if (typeof generateExercise === 'function' && dataReady && sessionActive) {
                 // Re-render current exercise UI with new copy
                 generateExercise();
             }
