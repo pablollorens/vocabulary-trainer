@@ -68,6 +68,8 @@
     "byExerciseType": "Alıştırma türüne göre",
     "avgTimePerQuestion": "soru",
     "noQuestionsOfType": "Bu türde soru yok",
+    "question": "soru",
+    "questions": "soru",
     "level10": "Mükemmel! Yıldızsın!",
     "level9": "Harika iş!",
     "level8": "Çok iyi!",

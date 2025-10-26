@@ -1651,7 +1651,7 @@
                     <div class="results-type-card">
                         <div class="results-type-emoji">${type.emoji}</div>
                         <div class="results-type-name">${type.name}</div>
-                        <div class="results-type-total">${stats.total} ${stats.total === 1 ? 'vraag' : 'vragen'}</div>
+                        <div class="results-type-total">${stats.total} ${stats.total === 1 ? t('results.question') : t('results.questions')}</div>
                         ${stats.total > 0 ? `
                             <div class="results-type-breakdown">
                                 <span class="type-correct">✓ ${stats.correct}</span>

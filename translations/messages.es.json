@@ -68,6 +68,8 @@
     "byExerciseType": "Por tipo de ejercicio",
     "avgTimePerQuestion": "pregunta",
     "noQuestionsOfType": "Sin preguntas de este tipo",
+    "question": "pregunta",
+    "questions": "preguntas",
     "level10": "¡Perfecto! ¡Eres una estrella!",
     "level9": "¡Excelente trabajo!",
     "level8": "¡Muy buen trabajo!",

@@ -68,6 +68,8 @@
     "byExerciseType": "Per oefentype",
     "avgTimePerQuestion": "vraag",
     "noQuestionsOfType": "Geen vragen van dit type",
+    "question": "vraag",
+    "questions": "vragen",
     "level10": "Perfect! Je bent een ster!",
     "level9": "Uitstekend gedaan!",
     "level8": "Heel goed werk!",
