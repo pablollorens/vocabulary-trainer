@@ -1571,6 +1571,13 @@
             stopTimer();
             sessionActive = false;
             resultsShown = true;
+
+            // Clear exercise card content before showing results
+            const exerciseCard = document.getElementById('exercise-card');
+            if (exerciseCard) {
+                exerciseCard.innerHTML = '';
+            }
+
             showResultsScreen();
         }
 
@@ -1693,12 +1700,8 @@
                 </div>
             `;
 
-            // Clear any existing content first
-            const exerciseCard = document.getElementById('exercise-card');
-            exerciseCard.innerHTML = '';
-
-            // Then set the new results HTML
-            exerciseCard.innerHTML = html;
+            // Set the results HTML
+            document.getElementById('exercise-card').innerHTML = html;
 
             // Hide theme and exercise selectors
             document.querySelector('.theme-selector').style.display = 'none';
