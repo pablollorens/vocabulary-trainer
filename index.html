@@ -1551,6 +1551,12 @@
             if (progressBar) {
                 progressBar.style.display = 'none';
             }
+
+            // Show theme and exercise selectors again
+            const themeSelector = document.querySelector('.theme-selector');
+            const exerciseTypeSelector = document.querySelector('.exercise-type-selector');
+            if (themeSelector) themeSelector.style.display = 'flex';
+            if (exerciseTypeSelector) exerciseTypeSelector.style.display = 'flex';
         }
 
         function checkSessionGoal() {
