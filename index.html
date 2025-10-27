@@ -1144,16 +1144,53 @@
 
         async function loadData() {
             try {
-                const [vocabJson, cfgJson] = await Promise.all([
-                    loadJSONResource(DATA_SOURCES.vocabulary),
-                    loadJSONResource(DATA_SOURCES.config)
-                ]);
+                let cfgJson = null;
+                try {
+                    cfgJson = await loadJSONResource(DATA_SOURCES.config);
+                } catch (configError) {
+                    console.warn('Kon config.json niet volledig laden; gebruik standaarden.', configError);
+                }
+
+                appConfig = cfgJson || {};
+
+                const configuredVocabPath = appConfig?.vocabularyFile;
+                const fallbackVocabPath = DATA_SOURCES.vocabulary;
+                const vocabCandidates = configuredVocabPath && configuredVocabPath !== fallbackVocabPath
+                    ? [configuredVocabPath, fallbackVocabPath]
+                    : [configuredVocabPath || fallbackVocabPath];
+
+                let vocabJson = null;
+                let vocabularyPathUsed = null;
+                let lastVocabError = null;
+
+                for (const path of vocabCandidates) {
+                    if (!path) continue;
+                    try {
+                        vocabJson = await loadJSONResource(path);
+                        vocabularyPathUsed = path;
+                        break;
+                    } catch (err) {
+                        lastVocabError = err;
+                        console.error(`Fout bij het laden van vocabulairebestand '${path}'.`, err);
+                    }
+                }
+
+                if (!vocabJson) {
+                    throw lastVocabError || new Error('Geen vocabulairebestand beschikbaar.');
+                }
+
+                if (configuredVocabPath && vocabularyPathUsed !== configuredVocabPath) {
+                    console.warn(`Het geconfigureerde vocabulairebestand '${configuredVocabPath}' kon niet geladen worden. Teruggevallen op '${vocabularyPathUsed}'.`);
+                    appConfig.vocabularyFile = vocabularyPathUsed;
+                } else {
+                    appConfig.vocabularyFile = vocabularyPathUsed;
+                }
+
                 const allTranslations = await loadTranslationsFromFolder();
 
                 vocabularyData = vocabJson;
                 translationsData = allTranslations;
                 appMetadata = vocabularyData?.metadata || {};
-                appConfig = cfgJson || {};
                 const savedLang = localStorage.getItem('vt_lang');
                 const preferredLang = savedLang || appConfig?.defaultLanguage || DEFAULT_LANGUAGE;
                 currentLanguage = translationsData[preferredLang] ? preferredLang : DEFAULT_LANGUAGE;
@@ -1184,21 +1221,45 @@
             return options;
         }
 
-        function applyTranslations() {
-            if (!translation) return;
-
-            const subtitleText = appMetadata?.title || translation.app.subtitle;
-
-            document.title = `${translation.app.title} - ${subtitleText}`;
-
-            const appTitle = document.getElementById('app-title');
-            if (appTitle) {
-                appTitle.textContent = translation.app.title;
+        function getVocabularySubtitle() {
+            if (!vocabularyData?.themes || Object.keys(vocabularyData.themes).length === 0) {
+                return appMetadata?.title || '';
             }
+
+            if (currentTheme !== 'all' && vocabularyData.themes[currentTheme]) {
+                const theme = vocabularyData.themes[currentTheme];
+                const emoji = theme?.emoji ? `${theme.emoji} ` : '';
+                return `${emoji}${theme?.name || ''}`.trim();
+            }
+
+            if (appMetadata?.title) {
+                return appMetadata.title;
+            }
+
+            const firstTheme = Object.values(vocabularyData.themes)[0];
+            if (!firstTheme) return '';
+            const emoji = firstTheme.emoji ? `${firstTheme.emoji} ` : '';
+            return `${emoji}${firstTheme.name || ''}`.trim();
+        }
+
+        function updateSubtitle() {
+            const subtitleText = getVocabularySubtitle();
+            const baseTitle = translation?.app?.title || (document.title ? document.title.split(' - ')[0] : 'Vocabulary Trainer');
+            const fullTitle = subtitleText ? `${baseTitle} - ${subtitleText}` : baseTitle;
+            document.title = fullTitle;
 
             const appSubtitle = document.getElementById('app-subtitle');
             if (appSubtitle) {
                 appSubtitle.textContent = subtitleText;
+            }
+        }
+
+        function applyTranslations() {
+            if (!translation) return;
+
+            const appTitle = document.getElementById('app-title');
+            if (appTitle) {
+                appTitle.textContent = translation.app.title;
             }
 
             const welcomeTitle = document.getElementById('welcome-title');
@@ -1210,6 +1271,8 @@
             if (welcomeText) {
                 welcomeText.innerHTML = translation.app.welcomeText;
             }
+
+            updateSubtitle();
 
             const startBtn = document.getElementById('start-btn');
             if (startBtn) {
@@ -1934,6 +1997,7 @@
                     const value = event.target.value;
                     currentTheme = value === 'all' ? 'all' : parseInt(value, 10);
                     clearMatchingState();
+                    updateSubtitle();
                     if (sessionActive) generateExercise();
                 });
 
@@ -1960,6 +2024,7 @@
                         btn.classList.add('active');
                         currentTheme = btn.dataset.theme === 'all' ? 'all' : parseInt(btn.dataset.theme, 10);
                         clearMatchingState();
+                        updateSubtitle();
                         if (sessionActive) generateExercise();
                     });
                 });
