@@ -1,0 +1,507 @@
+{
+  "metadata": {
+    "title": "Curso A1: Vocabulario básico en español",
+    "description": "Frases elementales en español con traducción al neerlandés",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "1": {
+      "name": "Semana 1: Saludos y presentaciones",
+      "emoji": "👋",
+      "vocabulary": [
+        {
+          "word": "Hola, me llamo Ana.",
+          "definition": "Hallo, ik heet Ana.",
+          "alternativeDefinitions": [
+            "Hoi, ik ben Ana.",
+            "Hallo, mijn naam is Ana."
+          ]
+        },
+        {
+          "word": "Mucho gusto en conocerte.",
+          "definition": "Aangenaam om je te ontmoeten.",
+          "alternativeDefinitions": [
+            "Leuk je te leren kennen.",
+            "Aangenaam kennis te maken."
+          ]
+        },
+        {
+          "word": "¿Cómo te llamas?",
+          "definition": "Hoe heet jij?",
+          "alternativeDefinitions": [
+            "Wat is jouw naam?",
+            "Hoe is je naam?"
+          ]
+        },
+        {
+          "word": "Soy de España.",
+          "definition": "Ik kom uit Spanje.",
+          "alternativeDefinitions": [
+            "Ik ben afkomstig uit Spanje.",
+            "Ik ben uit Spanje."
+          ]
+        },
+        {
+          "word": "Vivo en Madrid.",
+          "definition": "Ik woon in Madrid.",
+          "alternativeDefinitions": [
+            "Mijn woonplaats is Madrid.",
+            "Ik verblijf in Madrid."
+          ]
+        },
+        {
+          "word": "Este es mi amigo Carlos.",
+          "definition": "Dit is mijn vriend Carlos.",
+          "alternativeDefinitions": [
+            "Mag ik je mijn vriend Carlos voorstellen.",
+            "Dit is mijn maat Carlos."
+          ]
+        },
+        {
+          "word": "¿Puedes repetir, por favor?",
+          "definition": "Kun je het alsjeblieft herhalen?",
+          "alternativeDefinitions": [
+            "Wil je het nog eens zeggen?",
+            "Kunt u dat alstublieft herhalen?"
+          ]
+        },
+        {
+          "word": "No entiendo muy bien.",
+          "definition": "Ik begrijp het niet zo goed.",
+          "alternativeDefinitions": [
+            "Ik snap het niet echt.",
+            "Ik begrijp het niet helemaal."
+          ]
+        },
+        {
+          "word": "Habla más despacio, por favor.",
+          "definition": "Spreek alsjeblieft langzamer.",
+          "alternativeDefinitions": [
+            "Kun je wat langzamer praten?",
+            "Praat u alstublieft wat langzamer."
+          ]
+        },
+        {
+          "word": "Hasta mañana.",
+          "definition": "Tot morgen.",
+          "alternativeDefinitions": [
+            "Zie je morgen.",
+            "Tot morgen toe."
+          ]
+        },
+        {
+          "word": "¿De dónde eres?",
+          "definition": "Waar kom je vandaan?",
+          "alternativeDefinitions": [
+            "Waar kom jij vandaan?",
+            "Uit welke plaats kom je?"
+          ]
+        },
+        {
+          "word": "Soy estudiante de español.",
+          "definition": "Ik ben student Spaans.",
+          "alternativeDefinitions": [
+            "Ik studeer Spaans.",
+            "Ik leer Spaans."
+          ]
+        },
+        {
+          "word": "Trabajo en una oficina.",
+          "definition": "Ik werk op een kantoor.",
+          "alternativeDefinitions": [
+            "Ik werk op kantoor.",
+            "Ik heb een baan op kantoor."
+          ]
+        },
+        {
+          "word": "¿Cuántos años tienes?",
+          "definition": "Hoe oud ben je?",
+          "alternativeDefinitions": [
+            "Hoe oud ben jij?",
+            "Wat is je leeftijd?"
+          ]
+        },
+        {
+          "word": "Tengo veinte años.",
+          "definition": "Ik ben twintig jaar oud.",
+          "alternativeDefinitions": [
+            "Ik ben twintig.",
+            "Mijn leeftijd is twintig jaar."
+          ]
+        },
+        {
+          "word": "Encantado de verte.",
+          "definition": "Leuk je te zien.",
+          "alternativeDefinitions": [
+            "Fijn om je te zien.",
+            "Blij je te zien."
+          ]
+        },
+        {
+          "word": "Este es mi número de teléfono.",
+          "definition": "Dit is mijn telefoonnummer.",
+          "alternativeDefinitions": [
+            "Hier is mijn telefoonnummer.",
+            "Je kunt me bellen op dit nummer."
+          ]
+        },
+        {
+          "word": "¿Puedes ayudarme, por favor?",
+          "definition": "Kun je me alsjeblieft helpen?",
+          "alternativeDefinitions": [
+            "Wil je me helpen, alsjeblieft?",
+            "Kunt u mij alstublieft helpen?"
+          ]
+        },
+        {
+          "word": "Lo siento, llego tarde.",
+          "definition": "Sorry, ik ben te laat.",
+          "alternativeDefinitions": [
+            "Het spijt me dat ik te laat ben.",
+            "Excuses, ik kom te laat."
+          ]
+        },
+        {
+          "word": "Nos vemos más tarde.",
+          "definition": "Tot later.",
+          "alternativeDefinitions": [
+            "We zien elkaar later.",
+            "Tot straks."
+          ]
+        }
+      ]
+    },
+    "2": {
+      "name": "Semana 2: La casa y la familia",
+      "emoji": "🏠",
+      "vocabulary": [
+        {
+          "word": "Mi casa es pequeña pero cómoda.",
+          "definition": "Mijn huis is klein maar comfortabel.",
+          "alternativeDefinitions": [
+            "Mijn woning is klein maar gezellig.",
+            "Mijn huisje is klein maar knus."
+          ]
+        },
+        {
+          "word": "La sala está a la derecha.",
+          "definition": "De woonkamer is rechts.",
+          "alternativeDefinitions": [
+            "De living bevindt zich rechts.",
+            "De zitkamer ligt aan de rechterkant."
+          ]
+        },
+        {
+          "word": "En la cocina hay una mesa grande.",
+          "definition": "In de keuken staat een grote tafel.",
+          "alternativeDefinitions": [
+            "Er staat een grote tafel in de keuken.",
+            "De keuken heeft een grote tafel."
+          ]
+        },
+        {
+          "word": "Comparto habitación con mi hermana.",
+          "definition": "Ik deel een kamer met mijn zus.",
+          "alternativeDefinitions": [
+            "Ik slaap in dezelfde kamer als mijn zus.",
+            "Ik deel mijn slaapkamer met mijn zus."
+          ]
+        },
+        {
+          "word": "Mis padres trabajan en la ciudad.",
+          "definition": "Mijn ouders werken in de stad.",
+          "alternativeDefinitions": [
+            "Mijn vader en moeder hebben werk in de stad.",
+            "Mijn ouders zijn in de stad aan het werk."
+          ]
+        },
+        {
+          "word": "Cada domingo comemos con los abuelos.",
+          "definition": "Elke zondag eten we met de grootouders.",
+          "alternativeDefinitions": [
+            "Iedere zondag eten we bij opa en oma.",
+            "We eten elke zondag samen met de grootouders."
+          ]
+        },
+        {
+          "word": "Tengo dos hermanos menores.",
+          "definition": "Ik heb twee jongere broers.",
+          "alternativeDefinitions": [
+            "Ik heb twee kleine broertjes.",
+            "Ik heb twee jongere broertjes."
+          ]
+        },
+        {
+          "word": "Nuestro baño está en el segundo piso.",
+          "definition": "Onze badkamer is op de tweede verdieping.",
+          "alternativeDefinitions": [
+            "De badkamer bevindt zich op de tweede verdieping.",
+            "Onze badkamer ligt op de tweede etage."
+          ]
+        },
+        {
+          "word": "Apaga la luz del pasillo.",
+          "definition": "Doe het licht in de gang uit.",
+          "alternativeDefinitions": [
+            "Zet het licht in de gang uit.",
+            "Maak het licht in de gang uit."
+          ]
+        },
+        {
+          "word": "El jardín tiene muchas flores.",
+          "definition": "De tuin heeft veel bloemen.",
+          "alternativeDefinitions": [
+            "Er staan veel bloemen in de tuin.",
+            "De tuin staat vol bloemen."
+          ]
+        },
+        {
+          "word": "La sala tiene un sofá azul.",
+          "definition": "De woonkamer heeft een blauwe bank.",
+          "alternativeDefinitions": [
+            "In de woonkamer staat een blauwe sofa.",
+            "De living heeft een blauwe sofa."
+          ]
+        },
+        {
+          "word": "Hay tres sillas en el comedor.",
+          "definition": "Er staan drie stoelen in de eetkamer.",
+          "alternativeDefinitions": [
+            "In de eetkamer staan drie stoelen.",
+            "We hebben drie stoelen in de eetkamer."
+          ]
+        },
+        {
+          "word": "Pongo los platos en la mesa.",
+          "definition": "Ik zet de borden op tafel.",
+          "alternativeDefinitions": [
+            "Ik leg de borden op tafel.",
+            "Ik plaats de borden op de tafel."
+          ]
+        },
+        {
+          "word": "Mi hermano mayor cocina muy bien.",
+          "definition": "Mijn oudste broer kookt heel goed.",
+          "alternativeDefinitions": [
+            "Mijn grote broer kookt erg goed.",
+            "Mijn oudere broer kan goed koken."
+          ]
+        },
+        {
+          "word": "Mis abuelos viven cerca de nosotros.",
+          "definition": "Mijn grootouders wonen dicht bij ons.",
+          "alternativeDefinitions": [
+            "Mijn opa en oma wonen vlakbij.",
+            "Mijn grootouders leven in de buurt."
+          ]
+        },
+        {
+          "word": "Cuidamos al perro por la tarde.",
+          "definition": "We zorgen 's middags voor de hond.",
+          "alternativeDefinitions": [
+            "We passen 's middags op de hond.",
+            "In de namiddag verzorgen we de hond."
+          ]
+        },
+        {
+          "word": "El armario está al lado de la cama.",
+          "definition": "De kast staat naast het bed.",
+          "alternativeDefinitions": [
+            "De kledingkast staat naast het bed.",
+            "De kast bevindt zich naast het bed."
+          ]
+        },
+        {
+          "word": "Mi padre llega a casa a las seis.",
+          "definition": "Mijn vader komt om zes uur thuis.",
+          "alternativeDefinitions": [
+            "Mijn vader is om zes uur thuis.",
+            "Om zes uur komt mijn vader thuis."
+          ]
+        },
+        {
+          "word": "Por la noche leemos juntos en el salón.",
+          "definition": "'s Avonds lezen we samen in de woonkamer.",
+          "alternativeDefinitions": [
+            "We lezen 's avonds samen in de living.",
+            "In de avond lezen we samen in de woonkamer."
+          ]
+        },
+        {
+          "word": "La lavadora está en el baño.",
+          "definition": "De wasmachine staat in de badkamer.",
+          "alternativeDefinitions": [
+            "De wasmachine is in de badkamer.",
+            "In de badkamer staat de wasmachine."
+          ]
+        }
+      ]
+    },
+    "3": {
+      "name": "Semana 3: Comidas y bebidas",
+      "emoji": "🍎",
+      "vocabulary": [
+        {
+          "word": "Desayuno pan con mantequilla.",
+          "definition": "Ik ontbijt met brood en boter.",
+          "alternativeDefinitions": [
+            "Voor het ontbijt eet ik brood met boter.",
+            "Als ontbijt neem ik brood met boter."
+          ]
+        },
+        {
+          "word": "Quiero un café con leche, por favor.",
+          "definition": "Ik wil graag een koffie met melk, alstublieft.",
+          "alternativeDefinitions": [
+            "Mag ik een koffie verkeerd, alsjeblieft?",
+            "Ik neem graag een koffie met melk."
+          ]
+        },
+        {
+          "word": "Tomamos sopa caliente por la noche.",
+          "definition": "We eten 's avonds warme soep.",
+          "alternativeDefinitions": [
+            "We nemen 's avonds warme soep.",
+            "We eten warme soep in de avond."
+          ]
+        },
+        {
+          "word": "¿Tienes agua fría?",
+          "definition": "Heb je koud water?",
+          "alternativeDefinitions": [
+            "Is er koud water?",
+            "Hebt u koud water?"
+          ]
+        },
+        {
+          "word": "La fruta está en la mesa.",
+          "definition": "Het fruit ligt op de tafel.",
+          "alternativeDefinitions": [
+            "De fruitmand staat op tafel.",
+            "Het fruit staat op de tafel."
+          ]
+        },
+        {
+          "word": "Prefiero el té sin azúcar.",
+          "definition": "Ik drink liever thee zonder suiker.",
+          "alternativeDefinitions": [
+            "Ik heb liever thee zonder suiker.",
+            "Thee zonder suiker heeft mijn voorkeur."
+          ]
+        },
+        {
+          "word": "Hoy cocino arroz con verduras.",
+          "definition": "Vandaag kook ik rijst met groenten.",
+          "alternativeDefinitions": [
+            "Ik maak vandaag rijst met groenten.",
+            "Vandaag bereid ik rijst met groente."
+          ]
+        },
+        {
+          "word": "Cenamos a las ocho de la noche.",
+          "definition": "We eten om acht uur 's avonds.",
+          "alternativeDefinitions": [
+            "Ons avondeten is om acht uur.",
+            "We eten 's avonds om acht uur."
+          ]
+        },
+        {
+          "word": "¿Quieres otro vaso de jugo?",
+          "definition": "Wil je nog een glas sap?",
+          "alternativeDefinitions": [
+            "Wil je nog wat sap?",
+            "Wil je een extra glas sap?"
+          ]
+        },
+        {
+          "word": "El postre es una ensalada de frutas.",
+          "definition": "Het dessert is een fruitsalade.",
+          "alternativeDefinitions": [
+            "Als nagerecht hebben we een fruitsalade.",
+            "Het toetje is een fruitsalade."
+          ]
+        },
+        {
+          "word": "Compramos verduras en el mercado.",
+          "definition": "We kopen groenten op de markt.",
+          "alternativeDefinitions": [
+            "We kopen groenten bij de markt.",
+            "Op de markt halen we groenten."
+          ]
+        },
+        {
+          "word": "Esta sopa necesita más sal.",
+          "definition": "Deze soep heeft meer zout nodig.",
+          "alternativeDefinitions": [
+            "Deze soep kan wat meer zout gebruiken.",
+            "Er mag meer zout in deze soep."
+          ]
+        },
+        {
+          "word": "Me gusta el pan con tomate.",
+          "definition": "Ik houd van brood met tomaat.",
+          "alternativeDefinitions": [
+            "Ik eet graag brood met tomaat.",
+            "Brood met tomaat vind ik lekker."
+          ]
+        },
+        {
+          "word": "¿Quieres compartir el postre?",
+          "definition": "Wil je het dessert delen?",
+          "alternativeDefinitions": [
+            "Wil je het nagerecht samen eten?",
+            "Zullen we het toetje delen?"
+          ]
+        },
+        {
+          "word": "Hoy tenemos pollo con arroz.",
+          "definition": "Vandaag hebben we kip met rijst.",
+          "alternativeDefinitions": [
+            "Vandaag eten we kip met rijst.",
+            "We hebben vandaag kip met rijst op het menu."
+          ]
+        },
+        {
+          "word": "Siempre llevo una botella de agua.",
+          "definition": "Ik heb altijd een fles water bij me.",
+          "alternativeDefinitions": [
+            "Ik draag altijd een fles water mee.",
+            "Ik heb altijd water in een fles bij me."
+          ]
+        },
+        {
+          "word": "En el desayuno tomo yogur con fruta.",
+          "definition": "Bij het ontbijt neem ik yoghurt met fruit.",
+          "alternativeDefinitions": [
+            "Tijdens het ontbijt eet ik yoghurt met fruit.",
+            "Bij het ontbijt neem ik fruit met yoghurt."
+          ]
+        },
+        {
+          "word": "La cuenta, por favor.",
+          "definition": "De rekening, alstublieft.",
+          "alternativeDefinitions": [
+            "Mag ik de rekening, alstublieft?",
+            "De rekening graag."
+          ]
+        },
+        {
+          "word": "¿Dónde está el supermercado más cercano?",
+          "definition": "Waar is de dichtstbijzijnde supermarkt?",
+          "alternativeDefinitions": [
+            "Waar vind ik de dichtstbijzijnde supermarkt?",
+            "Is er een supermarkt in de buurt?"
+          ]
+        },
+        {
+          "word": "Voy a preparar una tortilla española.",
+          "definition": "Ik ga een Spaanse tortilla maken.",
+          "alternativeDefinitions": [
+            "Ik bereid een Spaanse tortilla.",
+            "Ik maak een Spaanse omelet."
+          ]
+        }
+      ]
+    }
+  }
+}
