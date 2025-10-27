@@ -1,7 +1,6 @@
 {
   "app": {
     "title": "Kelime Alıştırması",
-    "subtitle": "Konu 2: İnsan vücudu",
     "welcomeTitle": "Kelime Alıştırmasına Hoş Geldin!",
     "welcomeText": "Alıştırmaya başlamak için <strong>BAŞLAT</strong>'a tıkla.",
     "startButton": "BAŞLAT",

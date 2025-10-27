@@ -1,7 +1,6 @@
 {
   "app": {
     "title": "Ejercicio de Vocabulario",
-    "subtitle": "Tema 2: El cuerpo humano",
     "welcomeTitle": "¡Bienvenido al Ejercicio de Vocabulario!",
     "welcomeText": "Haz clic en <strong>INICIO</strong> para comenzar a practicar.",
     "startButton": "INICIO",
