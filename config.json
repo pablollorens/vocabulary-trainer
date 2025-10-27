@@ -1,5 +1,6 @@
 {
   "defaultLanguage": "nl",
+  "vocabularyFile": "vocabulary.json",
   "goals": {
     "time": {
       "min": 1,
