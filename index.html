@@ -1148,6 +1148,8 @@
         let dataReady = false;
         let useThemeDropdown = false;
         let themeSelectElement = null;
+        let selectedVocabularyId = null;
+        const VOCAB_STORAGE_KEY = 'selectedVocabulary';
 
         function t(path, replacements = {}) {
             if (!translation) return path;
@@ -1255,50 +1257,73 @@
 
                 appConfig = cfgJson || {};
 
-                const configuredVocabPath = appConfig?.vocabularyFile;
-                const fallbackVocabPath = DATA_SOURCES.vocabulary;
-                const vocabCandidates = configuredVocabPath && configuredVocabPath !== fallbackVocabPath
-                    ? [configuredVocabPath, fallbackVocabPath]
-                    : [configuredVocabPath || fallbackVocabPath];
+                // Check for saved vocabulary selection
+                const savedVocabId = localStorage.getItem(VOCAB_STORAGE_KEY);
+                const vocabList = appConfig.vocabularies || [];
 
-                let vocabJson = null;
-                let vocabularyPathUsed = null;
-                let lastVocabError = null;
-
-                for (const path of vocabCandidates) {
-                    if (!path) continue;
-                    try {
-                        vocabJson = await loadJSONResource(path);
-                        vocabularyPathUsed = path;
-                        break;
-                    } catch (err) {
-                        lastVocabError = err;
-                        console.error(`Fout bij het laden van vocabulairebestand '${path}'.`, err);
-                    }
+                // Legacy support: if no vocabularies array but vocabularyFile exists
+                if (vocabList.length === 0 && appConfig.vocabularyFile) {
+                    vocabList.push({
+                        id: 'default',
+                        file: appConfig.vocabularyFile,
+                        label: 'Default'
+                    });
                 }
 
-                if (!vocabJson) {
-                    throw lastVocabError || new Error('Geen vocabulairebestand beschikbaar.');
-                }
-
-                if (configuredVocabPath && vocabularyPathUsed !== configuredVocabPath) {
-                    console.warn(`Het geconfigureerde vocabulairebestand '${configuredVocabPath}' kon niet geladen worden. Teruggevallen op '${vocabularyPathUsed}'.`);
-                    appConfig.vocabularyFile = vocabularyPathUsed;
-                } else {
-                    appConfig.vocabularyFile = vocabularyPathUsed;
-                }
-
+                // Load translations first (needed for selector screen)
                 const allTranslations = await loadTranslationsFromFolder();
-
-                vocabularyData = vocabJson;
                 translationsData = allTranslations;
-                appMetadata = vocabularyData?.metadata || {};
                 const savedLang = localStorage.getItem('vt_lang');
                 const preferredLang = savedLang || appConfig?.defaultLanguage || DEFAULT_LANGUAGE;
                 currentLanguage = translationsData[preferredLang] ? preferredLang : DEFAULT_LANGUAGE;
                 translation = translationsData[currentLanguage] || Object.values(translationsData)[0];
+
+                // Check if we need to show selector
+                const savedVocab = vocabList.find(v => v.id === savedVocabId);
+
+                if (!savedVocab && vocabList.length > 1) {
+                    // Show vocabulary selector
+                    initLanguageSwitcher();
+                    showVocabularySelector();
+                    dataReady = true;
+                    return;
+                }
+
+                // Load the vocabulary (saved or first available)
+                const vocabToLoad = savedVocab || vocabList[0];
+                if (!vocabToLoad) {
+                    throw new Error('No vocabulary configured');
+                }
+
+                selectedVocabularyId = vocabToLoad.id;
+                let vocabJson = null;
+
+                try {
+                    vocabJson = await loadJSONResource(vocabToLoad.file);
+                } catch (err) {
+                    console.error(`Error loading vocabulary '${vocabToLoad.file}':`, err);
+                    // If saved vocab failed, clear and show selector
+                    if (savedVocab && vocabList.length > 1) {
+                        localStorage.removeItem(VOCAB_STORAGE_KEY);
+                        showVocabularySelector();
+                        dataReady = true;
+                        return;
+                    }
+                    throw err;
+                }
+
+                vocabularyData = vocabJson;
+                appMetadata = vocabularyData?.metadata || {};
                 themeOptions = buildThemeOptions(vocabularyData);
                 useThemeDropdown = Object.keys(vocabularyData?.themes || {}).length > 4;
+
+                // Show change button if multiple vocabularies
+                const changeBtn = document.getElementById('change-vocab-btn');
+                if (changeBtn && vocabList.length > 1) {
+                    changeBtn.style.display = 'block';
+                    changeBtn.title = t('vocabularySelector.changeVocabulary') || 'Andere woordenschat';
+                }
+
                 applyTranslations();
                 initializeApp();
                 initLanguageSwitcher();
@@ -1321,6 +1346,104 @@
             });
 
             return options;
+        }
+
+        function countVocabularyWords(vocabData) {
+            if (!vocabData?.themes) return 0;
+            return Object.values(vocabData.themes).reduce((total, theme) => {
+                return total + (theme.vocabulary?.length || 0);
+            }, 0);
+        }
+
+        async function showVocabularySelector() {
+            const screen = document.getElementById('vocabulary-selector-screen');
+            const list = document.getElementById('vocabulary-list');
+            const changeBtn = document.getElementById('change-vocab-btn');
+
+            if (!screen || !list) return;
+
+            // Hide main app, show selector
+            document.querySelector('.container').style.display = 'none';
+            screen.style.display = 'flex';
+            if (changeBtn) changeBtn.style.display = 'none';
+
+            // Clear existing items
+            list.innerHTML = '';
+
+            // Load word counts for each vocabulary
+            for (const vocab of appConfig.vocabularies || []) {
+                const item = document.createElement('div');
+                item.className = 'vocabulary-item';
+                item.dataset.vocabId = vocab.id;
+
+                // Try to load vocabulary to get word count
+                let wordCount = '...';
+                try {
+                    const vocabData = await loadJSONResource(vocab.file);
+                    wordCount = countVocabularyWords(vocabData);
+                } catch (e) {
+                    wordCount = '?';
+                }
+
+                item.innerHTML = `
+                    <div class="vocabulary-item-label">${vocab.label}</div>
+                    <div class="vocabulary-item-count">${wordCount} ${t('vocabularySelector.words') || 'woorden'}</div>
+                `;
+
+                item.addEventListener('click', () => selectVocabulary(vocab.id));
+                list.appendChild(item);
+            }
+
+            // Update title translation
+            const title = screen.querySelector('.vocabulary-selector-title');
+            if (title) title.textContent = t('vocabularySelector.title') || 'Kies je woordenschat';
+        }
+
+        async function selectVocabulary(vocabId) {
+            const vocab = appConfig.vocabularies?.find(v => v.id === vocabId);
+            if (!vocab) return;
+
+            // Save selection
+            localStorage.setItem(VOCAB_STORAGE_KEY, vocabId);
+            selectedVocabularyId = vocabId;
+
+            // Load the vocabulary
+            try {
+                vocabularyData = await loadJSONResource(vocab.file);
+                appMetadata = vocabularyData?.metadata || {};
+                themeOptions = buildThemeOptions(vocabularyData);
+                useThemeDropdown = Object.keys(vocabularyData?.themes || {}).length > 4;
+
+                // Hide selector, show app
+                document.getElementById('vocabulary-selector-screen').style.display = 'none';
+                document.querySelector('.container').style.display = 'block';
+
+                const changeBtn = document.getElementById('change-vocab-btn');
+                if (changeBtn) {
+                    changeBtn.style.display = 'block';
+                    changeBtn.title = t('vocabularySelector.changeVocabulary') || 'Andere woordenschat';
+                }
+
+                // Reinitialize app with new vocabulary
+                applyTranslations();
+                initializeApp();
+
+                // Reset session state
+                resetStats();
+                sessionActive = false;
+                updateUI();
+
+            } catch (error) {
+                console.error('Error loading vocabulary:', error);
+                localStorage.removeItem(VOCAB_STORAGE_KEY);
+                showVocabularySelector();
+            }
+        }
+
+        function clearVocabularySelection() {
+            localStorage.removeItem(VOCAB_STORAGE_KEY);
+            selectedVocabularyId = null;
+            showVocabularySelector();
         }
 
         function getVocabularySubtitle() {
@@ -2148,6 +2271,9 @@
                 }
             });
         });
+
+        // Change vocabulary button
+        document.getElementById('change-vocab-btn')?.addEventListener('click', clearVocabularySelection);
 
         function shuffle(array) {
             const newArray = [...array];
