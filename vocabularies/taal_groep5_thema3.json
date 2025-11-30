@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "Thema 3: Feest, reizen en uitdrukkingen",
+    "description": "Dutch vocabulary exercises for Theme 3",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "1": {
+      "name": "Week 1: Feest en vermaak",
+      "emoji": "🎉",
+      "vocabulary": [
+        { "word": "het attractiepark", "definition": "een plek waar je veel leuke en spannende dingen kunt doen en zien" },
+        { "word": "feesten", "definition": "iets leuks met elkaar vieren en plezier maken" },
+        { "word": "het feestvarken", "definition": "iemand die jarig is" },
+        { "word": "iets te vieren hebben", "definition": "een reden hebben om een feest te geven" },
+        { "word": "het kinderfeestje", "definition": "samen met andere kinderen een verjaardag vieren" },
+        { "word": "het kostuum", "definition": "speciale kleding die je bijvoorbeeld draagt op een feest" },
+        { "word": "het reuzenrad", "definition": "een groot ronddraaiend wiel met bakjes om in te zitten" },
+        { "word": "de speurtocht", "definition": "een tocht waarbij je iemand moet zoeken en onderweg opdrachten moet doen" },
+        { "word": "de traktatie", "definition": "iets lekkers dat je uitdeelt, omdat je iets wilt vieren" },
+        { "word": "trakteren", "definition": "iets lekkers uitdelen, omdat je iets wilt vieren" },
+        { "word": "zich verkleden", "definition": "andere kleren aandoen, soms als spelletje" },
+        { "word": "de verlanglijst", "definition": "een lijst met dingen die je graag wilt hebben" }
+      ]
+    },
+    "2": {
+      "name": "Week 2: Reizen",
+      "emoji": "✈️",
+      "vocabulary": [
+        { "word": "bezichtigen", "definition": "iets bekijken" },
+        { "word": "de excursie", "definition": "een korte reis waar je iets van leert" },
+        { "word": "de handbagage", "definition": "spullen die je zelf meeneemt in het vliegtuig" },
+        { "word": "overnachten", "definition": "ergens blijven slapen" },
+        { "word": "de parasol", "definition": "een grote paraplu die je beschermt tegen de zon" },
+        { "word": "pootjebaden", "definition": "met blote voeten in het water zitten" },
+        { "word": "de reisleider", "definition": "iemand die een vakantie regelt voor een groep mensen en vertelt over de plek" },
+        { "word": "de rondvaart", "definition": "een tocht op een boot waarbij je informatie krijgt over het gebied" },
+        { "word": "de strandstoel", "definition": "een stoel die je gebruikt om op strand te zitten" },
+        { "word": "het vakantieoord", "definition": "de plaats waar je naartoe gaat op vakantie" },
+        { "word": "de vlucht", "definition": "een reis met een vliegtuig" },
+        { "word": "zonnebaden", "definition": "in de zon liggen om bruin te worden" }
+      ]
+    },
+    "3": {
+      "name": "Week 3: Uitdrukkingen",
+      "emoji": "💬",
+      "vocabulary": [
+        { "word": "ergens schoon genoeg van hebben", "definition": "ergens helemaal geen zin meer in hebben" },
+        { "word": "er niet over peinzen", "definition": "niet van plan zijn iets te doen" },
+        { "word": "er zit niks anders op", "definition": "er is geen andere manier" },
+        { "word": "het is weer raak", "definition": "het gebeurt alweer" },
+        { "word": "het lijkt nergens op", "definition": "het is helemaal niet goed" },
+        { "word": "het niet pikken", "definition": "niet laten gebeuren" },
+        { "word": "het te bont maken", "definition": "te ver gaan" },
+        { "word": "iemand in de maling nemen", "definition": "een grap met iemand uithalen" },
+        { "word": "in de puree zitten", "definition": "veel problemen hebben" },
+        { "word": "in het water vallen", "definition": "helemaal misgaan" }
+      ]
+    }
+  }
+}
