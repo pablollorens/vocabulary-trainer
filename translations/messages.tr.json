@@ -6,6 +6,11 @@
     "startButton": "BAŞLAT",
     "restartButton": "YENİDEN"
   },
+  "vocabularySelector": {
+    "title": "Kelime dağarcığını seç",
+    "words": "kelime",
+    "changeVocabulary": "Kelime dağarcığını değiştir"
+  },
   "stats": {
     "correct": "Doğru",
     "incorrect": "Yanlış",

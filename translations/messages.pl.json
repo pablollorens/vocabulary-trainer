@@ -6,6 +6,11 @@
     "startButton": "START",
     "restartButton": "OD NOWA"
   },
+  "vocabularySelector": {
+    "title": "Wybierz słownictwo",
+    "words": "słów",
+    "changeVocabulary": "Zmień słownictwo"
+  },
   "stats": {
     "correct": "Dobrze",
     "incorrect": "Źle",

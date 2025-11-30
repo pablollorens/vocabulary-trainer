@@ -6,6 +6,11 @@
     "startButton": "START",
     "restartButton": "RESTART"
   },
+  "vocabularySelector": {
+    "title": "Choose your vocabulary",
+    "words": "words",
+    "changeVocabulary": "Change vocabulary"
+  },
   "stats": {
     "correct": "Correct",
     "incorrect": "Incorrect",

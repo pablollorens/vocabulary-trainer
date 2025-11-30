@@ -6,6 +6,11 @@
     "startButton": "START",
     "restartButton": "OPNIEUW"
   },
+  "vocabularySelector": {
+    "title": "Kies je woordenschat",
+    "words": "woorden",
+    "changeVocabulary": "Andere woordenschat"
+  },
   "stats": {
     "correct": "Goed",
     "incorrect": "Fout",
