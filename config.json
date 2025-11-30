@@ -1,6 +1,17 @@
 {
   "defaultLanguage": "nl",
-  "vocabularyFile": "vocabulary.json",
+  "vocabularies": [
+    {
+      "id": "thema2",
+      "file": "vocabularies/taal_groep5_thema2.json",
+      "label": "Thema 2: Het menselijk lichaam"
+    },
+    {
+      "id": "thema3",
+      "file": "vocabularies/taal_groep5_thema3.json",
+      "label": "Thema 3: Feest, reizen en uitdrukkingen"
+    }
+  ],
   "goals": {
     "time": {
       "min": 1,
