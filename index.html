@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +32,7 @@
             background: white;
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
             text-align: center;
             position: sticky;
@@ -43,7 +44,7 @@
         header.compact {
             padding: 12px 16px;
             border-radius: 16px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
         }
 
         .header-top {
@@ -106,6 +107,7 @@
 
         /* Mobile: prioritize pending; hide correct/incorrect in very narrow widths */
         @media (max-width: 420px) {
+
             .compact-stats .stat-correct,
             .compact-stats .stat-incorrect {
                 display: none;
@@ -135,8 +137,13 @@
             border: 2px solid #e8f4f8;
         }
 
-        .correct { color: #4CAF50; }
-        .incorrect { color: #f44336; }
+        .correct {
+            color: #4CAF50;
+        }
+
+        .incorrect {
+            color: #f44336;
+        }
 
         .theme-selector {
             display: grid;
@@ -161,7 +168,7 @@
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             color: #2c3e50;
             background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         .theme-select:focus {
@@ -179,7 +186,7 @@
             background: white;
             color: #7ba3d4;
             font-weight: 500;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -210,7 +217,7 @@
             color: #c9a5d4;
             font-weight: 600;
             font-size: 1em;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -226,6 +233,7 @@
         }
 
         @media (max-width: 900px) {
+
             .theme-btn,
             .exercise-type-btn {
                 font-size: 0.85em;
@@ -233,6 +241,7 @@
         }
 
         @media (max-width: 600px) {
+
             .theme-selector,
             .exercise-type-selector {
                 grid-template-columns: repeat(4, minmax(60px, 1fr));
@@ -249,7 +258,7 @@
             background: white;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             margin-bottom: 20px;
             animation: slideIn 0.5s ease;
         }
@@ -259,6 +268,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -407,7 +417,7 @@
             background: #ffffff;
             padding: 6px 8px;
             border-radius: 999px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             border: 2px solid #e8f4f8;
             z-index: 12000;
         }
@@ -435,7 +445,9 @@
             display: block;
         }
 
-        .lang-btn:hover { transform: translateY(-2px); }
+        .lang-btn:hover {
+            transform: translateY(-2px);
+        }
 
         .lang-btn.active {
             border-color: #7ba3d4;
@@ -443,8 +455,17 @@
         }
 
         @media (max-width: 480px) {
-            .lang-switcher { right: 8px; bottom: 8px; padding: 4px; gap: 6px; }
-            .lang-btn { width: 32px; height: 32px; }
+            .lang-switcher {
+                right: 8px;
+                bottom: 8px;
+                padding: 4px;
+                gap: 6px;
+            }
+
+            .lang-btn {
+                width: 32px;
+                height: 32px;
+            }
         }
 
         .matching-container {
@@ -514,7 +535,7 @@
             border-radius: 999px;
             cursor: pointer;
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             transition: all 0.2s;
             font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -555,7 +576,7 @@
             border-radius: 10px;
             overflow: hidden;
             margin-top: 15px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .progress-fill {
@@ -601,15 +622,20 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .modal-content {
             background: white;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             max-width: 500px;
             width: 90%;
             animation: slideUp 0.3s;
@@ -620,6 +646,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -896,7 +923,7 @@
             padding: 60px 40px;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             max-width: 600px;
         }
 
@@ -953,7 +980,7 @@
             background: white;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             max-width: 500px;
             width: 100%;
             text-align: center;
@@ -1002,20 +1029,37 @@
 
         /* Change vocabulary button in header */
         .change-vocab-btn {
-            background: none;
-            border: none;
-            font-size: 1.3em;
+            background: #f0f4f8;
+            border: 1px solid #cfe0ee;
+            font-size: 1em;
             cursor: pointer;
-            padding: 4px 8px;
+            padding: 8px 16px;
             border-radius: 8px;
-            transition: background 0.2s;
+            transition: all 0.3s;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #547aa5;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
         }
 
         .change-vocab-btn:hover {
-            background: rgba(123, 163, 212, 0.1);
+            background: #e1e8ed;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
         @media (max-width: 480px) {
+            .btn-text {
+                display: none;
+            }
+
+            .change-vocab-btn {
+                padding: 8px;
+            }
+
             .vocabulary-selector-container {
                 padding: 24px;
             }
@@ -1032,6 +1076,7 @@
     <meta name="apple-mobile-web-app-title" content="Woordenschat">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
 </head>
+
 <body>
     <!-- Vocabulary Selector Screen -->
     <div id="vocabulary-selector-screen" class="vocabulary-selector-screen" style="display: none;">
@@ -1056,7 +1101,8 @@
         <header id="app-header">
             <div class="header-top">
                 <h1 style="margin: 0;" id="app-title"></h1>
-                <button id="change-vocab-btn" class="change-vocab-btn" title="Change vocabulary" style="display: none;">📚</button>
+                <button id="change-vocab-btn" class="change-vocab-btn" title="Change vocabulary">📚 <span
+                        class="btn-text">Wissel</span></button>
                 <button id="start-btn" class="start-btn">▶️ START</button>
             </div>
 
@@ -1067,16 +1113,19 @@
 
             <!-- Full header body (hidden in compact) -->
             <div class="header-body">
-                <div id="timer-display" style="font-size: 1.8em; color: #7ba3d4; font-weight: 600; margin: 15px 0; display: none; text-align: center;">
+                <div id="timer-display"
+                    style="font-size: 1.8em; color: #7ba3d4; font-weight: 600; margin: 15px 0; display: none; text-align: center;">
                     ⏱️ <span id="timer-text">00:00</span>
                 </div>
                 <p style="font-size: 1em; color: #6b7280; margin-top: 10px;" id="app-subtitle"></p>
                 <div class="score-board">
                     <div class="score-item">
-                        <span class="correct">✓ <span id="correct-label">Goed</span>: <span id="correct-count">0</span></span>
+                        <span class="correct">✓ <span id="correct-label">Goed</span>: <span
+                                id="correct-count">0</span></span>
                     </div>
                     <div class="score-item">
-                        <span class="incorrect">✗ <span id="incorrect-label">Fout</span>: <span id="incorrect-count">0</span></span>
+                        <span class="incorrect">✗ <span id="incorrect-label">Fout</span>: <span
+                                id="incorrect-count">0</span></span>
                     </div>
                     <div class="score-item">
                         <span id="total-label">Totaal</span>: <span id="total-count">0</span>
@@ -1095,16 +1144,18 @@
         </div>
 
         <div class="exercise-type-selector">
-            <button class="exercise-type-btn active" data-type="multiple-choice" id="exercise-type-multiple">🎯 Meerkeuze</button>
+            <button class="exercise-type-btn active" data-type="multiple-choice" id="exercise-type-multiple">🎯
+                Meerkeuze</button>
             <button class="exercise-type-btn" data-type="fill-in" id="exercise-type-fill">✏️ Invullen</button>
             <button class="exercise-type-btn" data-type="matching" id="exercise-type-matching">🔗 Koppelen</button>
-            <button class="exercise-type-btn" data-type="true-false" id="exercise-type-truefalse">✓/✗ Waar/Niet waar</button>
+            <button class="exercise-type-btn" data-type="true-false" id="exercise-type-truefalse">✓/✗ Waar/Niet
+                waar</button>
         </div>
 
         <div class="card" id="exercise-card">
             <!-- Exercises will appear here after START -->
         </div>
-        
+
         <!-- Floating language switcher -->
         <div id="lang-switcher" class="lang-switcher" aria-label="Language switcher"></div>
     </div>
@@ -1324,10 +1375,15 @@
                 useThemeDropdown = Object.keys(vocabularyData?.themes || {}).length > 4;
 
                 // Show change button if multiple vocabularies
+                // Show change button if multiple vocabularies
                 const changeBtn = document.getElementById('change-vocab-btn');
-                if (changeBtn && vocabList.length > 1) {
-                    changeBtn.style.display = 'block';
-                    changeBtn.title = t('vocabularySelector.changeVocabulary') || 'Andere woordenschat';
+                if (changeBtn) {
+                    if (vocabList.length <= 1) {
+                        changeBtn.style.display = 'none';
+                    } else {
+                        changeBtn.style.display = 'inline-flex';
+                        changeBtn.title = t('vocabularySelector.changeVocabulary') || 'Andere woordenschat';
+                    }
                 }
 
                 applyTranslations();
@@ -1426,7 +1482,7 @@
 
                 const changeBtn = document.getElementById('change-vocab-btn');
                 if (changeBtn) {
-                    changeBtn.style.display = 'block';
+                    changeBtn.style.display = 'inline-flex';
                     changeBtn.title = t('vocabularySelector.changeVocabulary') || 'Andere woordenschat';
                 }
 
@@ -1435,9 +1491,7 @@
                 initializeApp();
 
                 // Reset session state
-                resetStats();
-                sessionActive = false;
-                updateUI();
+                resetSession();
 
             } catch (error) {
                 console.error('Error loading vocabulary:', error);
@@ -1859,7 +1913,7 @@
 
         function checkSessionGoal() {
             if (!sessionActive) return;
-            
+
             if (sessionGoalType === 'exercises' && totalCount >= sessionGoalValue) {
                 endSession();
             }
@@ -2021,7 +2075,7 @@
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
             modal.id = 'goal-modal';
-            
+
             modal.innerHTML = `
                 <div class="modal-content">
                     <div class="modal-title">🎯 ${t('goals.title')}</div>
@@ -2039,13 +2093,13 @@
                     </div>
                 </div>
             `;
-            
+
             document.body.appendChild(modal);
             console.log('Modal appended to body');
-            
+
             // Add click listeners to goal options
             document.querySelectorAll('.goal-option').forEach(option => {
-                option.addEventListener('click', function() {
+                option.addEventListener('click', function () {
                     console.log('Goal option clicked:', this.dataset.goalType);
                     selectGoalType(this.dataset.goalType);
                 });
@@ -2055,7 +2109,7 @@
         function selectGoalType(type) {
             const modal = document.getElementById('goal-modal');
             const modalContent = modal.querySelector('.modal-content');
-            
+
             const goalsCfg = appConfig?.goals || {};
             const goalCfg = type === 'time' ? (goalsCfg.time || {}) : (goalsCfg.exercises || {});
             const minValue = Number.isFinite(goalCfg.min) ? goalCfg.min : (type === 'time' ? 1 : 10);
@@ -2065,7 +2119,7 @@
             const emoji = type === 'time' ? '⏱️' : '🎯';
             const question = type === 'time' ? t('goals.howManyMinutes') : t('goals.howManyExercises');
             const placeholder = t('goals.enterValue', { type: label });
-            
+
             modalContent.innerHTML = `
                 <div class="modal-title">${emoji} ${question}</div>
                 
@@ -2090,9 +2144,9 @@
                     </button>
                 </div>
             `;
-            
+
             document.getElementById('goal-value-input').focus();
-            
+
             // Add event listeners
             document.getElementById('cancel-goal-btn').addEventListener('click', closeGoalModal);
             document.getElementById('start-goal-btn').addEventListener('click', () => startSession(type));
@@ -2106,7 +2160,7 @@
         function closeGoalModal() {
             const modal = document.getElementById('goal-modal');
             if (modal) modal.remove();
-            
+
             // Resume timer if session was active before opening modal
             if (sessionActive && timerInterval === null) {
                 startTimer();
@@ -2116,32 +2170,32 @@
         function startSession(type) {
             const input = document.getElementById('goal-value-input');
             const value = parseInt(input.value);
-            
+
             const goalsCfg = appConfig?.goals || {};
             const goalCfg = type === 'time' ? (goalsCfg.time || {}) : (goalsCfg.exercises || {});
             const minValue = Number.isFinite(goalCfg.min) ? goalCfg.min : (type === 'time' ? 1 : 10);
             const maxValue = Number.isFinite(goalCfg.max) ? goalCfg.max : (type === 'time' ? 60 : 100);
-            
+
             if (!value || value < minValue || value > maxValue) {
                 alert(t('goals.validationError', { min: minValue, max: maxValue }));
                 return;
             }
-            
+
             closeGoalModal();
-            
+
             // Remove welcome blocker
             const blocker = document.getElementById('welcome-blocker');
             if (blocker) blocker.remove();
-            
+
             // Reset everything (this will stop any existing timer)
             resetSession();
-            
+
             // Set session parameters
             sessionActive = true;
             sessionGoalType = type;
             sessionGoalValue = value;
             sessionStartTime = Date.now();
-            
+
             // Update START button text and sync counters (incl. compact line)
             updateStartButton();
             updatePendingCounter();
@@ -2298,32 +2352,32 @@
         function calculateSimilarity(str1, str2) {
             const s1 = str1.toLowerCase().trim();
             const s2 = str2.toLowerCase().trim();
-            
+
             if (s1 === s2) return 100;
-            
+
             const longer = s1.length > s2.length ? s1 : s2;
             const shorter = s1.length > s2.length ? s2 : s1;
-            
+
             if (longer.length === 0) return 100;
-            
+
             const editDistance = levenshteinDistance(s1, s2);
             const similarity = ((longer.length - editDistance) / longer.length) * 100;
-            
+
             return similarity;
         }
-        
+
         // Levenshtein distance algorithm
         function levenshteinDistance(str1, str2) {
             const matrix = [];
-            
+
             for (let i = 0; i <= str2.length; i++) {
                 matrix[i] = [i];
             }
-            
+
             for (let j = 0; j <= str1.length; j++) {
                 matrix[0][j] = j;
             }
-            
+
             for (let i = 1; i <= str2.length; i++) {
                 for (let j = 1; j <= str1.length; j++) {
                     if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
@@ -2337,7 +2391,7 @@
                     }
                 }
             }
-            
+
             return matrix[str2.length][str1.length];
         }
 
@@ -2418,9 +2472,9 @@
             html += '</div>';
 
             document.getElementById('exercise-card').innerHTML = html;
-            
+
             document.querySelectorAll('.option-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     if (this.classList.contains('disabled')) return;
 
                     document.querySelectorAll('.option-btn').forEach(b => b.classList.add('disabled'));
@@ -2491,7 +2545,7 @@
             document.getElementById('exercise-card').innerHTML = html;
 
             document.getElementById('answer-input').focus();
-            
+
             const submitAnswer = () => {
                 const userAnswer = document.getElementById('answer-input').value.trim().toLowerCase();
                 const correct = correctAnswer.toLowerCase();
@@ -2570,7 +2624,7 @@
                     document.getElementById('exercise-card').appendChild(createNextButton());
                 }
             };
-            
+
             document.getElementById('submit-answer').addEventListener('click', submitAnswer);
             document.getElementById('answer-input').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') submitAnswer();
@@ -2818,9 +2872,9 @@
             `;
 
             document.getElementById('exercise-card').innerHTML = html;
-            
+
             document.querySelectorAll('.tf-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const userAnswerTrue = this.dataset.answer === 'true';
                     const isCorrect = userAnswerTrue === isCorrectStatement;
 
@@ -2839,21 +2893,21 @@
 
                     totalCount++;
                     updateScore();
-                    
+
                     const feedback = document.createElement('div');
                     feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                    
+
                     if (isCorrect) {
                         feedback.textContent = `🎉 ${t('feedback.correct')}`;
                     } else {
                         const correctAnswerText = isCorrectStatement ? trueLabel : falseLabel;
                         feedback.innerHTML = `❌ ${t('feedback.theCorrectAnswerIs')} ${correctAnswerText}<br><br>${t('feedback.correctAnswer')}:<br>"${currentQuestion.definition}"`;
                     }
-                    
+
                     document.getElementById('exercise-card').appendChild(feedback);
-                    
+
                     document.querySelectorAll('.tf-btn').forEach(b => b.style.display = 'none');
-                    
+
                     if (sessionActive) {
                         document.getElementById('exercise-card').appendChild(createNextButton());
                     }
@@ -2863,7 +2917,7 @@
 
         function generateExercise() {
             if (!sessionActive) return; // Do not generate when session ended; keep results visible
-            switch(currentExerciseType) {
+            switch (currentExerciseType) {
                 case 'multiple-choice':
                     generateMultipleChoice();
                     break;
@@ -2917,4 +2971,5 @@
         }
     </script>
 </body>
+
 </html>
