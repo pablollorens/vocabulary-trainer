@@ -10,6 +10,11 @@
       "id": "thema3",
       "file": "vocabularies/taal_groep5_thema3.json",
       "label": "Thema 3: Feest, reizen en uitdrukkingen"
+    },
+    {
+      "id": "thema4",
+      "file": "vocabularies/taal_groep5_thema4.json",
+      "label": "Thema 4: Woordenschat"
     }
   ],
   "goals": {
