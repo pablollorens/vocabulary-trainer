@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "title": "Thema 4: Woordenschat",
+    "description": "Dutch vocabulary exercises for Theme 4",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "1": {
+      "name": "Week 1: Vroeger",
+      "emoji": "🦖",
+      "vocabulary": [
+        {
+          "word": "archeologisch",
+          "definition": "alles wat met het opgraven en bestuderen van oude voorwerpen en gebouwen te maken heeft"
+        },
+        {
+          "word": "de archeoloog",
+          "definition": "iemand die oude voorwerpen en gebouwen opgraaft en bestudeert"
+        },
+        {
+          "word": "de dinosaurus",
+          "definition": "een reusachtig reptiel dat uitgestorven is"
+        },
+        {
+          "word": "het fossiel",
+          "definition": "een oude afdruk van een dier of plant in een steen"
+        },
+        {
+          "word": "de mammoet",
+          "definition": "een soort grote, behaarde olifant die vroeger leefde"
+        },
+        {
+          "word": "de mummie",
+          "definition": "een dode die ingesmeerd is met balsem, zodat het lichaam goed blijft"
+        },
+        {
+          "word": "opgraven",
+          "definition": "iets onder de grond vandaan halen"
+        },
+        {
+          "word": "het overblijfsel",
+          "definition": "wat ergens van over is"
+        },
+        {
+          "word": "de piramide",
+          "definition": "een gebouw dat onderaan vierkant is en uitloopt in een spitse punt, het graf van Egyptische koningen"
+        },
+        {
+          "word": "de prehistorie",
+          "definition": "de tijd in de geschiedenis, voordat mensen dingen opschreven"
+        },
+        {
+          "word": "de ruïne",
+          "definition": "het overblijfsel van een oud gebouw"
+        },
+        {
+          "word": "uit de oude doos",
+          "definition": "van vroeger"
+        }
+      ]
+    },
+    "2": {
+      "name": "Week 2: Kleding en uiterlijk",
+      "emoji": "👔",
+      "vocabulary": [
+        {
+          "word": "de etalagepop",
+          "definition": "een pop die kleding draagt die in de winkel te koop is"
+        },
+        {
+          "word": "het gewaad",
+          "definition": "een lange wijde jurk"
+        },
+        {
+          "word": "het katoen",
+          "definition": "een stof om kleding mee te maken die gemaakt wordt van de katoenplant"
+        },
+        {
+          "word": "kleren maken de man",
+          "definition": "wat iemand aan heeft, bepaalt hoe er over hem gedacht wordt"
+        },
+        {
+          "word": "lubberen",
+          "definition": "los om je lichaam hangen"
+        },
+        {
+          "word": "de mannequin",
+          "definition": "iemand die tijdens een modeshow nieuwe kleding laat zien"
+        },
+        {
+          "word": "modieus",
+          "definition": "van de laatste mode"
+        },
+        {
+          "word": "de paspop",
+          "definition": "een pop die naaisters gebruiken om gemaakte kleding op te passen"
+        },
+        {
+          "word": "de spijkerbroek",
+          "definition": "een broek die gemaakt is van een stevige stof"
+        },
+        {
+          "word": "de toga",
+          "definition": "een lange jurk die door bijvoorbeeld rechters, advocaten en priesters wordt gedragen"
+        },
+        {
+          "word": "de tulband",
+          "definition": "opgerolde doek die op het hoofd gedragen wordt"
+        },
+        {
+          "word": "de voering",
+          "definition": "extra laag stof aan de binnenkant van kleding"
+        }
+      ]
+    },
+    "3": {
+      "name": "Week 3: Tijd",
+      "emoji": "⏰",
+      "vocabulary": [
+        {
+          "word": "de klok verzetten",
+          "definition": "de tijd een uur vooruit of terug zetten vanwege de winter- of zomertijd"
+        },
+        {
+          "word": "het halfuur",
+          "definition": "30 minuten"
+        },
+        {
+          "word": "in een mum van tijd",
+          "definition": "heel snel"
+        },
+        {
+          "word": "het kwartier",
+          "definition": "15 minuten"
+        },
+        {
+          "word": "de minuut",
+          "definition": "60 tellen"
+        },
+        {
+          "word": "de seconde",
+          "definition": "1 tel"
+        },
+        {
+          "word": "tijdelijk",
+          "definition": "voor even, niet voor altijd"
+        },
+        {
+          "word": "de tijdsduur",
+          "definition": "hoe lang iets duurt"
+        },
+        {
+          "word": "het tijdstip",
+          "definition": "een moment in de tijd"
+        },
+        {
+          "word": "het uur",
+          "definition": "60 minuten"
+        },
+        {
+          "word": "verstrijken",
+          "definition": "voorbijgaan van de tijd"
+        },
+        {
+          "word": "voortdurend",
+          "definition": "de hele tijd"
+        }
+      ]
+    }
+  }
+}
