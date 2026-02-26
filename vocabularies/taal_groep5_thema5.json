@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "title": "Thema 5: Natuur, materialen en getallen",
+    "description": "Dutch vocabulary exercises for Theme 5",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "1": {
+      "name": "Week 1: Natuur en weer",
+      "emoji": "🌦️",
+      "vocabulary": [
+        {
+          "word": "het briesje",
+          "definition": "een zacht, koel windje"
+        },
+        {
+          "word": "de beuk",
+          "definition": "boom waar kleine, eetbare nootjes aan groeien"
+        },
+        {
+          "word": "de wind gaat liggen",
+          "definition": "als het minder hard gaat waaien"
+        },
+        {
+          "word": "de wind steekt op",
+          "definition": "als het harder gaat waaien"
+        },
+        {
+          "word": "het weer slaat om",
+          "definition": "het weer verandert opeens"
+        },
+        {
+          "word": "de kastanjeboom",
+          "definition": "boom waar glanzende, bruine vruchten aan groeien"
+        },
+        {
+          "word": "de schors",
+          "definition": "de buitenste laag van een boom"
+        },
+        {
+          "word": "de stortbui",
+          "definition": "een hele harde regenbui"
+        },
+        {
+          "word": "wegwaaien",
+          "definition": "door de wind meegenomen worden"
+        },
+        {
+          "word": "de windkracht",
+          "definition": "de kracht van de wind"
+        },
+        {
+          "word": "windstil",
+          "definition": "als er geen wind is"
+        },
+        {
+          "word": "het wolkendek",
+          "definition": "veel wolken bij elkaar"
+        }
+      ]
+    },
+    "2": {
+      "name": "Week 2: Maken en materialen",
+      "emoji": "🛠️",
+      "vocabulary": [
+        {
+          "word": "de handleiding",
+          "definition": "uitleg waarin staat hoe je iets moet doen of gebruiken"
+        },
+        {
+          "word": "in elkaar zetten",
+          "definition": "iets maken van losse onderdelen"
+        },
+        {
+          "word": "de instructie",
+          "definition": "een les over hoe iets gebruikt of gedaan moet worden"
+        },
+        {
+          "word": "de kunststof",
+          "definition": "soort materiaal dat niet natuurlijk is, bijvoorbeeld plastic"
+        },
+        {
+          "word": "lakken",
+          "definition": "iets met een dunne, doorzichtige laag bedekken"
+        },
+        {
+          "word": "lospeuteren",
+          "definition": "iets stukje voor stukje zelf losmaken"
+        },
+        {
+          "word": "het metaal",
+          "definition": "een hard en sterk soort materiaal, bijvoorbeeld ijzer, zilver en koper"
+        },
+        {
+          "word": "de olieverf",
+          "definition": "verf waarbij de stof die zorgt voor kleur is gemengd met olie"
+        },
+        {
+          "word": "het schaalmodel",
+          "definition": "als iets in het klein is nagemaakt"
+        },
+        {
+          "word": "technisch",
+          "definition": "alles wat te maken heeft met de kennis die nodig is om apparaten te laten werken"
+        },
+        {
+          "word": "het textiel",
+          "definition": "een stof, zoals katoen of wol"
+        },
+        {
+          "word": "vastlijmen",
+          "definition": "iets vastmaken met lijm"
+        }
+      ]
+    },
+    "3": {
+      "name": "Week 3: Getallen en hoeveelheden",
+      "emoji": "🔢",
+      "vocabulary": [
+        {
+          "word": "het aantal",
+          "definition": "een bepaalde hoeveelheid"
+        },
+        {
+          "word": "diverse",
+          "definition": "verschillende"
+        },
+        {
+          "word": "het duo",
+          "definition": "twee mensen of dingen die bij elkaar horen"
+        },
+        {
+          "word": "een paar keer",
+          "definition": "een aantal maal"
+        },
+        {
+          "word": "in totaal",
+          "definition": "alles bij elkaar opgeteld"
+        },
+        {
+          "word": "de meerderheid",
+          "definition": "de grootste groep"
+        },
+        {
+          "word": "meest",
+          "definition": "het grootste aantal"
+        },
+        {
+          "word": "met z'n allen",
+          "definition": "met iedereen samen"
+        },
+        {
+          "word": "de minderheid",
+          "definition": "de kleinste groep"
+        },
+        {
+          "word": "minst",
+          "definition": "het kleinste aantal"
+        },
+        {
+          "word": "het stel",
+          "definition": "groep bij elkaar horende mensen of dingen"
+        },
+        {
+          "word": "volledig",
+          "definition": "helemaal, compleet"
+        }
+      ]
+    }
+  }
+}

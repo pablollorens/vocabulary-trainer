@@ -15,6 +15,11 @@
       "id": "thema4",
       "file": "vocabularies/taal_groep5_thema4.json",
       "label": "Thema 4: Vroeger, kleding en tijd"
+    },
+    {
+      "id": "thema5",
+      "file": "vocabularies/taal_groep5_thema5.json",
+      "label": "Thema 5: Natuur, materialen en getallen"
     }
   ],
   "goals": {
