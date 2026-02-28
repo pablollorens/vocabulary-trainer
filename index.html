@@ -1493,6 +1493,9 @@
                 // Reset session state
                 resetSession();
 
+                // Auto-show goal modal so user can start a new session
+                showGoalModal();
+
             } catch (error) {
                 console.error('Error loading vocabulary:', error);
                 localStorage.removeItem(VOCAB_STORAGE_KEY);
