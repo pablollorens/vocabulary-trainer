@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "title": "Thema 6: Gedrag en gevoelens",
+    "description": "Dutch vocabulary exercises for Theme 6",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "1": {
+      "name": "Week 1: Gedrag en gevoelens",
+      "emoji": "😊",
+      "vocabulary": [
+        {
+          "word": "bescheiden",
+          "definition": "als je niet graag alle aandacht naar je toe trekt"
+        },
+        {
+          "word": "de schouders ophalen",
+          "definition": "de schouders kort omhoog trekken om te laten zien dat je iets niet weet of dat het je niet kan schelen"
+        },
+        {
+          "word": "de wens komt uit",
+          "definition": "iets wat je wilde, gebeurt echt"
+        },
+        {
+          "word": "de humor",
+          "definition": "als je grappen maakt en om grappige dingen kan lachen"
+        },
+        {
+          "word": "het karakter",
+          "definition": "hoe iemand meestal is en doet"
+        },
+        {
+          "word": "opgewekt",
+          "definition": "blij en vrolijk"
+        },
+        {
+          "word": "de opschepper",
+          "definition": "iemand die vaak goede dingen over zichzelf zegt"
+        },
+        {
+          "word": "de opwinding",
+          "definition": "het hebben van een fijn en spannend gevoel"
+        },
+        {
+          "word": "overdrijven",
+          "definition": "iets erger, groter of mooier maken dan het echt is"
+        },
+        {
+          "word": "stralen",
+          "definition": "heel blij kijken"
+        },
+        {
+          "word": "de uitdrukking",
+          "definition": "hoe je gezicht eruit ziet bij gevoelens"
+        },
+        {
+          "word": "het voorgevoel",
+          "definition": "het gevoel dat er iets gaat gebeuren"
+        }
+      ]
+    },
+    "2": {
+      "name": "Week 2: Omgang en maatschappij",
+      "emoji": "🤝",
+      "vocabulary": [
+        {
+          "word": "afscheid nemen",
+          "definition": "iets zeggen of doen als iemand weggaat"
+        },
+        {
+          "word": "de groeten doen",
+          "definition": "iemand een ander laten groeten"
+        },
+        {
+          "word": "er een oplossing voor vinden",
+          "definition": "het antwoord op een vraag of probleem vinden"
+        },
+        {
+          "word": "de gebeurtenis",
+          "definition": "iets dat gebeurt of is gebeurd"
+        },
+        {
+          "word": "gezamenlijk",
+          "definition": "samen"
+        },
+        {
+          "word": "iemand goede raad geven",
+          "definition": "zeggen wat iemand het beste kan doen"
+        },
+        {
+          "word": "de ontmoeting",
+          "definition": "als je iemand toevallig of gepland treft"
+        },
+        {
+          "word": "overhalen",
+          "definition": "iemand overtuigen iets te doen"
+        },
+        {
+          "word": "de samenwerking",
+          "definition": "met meerdere personen aan hetzelfde werken"
+        },
+        {
+          "word": "de situatie",
+          "definition": "hoe het op een bepaald moment is"
+        },
+        {
+          "word": "welkom heten",
+          "definition": "iemand vriendelijk ontvangen"
+        },
+        {
+          "word": "zich voorstellen",
+          "definition": "een hand geven en zeggen wie je bent"
+        }
+      ]
+    },
+    "3": {
+      "name": "Week 3: Moeilijke woorden",
+      "emoji": "📚",
+      "vocabulary": [
+        {
+          "word": "als volgt",
+          "definition": "op deze manier"
+        },
+        {
+          "word": "bijeen",
+          "definition": "bij elkaar"
+        },
+        {
+          "word": "dankzij",
+          "definition": "door de hulp van"
+        },
+        {
+          "word": "dergelijke",
+          "definition": "van die soort"
+        },
+        {
+          "word": "eenmaal",
+          "definition": "gewoon"
+        },
+        {
+          "word": "eventueel",
+          "definition": "misschien"
+        },
+        {
+          "word": "in vergelijking met",
+          "definition": "als je twee dingen of mensen met elkaar vergelijkt"
+        },
+        {
+          "word": "ondanks",
+          "definition": "ook al is het zo dat"
+        },
+        {
+          "word": "onder andere",
+          "definition": "bijvoorbeeld"
+        },
+        {
+          "word": "oorspronkelijk",
+          "definition": "hoe het eerst eigenlijk was"
+        },
+        {
+          "word": "slechts",
+          "definition": "alleen maar"
+        },
+        {
+          "word": "tegen",
+          "definition": "het ergens niet mee eens zijn"
+        }
+      ]
+    }
+  }
+}
