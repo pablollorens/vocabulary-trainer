@@ -20,6 +20,11 @@
       "id": "thema5",
       "file": "vocabularies/taal_groep5_thema5.json",
       "label": "Thema 5: Natuur, materialen en getallen"
+    },
+    {
+      "id": "thema6",
+      "file": "vocabularies/taal_groep5_thema6.json",
+      "label": "Thema 6: Gedrag en gevoelens"
     }
   ],
   "goals": {
