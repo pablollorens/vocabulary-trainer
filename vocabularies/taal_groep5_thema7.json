@@ -1,0 +1,171 @@
+{
+  "metadata": {
+    "title": "Thema 7: Media, kunst en meningen",
+    "description": "Dutch vocabulary exercises for Theme 7",
+    "version": "1.0.0"
+  },
+  "themes": {
+    "1": {
+      "name": "Week 1: Media en communicatie",
+      "emoji": "📰",
+      "vocabulary": [
+        {
+          "word": "het abonnement",
+          "definition": "een vast bedrag dat je betaalt om gebruik te maken van bijvoorbeeld tv of krant"
+        },
+        {
+          "word": "het artikel",
+          "definition": "een verhaal in een krant of blad"
+        },
+        {
+          "word": "communiceren",
+          "definition": "met andere mensen praten of chatten"
+        },
+        {
+          "word": "het dagblad",
+          "definition": "een krant die elke dag verschijnt"
+        },
+        {
+          "word": "doorvragen",
+          "definition": "vragen blijven stellen om meer over iets te weten te komen"
+        },
+        {
+          "word": "het feit",
+          "definition": "iets dat waar is"
+        },
+        {
+          "word": "informeren",
+          "definition": "ergens vragen over stellen of iets vertellen aan iemand"
+        },
+        {
+          "word": "de journalist",
+          "definition": "iemand die stukken schrijft over het nieuws"
+        },
+        {
+          "word": "het krantenbericht",
+          "definition": "een stukje tekst in de krant"
+        },
+        {
+          "word": "de krantenkop",
+          "definition": "de titel van een bericht in de krant"
+        },
+        {
+          "word": "de spotprent",
+          "definition": "een tekening waarin iets of iemand belachelijk wordt gemaakt"
+        },
+        {
+          "word": "de voorpagina",
+          "definition": "de eerste bladzijde van een krant"
+        }
+      ]
+    },
+    "2": {
+      "name": "Week 2: Kunst en cultuur",
+      "emoji": "🎵",
+      "vocabulary": [
+        {
+          "word": "de band",
+          "definition": "een groep muzikanten"
+        },
+        {
+          "word": "de bassist",
+          "definition": "iemand die basgitaar speelt"
+        },
+        {
+          "word": "de fluitist",
+          "definition": "iemand die fluit speelt"
+        },
+        {
+          "word": "de gitarist",
+          "definition": "iemand die gitaar speelt"
+        },
+        {
+          "word": "onverstaanbaar",
+          "definition": "wat iemand zegt is niet te begrijpen of te verstaan"
+        },
+        {
+          "word": "de pianist",
+          "definition": "iemand die piano speelt"
+        },
+        {
+          "word": "roffelen",
+          "definition": "een snel bonkend geluid maken door op een trommel te slaan"
+        },
+        {
+          "word": "de saxofonist",
+          "definition": "iemand die saxofoon speelt"
+        },
+        {
+          "word": "de tamboerijn",
+          "definition": "een kleine platte trommel met belletjes eraan"
+        },
+        {
+          "word": "de triangel",
+          "definition": "een kleine metalen driehoek waar je met een stokje tegenaan slaat om muziek te maken"
+        },
+        {
+          "word": "de wijs",
+          "definition": "de melodie van een liedje"
+        },
+        {
+          "word": "de xylofoon",
+          "definition": "een rij houten plaatjes waar je met een stokje op slaat om muziek te maken"
+        }
+      ]
+    },
+    "3": {
+      "name": "Week 3: Meningen",
+      "emoji": "💭",
+      "vocabulary": [
+        {
+          "word": "achterbaks",
+          "definition": "niet eerlijk"
+        },
+        {
+          "word": "bont",
+          "definition": "veelkleurig"
+        },
+        {
+          "word": "buitengewoon",
+          "definition": "anders en speciaal"
+        },
+        {
+          "word": "dof",
+          "definition": "zonder glans"
+        },
+        {
+          "word": "eenvoudig",
+          "definition": "simpel of makkelijk"
+        },
+        {
+          "word": "groots",
+          "definition": "erg groot of geweldig"
+        },
+        {
+          "word": "ideaal",
+          "definition": "zo goed dat het niet beter kan"
+        },
+        {
+          "word": "ingewikkeld",
+          "definition": "moeilijk"
+        },
+        {
+          "word": "merkwaardig",
+          "definition": "vreemd of raar"
+        },
+        {
+          "word": "opvallend",
+          "definition": "als iets je aandacht trekt, omdat het anders is dan andere dingen"
+        },
+        {
+          "word": "uitgebreid",
+          "definition": "met alles erbij"
+        },
+        {
+          "word": "vredelievend",
+          "definition": "als je niet gauw ruzie maakt"
+        }
+      ]
+    }
+  }
+}

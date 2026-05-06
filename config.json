@@ -25,6 +25,11 @@
       "id": "thema6",
       "file": "vocabularies/taal_groep5_thema6.json",
       "label": "Thema 6: Gedrag en gevoelens"
+    },
+    {
+      "id": "thema7",
+      "file": "vocabularies/taal_groep5_thema7.json",
+      "label": "Thema 7: Media, kunst en meningen"
     }
   ],
   "goals": {
